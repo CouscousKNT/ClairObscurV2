@@ -1,2 +1,19 @@
 @import "tailwindcss";
 
+@font-face {
+    font-family: "Fujiwara Black";
+    font-style: normal;
+    font-weight: normal;
+    src: url("/fonts/Fujiwara A Black.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "Fujiwara Regular";
+    font-style: normal;
+    font-weight: normal;
+    src: url("/fonts/Fujiwara A Regular.ttf") format("truetype");
+  }
+
+  h2 {
+    font-family: "Fujiwara A Regular";
+  }

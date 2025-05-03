@@ -1,8 +1,8 @@
 import React from "react";
 
-export const Pitch = () => {
+export const PitchIntroSection = () => {
   return (
-    <div className="z-10 absolute h-[100vh] p-8 flex flex-col gap-12 justify-between top-[250vh] text-black">
+    <div className="z-10 absolute h-[100vh] p-8 flex flex-col gap-12 justify-between top-[100vh] text-white">
       <div className="flex flex-col gap-4 w-auto">
         {/* <h1 className="text-[15vw] font-fujiwara">et d'obscurité.</h1> */}
       </div>
@@ -23,4 +23,4 @@ export const Pitch = () => {
   );
 };
 
-export default Pitch;
+export default PitchIntroSection;

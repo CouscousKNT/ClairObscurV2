@@ -14,8 +14,8 @@ export function Model(props) {
   const floatAmplitude = 0.09;
 
   // VARIABLES EFFET ROTATION / ONSCROLL ROTATION EFFECT VARS
+  const enableRotatingEffect = true;
   const rotationSpeed = 6;
-
   const baseXRotation = -0.6;
 
   const { nodes, materials } = useGLTF("/logo.glb");
@@ -27,6 +27,7 @@ export function Model(props) {
   const positionY = useTransform(scrollYProgress, [0.28, 0.71], [2, -1.9]);
   const rotationX = useTransform(scrollYProgress, [0.28, 0.71], [0, 1.9]);
 
+  //A CHAQUE FRAME, changer la position et la roation si scroll, floatingEffect() et rotatingEffect()
   useFrame(() => {
     if (!targetRef.current) return;
     targetRef.current.position.y = positionY.get() * 1.2;
@@ -36,13 +37,22 @@ export function Model(props) {
     console.log(scrollYProgress.get());
 
     floatingEffect();
+    rotatingEffect();
   });
 
+  //EFFET LEVITATION
   function floatingEffect() {
     if (enableFloatingEffect) {
       const floatOffset =
         Math.sin(Date.now() * 0.001 * floatSpeed) * floatAmplitude;
       targetRef.current.position.y += floatOffset;
+    }
+  }
+
+  //EFFET AUTO-ROTATION
+  function rotatingEffect() {
+    if (enableRotatingEffect) {
+      targetRef.current.rotation.z += 0.003;
     }
   }
 
