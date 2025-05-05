@@ -24,9 +24,15 @@ export function Model(props) {
 
   const targetRef = useRef(); // prettier-ignore
 
+  const { height: h } = useThree((state) => state.viewport);
+
   const { scrollYProgress } = useScroll();
-  const positionY = useTransform(scrollYProgress, [0.28, 0.71], [2, -1.9]);
-  const rotationX = useTransform(scrollYProgress, [0.28, 0.71], [0, 1.9]);
+
+  // REMPLACER XX , XX PAR LE POURCENTAGE DE DEBUT ET DE FIN
+  // DE LA PROGRESSION DU SCROLLPROGRESS (ENTRE 0 ET 1)
+  //(scrollYProgress, [XX, XX], [h / 4, h / -4]);
+  const positionY = useTransform(scrollYProgress, [0.23, 0.6], [h / 4, h / -4]);
+  const rotationX = useTransform(scrollYProgress, [0.23, 0.6], [0, 1.9]);
 
   //A CHAQUE FRAME, changer la position et la roation si scroll, floatingEffect() et rotatingEffect()
   useFrame(() => {

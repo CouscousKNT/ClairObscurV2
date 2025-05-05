@@ -13,9 +13,13 @@ export const RotatingLogoScene = () => {
   const { scrollYProgress } = useScroll();
 
   // Transformation de la couleur (blanc vers noir) en fonction de la Scrollbar
+
+  // REMPLACER XX , XX PAR LE POURCENTAGE DE DEBUT ET DE FIN
+  // DE LA PROGRESSION DU SCROLLPROGRESS (ENTRE 0 ET 1)
+  //(scrollYProgress, [XX, XX], ["#111111", "#ffe6e9"]);
   const background = useTransform(
     scrollYProgress,
-    [0.5, 0.7],
+    [0.36, 0.58],
     ["#111111", "#ffe6e9"]
   );
 
@@ -28,6 +32,7 @@ export const RotatingLogoScene = () => {
   //Hauteur et Largeur de l'écran.
   const { width, height } = useWindowSize();
 
+  //Responsivité TEXTES 3D en fonction de la dimension de l'appareil
   let responsiveState = 1;
   let positionText1 = [0, 1.36, 0];
   let positionText2 = [0, 1, 0];
