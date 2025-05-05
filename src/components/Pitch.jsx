@@ -1,4 +1,5 @@
 import React from "react";
+import "../App.css";
 
 export const Pitch = () => {
   return (
@@ -7,13 +8,13 @@ export const Pitch = () => {
         {/* <h1 className="text-[15vw] font-fujiwara">et d'obscurité.</h1> */}
       </div>
       <div className="">
-        <h2 className="w-4/5 text-4xl">
+        <h2 className="w-3/4 text-xl md:w-4/5 md:text-4xl">
           Joie, tristesse, colère... ces instants qui nous entourent façonnent
           nos plus beau souvenirs.
         </h2>
       </div>
       <div>
-        <p className="bottom-0">
+        <p className="bottom-0 text-xs md:text-base">
           Clair Obscur est une agence de production audiovisuelle dédiée à
           capturer et retransmettre à travers l'image toute la puissance des
           émotions.
