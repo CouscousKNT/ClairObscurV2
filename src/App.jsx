@@ -13,6 +13,7 @@ import Gallery from "./components/Gallery";
 function App() {
   return (
     <>
+      <Header />
       <HeroSection />
       <Pitch />
       <RotatingLogoScene />
