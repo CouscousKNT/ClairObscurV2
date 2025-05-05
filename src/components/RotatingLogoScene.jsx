@@ -48,20 +48,20 @@ export const RotatingLogoScene = () => {
     positionText4 = [0, -0.4, 2];
   } else if (width > height && width <= 1024) {
     console.log("lg");
-    positionText1 = [-1, 1.9, -0.5];
-    positionText2 = [0.5, 1, -0.5];
-    positionText3 = [0, 0.1, -0.5];
+    positionText1 = [0, 1.9, -0.5];
+    positionText2 = [0, 1.3, -0.5];
+    positionText3 = [0, 0.6, -0.5];
     positionText4 = [0, -0.55, 2];
   } else if (width > height && width <= 1280) {
     console.log("xl");
-    positionText1 = [-1, 1.9, -0.5];
-    positionText2 = [0.5, 1, -0.5];
-    positionText3 = [0, 0.1, -0.5];
+    positionText1 = [0, 1.9, -0.5];
+    positionText2 = [0, 1.3, -0.5];
+    positionText3 = [0, 0.7, -0.5];
     positionText4 = [0, -0.55, 2];
   } else if (width > height && width > 1280) {
     console.log("2xl");
-    positionText1 = [-1, 1.9, -0.5];
-    positionText2 = [0.5, 1, -0.5];
+    positionText1 = [0, 1.9, -0.5];
+    positionText2 = [0, 1, -0.5];
     positionText3 = [0, 0.1, -0.5];
     positionText4 = [0, -0.65, 2];
   }
