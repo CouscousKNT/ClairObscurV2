@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: Fujiwara;
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("/fonts/Fujiwara A Black.ttf") format("truetype");
+}
+
+@theme {
+  --font-fujiwara: "Fujiwara", sans-serif; 
+}
+
 :root {
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -20,4 +32,8 @@ body,
 
 h2 {
   font-family: "Fujiwara", ;
+}
+
+html {
+    overflow-x: hidden;
 }
