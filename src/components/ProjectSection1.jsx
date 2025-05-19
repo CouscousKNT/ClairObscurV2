@@ -10,20 +10,20 @@ import { useWindowSize } from "../utils/useWindowSize";
 
 export const ProjectSection1 = () => {
   const container = useRef(null);
-  const title1 = useRef(null);
-  const title2 = useRef(null);
-  const description = useRef(null);
-  const image1 = useRef(null);
-  const image2 = useRef(null);
+  const title3 = useRef(null);
+  const title4 = useRef(null);
+  const description2 = useRef(null);
+  const image3 = useRef(null);
+  const image4 = useRef(null);
   const { width, height } = useWindowSize();
   const tinyMobile = width < 400;
   const mobileHorizontal = width > height && height < 640;
 
-  const titleYValue1 = -10;
-  const titleYValue2 = -65;
-  const descriptionYValue2 = -150;
-  const imageYValue1 = -75;
-  const imageYValue2 = -250;
+  const titleYValue3 = -10;
+  const titleYValue4 = -65;
+  const descriptionYValue = -150;
+  const imageYValue3 = -75;
+  const imageYValue4 = -250;
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -39,11 +39,11 @@ export const ProjectSection1 = () => {
           },
         });
 
-        tl.to(title1.current, { y: titleYValue1 }, 0)
-          .to(title2.current, { y: titleYValue2 }, 0)
-          .to(description.current, { y: descriptionYValue2 }, 0)
-          .to(image1.current, { y: imageYValue1 }, 0)
-          .to(image2.current, { y: imageYValue2 }, 0);
+        tl.to(title3.current, { y: titleYValue3 }, 0)
+          .to(title4.current, { y: titleYValue4 }, 0)
+          .to(description2.current, { y: descriptionYValue }, 0)
+          .to(image3.current, { y: imageYValue3 }, 0)
+          .to(image4.current, { y: imageYValue4 }, 0);
 
         ScrollTrigger.refresh();
       });
@@ -79,14 +79,14 @@ export const ProjectSection1 = () => {
     <div className="relative content h-screen flex flex-col bg-black overflow-hidden">
       <div className="w-full">
         <h1
-          ref={title1}
+          ref={title3}
           style={{ color: "#313131" }}
           className="relative text-gray-300 font-fujiwara text-3xl top-10 left-2 lg:text-8xl z-[5]"
         >
           Aux couleurs des tableaux
         </h1>
         <h1
-          ref={title2}
+          ref={title4}
           className="absolute text-white font-fujiwara text-2xl top-23 left-2 lg:text-6xl lg:top-30 z-[5]"
         >
           Aux couleurs des tableaux
@@ -95,7 +95,7 @@ export const ProjectSection1 = () => {
 
       <div ref={container} className="mt-[10vh] h-screen">
         <div
-          ref={description}
+          ref={description2}
           className={`${tinyMobile ? "hidden" : "absolute"} ${
             mobileHorizontal ? "w-42 sm:w-22 md:w-42 lg:w-52" : "sm-w-64"
           } w-42 left-[50%] top-[45vh] bg-gray-900/70 bg-opacity-50 flex z-3 p-6 gap-6 sm:w-64 sm:h-64 lg:left-[55%] lg:h-auto`}
@@ -114,13 +114,13 @@ export const ProjectSection1 = () => {
             <img className="" src={img1} alt="" />
           </div>
           <div
-            ref={image1}
+            ref={image3}
             className="absolute top-[45vh] -right-[2vw] h-[25vh] w-[40vw] z-[2] lg:top-[25vh] lg:left-[50vw] lg:h-[40vh] lg:w-[70vh]"
           >
             <img className="object-cover w-full h-full" src={img2} alt="" />
           </div>
           <div
-            ref={image2}
+            ref={image4}
             className={`absolute top-[45vh] left-[2vw] h-[30vh] w-[40vw] z-[3] lg:top-[60vh] lg:left-[11vw] lg:h-[25vh] lg:w-[40vh]`}
           >
             <img className="object-cover w-full h-full" src={img3} alt="" />
