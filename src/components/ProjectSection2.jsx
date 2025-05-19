@@ -1,5 +1,8 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
+import img4 from "/projects/colere.jpg";
+import img5 from "/projects/boxe.jpg";
+import img6 from "/projects/tableaux.jpg";
 import img1 from "/projects/img12.jpg";
 import img2 from "/projects/img2.jpg";
 import img3 from "/projects/actress.png";
@@ -9,7 +12,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { useWindowSize } from "../utils/useWindowSize";
 
 export const ProjectSection2 = () => {
-  const container = useRef(null);
+  const container2 = useRef(null);
   const title1 = useRef(null);
   const title2 = useRef(null);
   const description = useRef(null);
@@ -32,7 +35,7 @@ export const ProjectSection2 = () => {
       const context = gsap.context(() => {
         const tl = gsap.timeline({
           scrollTrigger: {
-            trigger: container.current,
+            trigger: container2.current,
             start: "top bottom",
             end: "bottom top",
             scrub: true,
@@ -73,7 +76,7 @@ export const ProjectSection2 = () => {
         ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       };
     }
-  }, [width, height]);
+  }, []);
 
   return (
     <div className="relative content h-screen flex flex-col bg-white overflow-hidden">
@@ -92,7 +95,7 @@ export const ProjectSection2 = () => {
         </h1>
       </div>
 
-      <div ref={container} className="mt-[10vh] h-screen">
+      <div ref={container2} className="mt-[10vh] h-screen">
         <div
           ref={description}
           className={`${tinyMobile ? "hidden" : "absolute"} ${
