@@ -73,7 +73,7 @@ export const ProjectSection2 = () => {
         ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       };
     }
-  }, []);
+  }, [width, height]);
 
   return (
     <div className="relative content h-screen flex flex-col bg-white overflow-hidden">
