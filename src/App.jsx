@@ -10,7 +10,8 @@ import { Header } from "./components/Header";
 import PitchIntroSection from "./components/PitchIntroSection";
 import { Gallery } from "./components/Gallery";
 import { Project1 } from "./components/Project1";
-import { Project2 } from "./components/Project2";
+import ProjectSection1 from "./components/ProjectSection1";
+import { ProjectSection2 } from "./components/ProjectSection2";
 import { ScrollControls } from "@react-three/drei";
 
 import Lenis from "lenis";
@@ -41,8 +42,9 @@ function App() {
       <Pitch />
       <RotatingLogoScene />
       <Gallery />
-      <Project1 />
-      <Project2 />
+      <ProjectSection1 />
+      {/* <Project1 /> */}
+      <ProjectSection2 />
     </>
   );
 }
