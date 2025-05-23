@@ -18,6 +18,9 @@
     font-family: "Fujiwara A Regular";
   }
 
+.canvas-container {
+  contain: paint;
+}
   .gallery {
     overflow: hidden;
     height: 75vh;
