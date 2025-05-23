@@ -27,6 +27,7 @@ export const ProjectSection1 = () => {
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
+    ScrollTrigger.refresh(true);
 
     const runAnimation = () => {
       const context = gsap.context(() => {
