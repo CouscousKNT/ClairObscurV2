@@ -32,7 +32,13 @@
     transform: translate(-50%, -50%) rotate(30deg) scale(1.125);
   }
 
-  
+.memberName div {
+  overflow: hidden;
+}
+
+.description {
+  overflow: hidden;
+}
 
   .row {
     position: relative;
