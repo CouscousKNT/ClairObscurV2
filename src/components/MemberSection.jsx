@@ -105,7 +105,7 @@ export const MemberSection = () => {
       quote.anim = gsap.from(quote.split.chars, {
         scrollTrigger: {
           trigger: quote,
-          toggleActions: "restart pause resume reverse",
+          toggleActions: "restart pause restart reverse",
           start: "top center",
           end: "+=1500",
           // markers: { startColor: "#dfdcff", endColor: "transparent" },
@@ -134,7 +134,7 @@ export const MemberSection = () => {
       desc.anim = gsap.from(desc.split.lines, {
         scrollTrigger: {
           trigger: desc,
-          toggleActions: "play pause resume reverse",
+          toggleActions: "play pause play reverse",
           start: "top center",
           end: "+=1500",
           // markers: { startColor: "#dfdcff", endColor: "red" },
@@ -174,7 +174,7 @@ export const MemberSection = () => {
               Directeur Artistique / Chef de stratégie
             </a>
 
-            <h2 className="description font-fujiwara text-white w-1/2 hidden lg:block lg:pl-4 lg:pt-16 text-white text-sm pt-5">
+            <h2 className="description font-fujiwara text-white w-1/2 hidden lg:block lg:pl-4 lg:pt-16 lg:text-base text-white text-sm pt-5">
               Zinedine est un artiste visuel. Il est excellent sur beaucoup de
               chose notamment pour transformer des idées en concepts visuels
               percutants. Chaque projet doit avoir sa personnalité et vous
