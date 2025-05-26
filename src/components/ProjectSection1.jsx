@@ -82,13 +82,13 @@ export const ProjectSection1 = () => {
         <h1
           ref={title3}
           style={{ color: "#313131" }}
-          className="relative text-gray-300 font-fujiwara text-3xl top-10 left-2 lg:text-8xl z-[5]"
+          className="relative text-gray-300 font-fujiwara-black text-3xl top-10 left-2 lg:text-8xl z-[5]"
         >
           Aux couleurs des tableaux
         </h1>
         <h1
           ref={title4}
-          className="absolute text-white font-fujiwara text-2xl top-23 left-2 lg:text-6xl lg:top-30 z-[5]"
+          className="absolute text-white font-fujiwara-black text-2xl top-23 left-2 lg:text-6xl lg:top-30 z-[5]"
         >
           Aux couleurs des tableaux
         </h1>
