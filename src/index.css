@@ -1,11 +1,35 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: Fujiwara;
+  font-family: FujiwaraBlack;
   font-style: normal;
   font-weight: 200 700;
   font-display: swap;
   src: url("/fonts/Fujiwara A Black.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: FujiwaraBoldItalic;
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("/fonts/Fujiwara A Bold Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Fujiwara;
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("/fonts/Fujiwara A Regular.ttf") format("truetype");
+}
+
+@theme {
+  --font-fujiwara-black: "FujiwaraBlack", sans-serif; 
+}
+
+@theme {
+  --font-fujiwara-bold-italic: "FujiwaraBoldItalic", sans-serif; 
 }
 
 @theme {
