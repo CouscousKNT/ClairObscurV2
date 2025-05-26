@@ -83,13 +83,13 @@ export const ProjectSection2 = () => {
       <div className="w-full">
         <h1
           ref={title1}
-          className="relative text-gray-300 font-fujiwara text-3xl top-10 left-2 lg:text-8xl z-[5]"
+          className="relative text-gray-300 font-fujiwara-black text-3xl top-10 left-2 lg:text-8xl z-[5]"
         >
           La grande échapée
         </h1>
         <h1
           ref={title2}
-          className="absolute text-black font-fujiwara text-2xl top-23 left-2 lg:text-6xl lg:top-30 z-[5]"
+          className="absolute text-black font-fujiwara-black text-2xl top-23 left-2 lg:text-6xl lg:top-30 z-[5]"
         >
           La grande échapée
         </h1>
