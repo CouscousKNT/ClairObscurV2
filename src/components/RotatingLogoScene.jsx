@@ -113,7 +113,13 @@ export const RotatingLogoScene = () => {
           scale={13}
           basic={true}
         />
-        <Model />
+        <Model
+          position={[0, 2, 0]}
+          rotation={[0, -0.65, 0.5]}
+          enableFloatingEffect={true}
+          enableRotatingEffect={true}
+          enableScrollEffect={true}
+        />
         <ManySphere />
       </Canvas>
     </div>
