@@ -55,10 +55,12 @@ export function Model({
         rotationX.get() * rotationSpeed + baseXRotation;
       // console.log(targetRef.current.position);
       console.log(scrollYProgress.get());
-
-      floatingEffect();
-      rotatingEffect();
     }
+  });
+
+  useFrame(() => {
+    floatingEffect();
+    rotatingEffect();
   });
 
   //EFFET LEVITATION
@@ -73,6 +75,7 @@ export function Model({
   //EFFET AUTO-ROTATION
   function rotatingEffect() {
     if (enableRotatingEffect) {
+      console.log("rotating?", enableRotatingEffect);
       targetRef.current.rotation.z += 0.003;
     }
   }
@@ -89,14 +92,14 @@ export function Model({
         rotation={rotation}
         scale={scale ?? (size.width >= 1024 ? 12 : 10)}
       >
-        <MeshTransmissionMaterial
-          thickness={0.2}
+        {/* <MeshTransmissionMaterial
+          thickness={0.05}
           roughness={0}
           transmission={1}
           ior={1.2}
           chromaticAberration={0.02}
           backside={true}
-        />
+        /> */}
       </mesh>
     </group>
   );
