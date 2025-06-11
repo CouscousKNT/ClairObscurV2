@@ -174,7 +174,7 @@ export const MemberSection = () => {
               Directeur Artistique / Chef de stratégie
             </a>
 
-            <h2 className="description font-fujiwara text-white w-1/2 hidden lg:block lg:pl-4 lg:pt-16 lg:text-base text-white text-sm pt-5">
+            <h2 className="description font-fujiwara text-white w-1/2 hidden lg:block lg:pl-4 lg:pt-16 lg:text-base text-white text-md pt-5">
               Zinedine est un artiste visuel. Il est excellent sur beaucoup de
               chose notamment pour transformer des idées en concepts visuels
               percutants. Chaque projet doit avoir sa personnalité et vous
@@ -202,7 +202,7 @@ export const MemberSection = () => {
               Scénariste / Motion designer
             </a>
 
-            <p className="description font-fujiwara text-white w-1/2 hidden lg:block lg:pl-4 lg:pt-16 text-white text-sm pt-5">
+            <p className="description font-fujiwara text-white w-1/2 hidden lg:block lg:pl-4 lg:pt-16 text-white text-md pt-5">
               Idrissa nourrit sa créativité depuis son plus jeune âge en
               inventant des histoires en tous genres. Capable de visualiser des
               scènes fictives à partir de quelques mots, il a rapidement vu dans
@@ -229,7 +229,7 @@ export const MemberSection = () => {
               Réalisateur / Chef opérateur
             </a>
 
-            <p className="description font-fujiwara text-white w-1/2 hidden lg:block lg:pl-4 lg:pt-16 text-white text-sm pt-5">
+            <p className="description font-fujiwara text-white w-1/2 hidden lg:block lg:pl-4 lg:pt-16 text-white text-md pt-5">
               Fabriqueur d’images, Ben est un as de la caméra. En charge de
               plusieurs documentaires de télévision et de publicités c’est une
               encyclopédie des codes de l’imagerie. Mouvements, angles,
@@ -254,7 +254,7 @@ export const MemberSection = () => {
               Monteur / Artiste 3D
             </a>
 
-            <p className="description font-fujiwara text-white w-1/2 hidden lg:block lg:pl-4 lg:pt-16 text-white text-sm pt-5">
+            <p className="description font-fujiwara text-white w-1/2 hidden lg:block lg:pl-4 lg:pt-16 text-white text-md pt-5">
               Installé sur la frontière entre le réel et l’utopie Ousmane
               cherche sans cesse à repousser les limites du possible. Ses
               inspirations, il va les chercher au plus profond du metaverse,

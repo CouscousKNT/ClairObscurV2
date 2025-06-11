@@ -9,6 +9,7 @@ import { ProjectSection2 } from "./components/ProjectSection2";
 import { Members } from "./components/Members";
 import MemberSection from "./components/MemberSection";
 import Footer from "./components/Footer";
+import LandingPage from "./components/LandingPage";
 import Lenis from "lenis";
 import "./App.css";
 
@@ -34,7 +35,7 @@ function App() {
   return (
     <>
       <Header />
-      <HeroSection />
+      <LandingPage />
       <Pitch />
       <RotatingLogoScene />
       <Gallery />
