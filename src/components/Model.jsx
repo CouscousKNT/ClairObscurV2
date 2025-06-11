@@ -89,14 +89,14 @@ export function Model({
         rotation={rotation}
         scale={scale ?? (size.width >= 1024 ? 12 : 10)}
       >
-        <MeshTransmissionMaterial
+        {/* <MeshTransmissionMaterial
           thickness={0.2}
           roughness={0}
           transmission={1}
           ior={1.2}
           chromaticAberration={0.02}
           backside={true}
-        />
+        /> */}
       </mesh>
     </group>
   );
