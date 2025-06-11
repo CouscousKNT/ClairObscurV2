@@ -94,7 +94,6 @@ export function Model({
       >
         {/* <MeshTransmissionMaterial
           thickness={0.2}
-        {/* <MeshTransmissionMaterial
           thickness={0.05}
           roughness={0}
           transmission={1}
