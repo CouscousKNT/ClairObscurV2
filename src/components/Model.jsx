@@ -8,14 +8,22 @@ import { MeshTransmissionMaterial, useGLTF } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { useScroll, useTransform } from "motion/react";
 
-export function Model(props) {
+export function Model({
+  enableFloatingEffect,
+  enableRotatingEffect,
+  enableScrollEffect,
+  position,
+  rotation,
+  scale,
+  props,
+}) {
   // VARIABLES EFFET LEVITATION / FLOAT EFFECT VARS
-  const enableFloatingEffect = true;
+  // const enableFloatingEffect = true;
   const floatSpeed = 1.1;
   const floatAmplitude = 0.09;
 
   // VARIABLES EFFET ROTATION / ONSCROLL ROTATION EFFECT VARS
-  const enableRotatingEffect = true;
+  // const enableRotatingEffect = true;
   const rotationSpeed = 6;
   const baseXRotation = -0.6;
 
@@ -40,13 +48,17 @@ export function Model(props) {
 
   //A CHAQUE FRAME, changer la position et la roation si scroll, floatingEffect() et rotatingEffect()
   useFrame(() => {
-    if (!targetRef.current) return;
-    targetRef.current.position.y = positionY.get() * 1.2;
-    targetRef.current.rotation.x =
-      rotationX.get() * rotationSpeed + baseXRotation;
-    // console.log(targetRef.current.position);
-    console.log(scrollYProgress.get());
+    if (enableScrollEffect) {
+      if (!targetRef.current) return;
+      targetRef.current.position.y = positionY.get() * 1.2;
+      targetRef.current.rotation.x =
+        rotationX.get() * rotationSpeed + baseXRotation;
+      // console.log(targetRef.current.position);
+      console.log(scrollYProgress.get());
+    }
+  });
 
+  useFrame(() => {
     floatingEffect();
     rotatingEffect();
   });
@@ -71,14 +83,24 @@ export function Model(props) {
     <group {...props} dispose={null}>
       <mesh
         ref={targetRef}
-        position={[0, 2, 0]}
+        position={position}
         castShadow
         receiveShadow
         geometry={nodes.Curve001.geometry}
         material={materials["SVGMat.004"]}
-        rotation={[0, -0.65, 0.5]}
-        scale={size.width >= 1024 ? 12 : 10}
-      ></mesh>
+        rotation={rotation}
+        scale={scale ?? (size.width >= 1024 ? 12 : 10)}
+      >
+        {/* <MeshTransmissionMaterial
+          thickness={0.2}
+          thickness={0.05}
+          roughness={0}
+          transmission={1}
+          ior={1.2}
+          chromaticAberration={0.02}
+          backside={true}
+        /> */}
+      </mesh>
     </group>
   );
 }

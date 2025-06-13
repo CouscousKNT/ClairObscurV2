@@ -8,8 +8,8 @@ import { Gallery } from "./components/Gallery";
 import ProjectSection1 from "./components/ProjectSection1";
 import { ProjectSection2 } from "./components/ProjectSection2";
 import MemberSection from "./components/MemberSection";
-import Loading from "./components/Loading";
-
+import Footer from "./components/Footer";
+import LandingPage from "./components/LandingPage";
 import Lenis from "lenis";
 
 function App() {
@@ -34,13 +34,14 @@ function App() {
   return (
     <>
       <Header />
-      <HeroSection />
+      <LandingPage />
       <Pitch />
       <RotatingLogoScene />
       <Gallery />
       <ProjectSection1 />
       <ProjectSection2 />
       <MemberSection />
+      <Footer />
     </>
   );
 }
