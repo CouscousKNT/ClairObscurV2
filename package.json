@@ -25,6 +25,7 @@
     "postprocessing": "^6.37.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-router-dom": "^7.6.2",
     "sass": "^1.89.0",
     "split-type": "^0.3.4",
     "three": "^0.176.0"
