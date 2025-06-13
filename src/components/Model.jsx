@@ -55,10 +55,12 @@ export function Model({
         rotationX.get() * rotationSpeed + baseXRotation;
       // console.log(targetRef.current.position);
       console.log(scrollYProgress.get());
-
-      floatingEffect();
-      rotatingEffect();
     }
+  });
+
+  useFrame(() => {
+    floatingEffect();
+    rotatingEffect();
   });
 
   //EFFET LEVITATION
@@ -91,6 +93,7 @@ export function Model({
       >
         {/* <MeshTransmissionMaterial
           thickness={0.2}
+          thickness={0.05}
           roughness={0}
           transmission={1}
           ior={1.2}

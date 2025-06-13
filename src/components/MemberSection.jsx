@@ -20,7 +20,6 @@ export const MemberSection = () => {
     width <= 1024 ? `/team/membersAnimationMobile/` : `/team/membersAnimation/`;
 
   const horizontalScreen = width > height;
-  console.log(height <= 1024 && horizontalScreen);
 
   const canvasResponsivity =
     width <= 1024 && !horizontalScreen
