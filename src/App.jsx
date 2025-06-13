@@ -35,7 +35,7 @@ function App() {
   return (
     <>
       <Header />
-      <LandingPage />
+      {/* <LandingPage /> */}
       <Pitch />
       <RotatingLogoScene />
       <Gallery />
@@ -43,7 +43,7 @@ function App() {
       <ProjectSection1 />
       {/* <Project1 /> */}
       <ProjectSection2 />
-      <MemberSection />
+      {/* <MemberSection /> */}
       <Footer />
     </>
   );
