@@ -75,7 +75,6 @@ export function Model({
   //EFFET AUTO-ROTATION
   function rotatingEffect() {
     if (enableRotatingEffect) {
-      console.log("rotating?", enableRotatingEffect);
       targetRef.current.rotation.z += 0.003;
     }
   }

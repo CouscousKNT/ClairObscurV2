@@ -35,7 +35,7 @@ function App() {
   return (
     <>
       <Header />
-      {/* <LandingPage /> */}
+      <LandingPage />
       <Pitch />
       <RotatingLogoScene />
       <Gallery />
