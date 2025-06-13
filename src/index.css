@@ -9,6 +9,14 @@
 }
 
 @font-face {
+  font-family: FujiwaraBlackItalic;
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("/fonts/Fujiwara A Black Italic.ttf") format("truetype");
+}
+
+@font-face {
   font-family: FujiwaraBoldItalic;
   font-style: normal;
   font-weight: 200 700;
@@ -26,6 +34,10 @@
 
 @theme {
   --font-fujiwara-black: "FujiwaraBlack", sans-serif; 
+}
+
+@theme {
+  --font-fujiwara-black-italic: "FujiwaraBlackItalic", sans-serif; 
 }
 
 @theme {
