@@ -6,7 +6,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 export const Pitch = () => {
   const pitch = document.querySelectorAll(".pitch");
-  console.log(pitch);
 
   function setupSplits() {
     pitch.forEach((desc) => {
