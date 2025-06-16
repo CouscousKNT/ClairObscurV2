@@ -121,7 +121,7 @@ export const RotatingLogoScene = () => {
           enableRotatingEffect={true}
           enableScrollEffect={true}
         />
-        <ManySphere />
+        {/* <ManySphere /> */}
       </Canvas>
     </div>
   );
