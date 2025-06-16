@@ -57,26 +57,27 @@ export function Model({
       console.log(scrollYProgress.get());
     }
   });
-
-  useFrame(() => {
-    floatingEffect();
-    rotatingEffect();
-  });
+  if (enableFloatingEffect) {
+    useFrame(() => {
+      floatingEffect();
+    });
+  }
+  if (enableRotatingEffect) {
+    useFrame(() => {
+      rotatingEffect();
+    });
+  }
 
   //EFFET LEVITATION
   function floatingEffect() {
-    if (enableFloatingEffect) {
-      const floatOffset =
-        Math.sin(Date.now() * 0.001 * floatSpeed) * floatAmplitude;
-      targetRef.current.position.y += floatOffset;
-    }
+    const floatOffset =
+      Math.sin(Date.now() * 0.001 * floatSpeed) * floatAmplitude;
+    targetRef.current.position.y += floatOffset;
   }
 
   //EFFET AUTO-ROTATION
   function rotatingEffect() {
-    if (enableRotatingEffect) {
-      targetRef.current.rotation.z += 0.003;
-    }
+    targetRef.current.rotation.z += 0.003;
   }
 
   return (
