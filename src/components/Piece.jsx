@@ -20,16 +20,15 @@ export function Piece({
 
   //EFFET AUTO-ROTATION
   function rotatingEffect() {
-    if (enableRotatingEffect) {
-      hovered
-        ? (pieceRef.current.rotation.z += 0.008)
-        : (pieceRef.current.rotation.z += 0.001);
-    }
+    hovered
+      ? (pieceRef.current.rotation.z += 0.008)
+      : (pieceRef.current.rotation.z += 0.001);
   }
-
-  useFrame(() => {
-    rotatingEffect();
-  });
+  if (enableRotatingEffect) {
+    useFrame(() => {
+      rotatingEffect();
+    });
+  }
   return (
     <group {...props} dispose={null}>
       <mesh

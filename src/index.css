@@ -5,7 +5,7 @@
   font-style: normal;
   font-weight: 200 700;
   font-display: swap;
-  src: url("/fonts/Fujiwara A Black.ttf") format("truetype");
+  src: url("/fonts/Fujiwara B Black.ttf") format("truetype");
 }
 
 @font-face {
@@ -13,7 +13,15 @@
   font-style: normal;
   font-weight: 200 700;
   font-display: swap;
-  src: url("/fonts/Fujiwara A Black Italic.ttf") format("truetype");
+  src: url("/fonts/Fujiwara B Black Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: FujiwaraBold;
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("/fonts/Fujiwara B Bold.ttf") format("truetype");
 }
 
 @font-face {
@@ -21,7 +29,31 @@
   font-style: normal;
   font-weight: 200 700;
   font-display: swap;
-  src: url("/fonts/Fujiwara A Bold Italic.ttf") format("truetype");
+  src: url("/fonts/Fujiwara B Bold Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: FujiwaraMedium;
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("/fonts/Fujiwara B Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: FujiwaraMediumItalic;
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("/fonts/Fujiwara B Medium Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: FujiwaraLightItalic;
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("/fonts/Fujiwara A Light Italic.ttf") format("truetype");
 }
 
 @font-face {
@@ -29,7 +61,7 @@
   font-style: normal;
   font-weight: 200 700;
   font-display: swap;
-  src: url("/fonts/Fujiwara A Regular.ttf") format("truetype");
+  src: url("/fonts/Fujiwara B Regular.ttf") format("truetype");
 }
 
 @theme {
@@ -41,7 +73,23 @@
 }
 
 @theme {
+  --font-fujiwara-bold: "FujiwaraBold", sans-serif; 
+}
+
+@theme {
   --font-fujiwara-bold-italic: "FujiwaraBoldItalic", sans-serif; 
+}
+
+@theme {
+  --font-fujiwara-medium: "FujiwaraMedium", sans-serif; 
+}
+
+@theme {
+  --font-fujiwara-medium-italic: "FujiwaraMediumItalic", sans-serif; 
+}
+
+@theme {
+  --font-fujiwara-light-italic: "FujiwaraLightItalic", sans-serif; 
 }
 
 @theme {
@@ -64,10 +112,6 @@ body,
   padding: 0;
   width: 100%;
   height: 100%;
-}
-
-h2 {
-  font-family: "Fujiwara", ;
 }
 
 html {
