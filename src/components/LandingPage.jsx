@@ -103,11 +103,17 @@ const LandingPage = () => {
 
   const handleEnterClick = () => {
     // Fade out entry screen
+    console.log(entryScreenRef.current.style);
+
     gsap.to(entryScreenRef.current, {
       opacity: 0,
       duration: 1,
       ease: "power2.inOut",
       pointerEvents: "none",
+      onComplete: () => {
+        // Une fois l'animation terminée, on cache complètement l'élément
+        entryScreenRef.current.style.display = "none";
+      },
     });
 
     // Show video transition
@@ -204,7 +210,7 @@ const LandingPage = () => {
             <Piece
               scale={responsiveCoinScale}
               rotation={[0.9, 0, 0]}
-              enableRotatingEffect={true}
+              enableRotatingEffect={false}
               onClick={handleEnterClick}
             />
             <Environment files="https://dl.polyhaven.org/file/ph-assets/HDRIs/exr/1k/studio_small_03_1k.exr" />

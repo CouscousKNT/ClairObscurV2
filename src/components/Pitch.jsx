@@ -27,7 +27,6 @@ export const Pitch = () => {
           trigger: desc,
           toggleActions: "play reverse play reverse",
           start: "top center",
-          markers: { startColor: "#dfdcff", endColor: "transparent" },
         },
         duration: 0.8,
         ease: "circ.out",

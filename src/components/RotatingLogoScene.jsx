@@ -8,6 +8,7 @@ import { useMotionValueEvent, useScroll, useTransform } from "motion/react";
 import { CustomText } from "./CustomText";
 import ManySphere from "./ManySphere";
 import { useWindowSize } from "../utils/useWindowSize";
+import { Suspense } from "react";
 
 export const RotatingLogoScene = () => {
   const { scrollYProgress } = useScroll();
@@ -120,7 +121,7 @@ export const RotatingLogoScene = () => {
           enableRotatingEffect={true}
           enableScrollEffect={true}
         />
-        <ManySphere />
+        {/* <ManySphere /> */}
       </Canvas>
     </div>
   );
