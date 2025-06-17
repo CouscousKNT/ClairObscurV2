@@ -51,7 +51,7 @@ const Footer = () => {
           </a>
           <a
             className="text-sm"
-            href="https://www.instagram.com/agenceclairobscur?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+            href="https://www.linkedin.com/company/clair-obscur-vision/"
           >
             [ LINKIND ]
           </a>

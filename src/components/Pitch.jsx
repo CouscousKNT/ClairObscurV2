@@ -39,18 +39,26 @@ export const Pitch = () => {
   ScrollTrigger.addEventListener("refresh", setupSplits);
   setupSplits();
   return (
-    <div className="z-10 absolute h-[100vh] p-8 flex flex-col gap-12 justify-between top-[250vh] text-black">
+    <div
+      id="pitch"
+      className="z-10 absolute h-screen p-8 flex flex-col gap-12 justify-between top-[250vh] mix-blend-difference"
+    >
       <div className="flex flex-col gap-4 w-auto">
         {/* <h1 className="text-[15vw] font-fujiwara">et d'obscurité.</h1> */}
       </div>
-      <div className="font-fujiwara">
-        <h2 className="pitch w-3/4 text-xl md:w-4/5 md:text-4xl font-fujiwara">
+      <div className="font-fujiwara-bold text-white ">
+        <p className="pitch lg:hidden w-3/4 text-xl md:w-4/5 md:text-4xl font-fujiwara">
           Joie, tristesse, colère... ces instants qui nous entourent façonnent
           nos plus beau souvenirs.
-        </h2>
+        </p>
+        <p className="pitch hidden lg:block lg:w-4/5 lg:text-4xl lg:font-fujiwara">
+          Joie, tristesse, colère... ces instants qui nous entourent façonnent
+          nos plus beau souvenirs. Regardez attentivement le tableau de la vie,
+          c'est plus qu'une simple histoire de couleur
+        </p>
       </div>
       <div>
-        <p className="bottom-0 text-xs md:text-base ">
+        <p className="bottom-0 text-xs md:text-base text-white">
           Clair Obscur est une agence de production audiovisuelle dédiée à
           capturer et retransmettre à travers l'image toute la puissance des
           émotions.

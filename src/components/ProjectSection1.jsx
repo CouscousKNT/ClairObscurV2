@@ -7,6 +7,7 @@ import { ScrollSmoother } from "gsap/ScrollSmoother";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useWindowSize } from "../utils/useWindowSize";
+import { isMobile } from "react-device-detect";
 
 export const ProjectSection1 = () => {
   const container = useRef(null);
@@ -56,13 +57,17 @@ export const ProjectSection1 = () => {
     const unloaded = images.filter((img) => !img.complete);
 
     if (unloaded.length === 0) {
-      runAnimation();
+      if (!isMobile) {
+        runAnimation();
+      }
     } else {
       const listeners = [];
       unloaded.forEach((img) => {
         const onLoad = () => {
           if (unloaded.every((i) => i.complete)) {
-            runAnimation();
+            if (!isMobile) {
+              runAnimation();
+            }
           }
         };
         img.addEventListener("load", onLoad);
@@ -129,7 +134,7 @@ export const ProjectSection1 = () => {
         </div>
       </div>
 
-      <div className="absolute bottom-[4vh] sm:top-[85vh]  w-full flex justify-center items-center">
+      <div className="absolute bottom-[4vh] sm:top-[85vh] w-full flex justify-center items-center">
         <a
           className="h-10 border-white text-white border-1 flex justify-center items-center pl-4 pr-4 transition duration-300 hover:text-black hover:bg-white hover:border-black"
           href="#"

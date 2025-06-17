@@ -8,9 +8,12 @@ import { Piece } from "./Piece";
 import CustomText from "./CustomText";
 import { Environment } from "@react-three/drei";
 import { useWindowSize } from "../utils/useWindowSize";
+import Lenis from "lenis";
+import { isMobile } from "react-device-detect";
 
 const LandingPage = () => {
   // Refs for GSAP animations
+  const lenisRef = useRef(null);
   const loadingScreenRef = useRef(null);
   const loadingLogoRef = useRef(null);
   const loadingBarRef = useRef(null);
@@ -23,6 +26,25 @@ const LandingPage = () => {
   const mainTitleRef = useRef(null);
   const mainSubtitleRef = useRef(null);
   const { width, height } = useWindowSize();
+
+  useEffect(() => {
+    const lenis = new Lenis({
+      // Valeur entre 0 et 1
+      // Valeur par défaut : 0,1
+      // Plus la valeur est faible, plus le scroll sera fluide
+      lerp: 0.05,
+      // Valeur par défaut : 1
+      // Plus la valeur est haute, plus le défilement sera rapide
+      wheelMultiplier: 1,
+    });
+    lenisRef.current = lenis;
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  }, []);
 
   useEffect(() => {
     // Initial loading animation
@@ -134,7 +156,6 @@ const LandingPage = () => {
 
   const showMainContent = () => {
     // Hide video transition
-
     // Show main content
     gsap.to(mainContentRef.current, {
       opacity: 1,
@@ -228,7 +249,7 @@ const LandingPage = () => {
 
       {/* Video Transition */}
       <div
-        className="video-transition  bg-black z-[80] opacity-0 pointer-events-none"
+        className="video-transition bg-black z-[80] opacity-0 pointer-events-none"
         ref={videoTransitionRef}
       >
         <video
@@ -245,23 +266,67 @@ const LandingPage = () => {
       </div>
 
       {/* Main Content */}
-      {/* <div
-        className="main-content fixed inset-0 flex flex-col justify-center items-center z-[70] opacity-0 pointer-events-none"
+      <div
+        className="main-content z-[90] absolute inset-0 flex flex-col opacity-0 pointer-events-none mix-blend-difference"
         ref={mainContentRef}
       >
+        <div className="p-4">
+          <img style={{ height: "3%", width: "auto" }} src={logo} alt="" />
+        </div>
         <h1
           className="main-title text-5xl font-light mb-8 tracking-[0.5rem]"
           ref={mainTitleRef}
-        >
-          Experience
-        </h1>
+        ></h1>
+        <div className="absolute flex flex-col bottom-[50%] w-full p-5">
+          <div className="w-full bottom-0 ">
+            <div className="font-fujiwara-black-italic flex flex-row justify-between text-xs lg:text-base">
+              <div className="w-1/3">
+                <p>Ecriture</p>
+              </div>
+
+              <div className="w-1/3">
+                <p className="">Réalisation</p>
+              </div>
+              <div className="w-1/3 ">
+                <p>Post-Production</p>
+              </div>
+              <div className="">
+                <p>Lorem</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="absolute bottom-0 w-full p-5">
+          <div className="w-full bottom-0 ">
+            <div className="font-fujiwara-medium flex flex-row justify-between text-xs lg:text-base">
+              <div className="w-1/3">
+                <p>Basé à Paris</p>
+              </div>
+
+              <div className="w-1/3">
+                <a
+                  href="https://www.instagram.com/agenceclairobscur?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                  className=""
+                >
+                  [Instagram]
+                </a>
+              </div>
+              <div className="w-1/3 ">
+                <a href="https://www.linkedin.com/company/clair-obscur-vision/">
+                  [Linkedin]
+                </a>
+              </div>
+              <div className="">
+                <p>2025©</p>
+              </div>
+            </div>
+          </div>
+        </div>
         <p
           className="main-subtitle font-light tracking-[0.3rem] mb-12 opacity-70"
           ref={mainSubtitleRef}
-        >
-          Premium Quality
-        </p>
-      </div> */}
+        ></p>
+      </div>
     </div>
   );
 };
