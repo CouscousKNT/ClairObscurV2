@@ -7,6 +7,7 @@ import { Environment } from "@react-three/drei";
 import { useMotionValueEvent, useScroll, useTransform } from "motion/react";
 import { CustomText } from "./CustomText";
 import { useWindowSize } from "../utils/useWindowSize";
+import Pitch from "./Pitch";
 
 export const RotatingLogoScene = () => {
   const { scrollYProgress } = useScroll();
@@ -73,6 +74,7 @@ export const RotatingLogoScene = () => {
 
   return (
     <div className="w-full h-[250vh]" style={{ backgroundColor: bgColor }}>
+      {/* <Pitch /> */}
       {/* <div>
         <p>Largeur : {width}px</p>
         <p>Hauteur : {height}px</p>
@@ -116,7 +118,7 @@ export const RotatingLogoScene = () => {
           position={[0, 2, 0]}
           rotation={[0, -0.65, 0.5]}
           enableFloatingEffect={true}
-          enableRotatingEffect={true}
+          enableRotatingEffect={false}
           enableScrollEffect={true}
         />
       </Canvas>

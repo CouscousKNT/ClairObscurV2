@@ -19,12 +19,12 @@ export function Model({
 }) {
   // VARIABLES EFFET LEVITATION / FLOAT EFFECT VARS
   // const enableFloatingEffect = true;
-  const floatSpeed = 1.1;
+  const floatSpeed = 0.9;
   const floatAmplitude = 0.09;
 
   // VARIABLES EFFET ROTATION / ONSCROLL ROTATION EFFECT VARS
   // const enableRotatingEffect = true;
-  const rotationSpeed = 6;
+  const rotationSpeed = 1;
   const baseXRotation = -0.6;
 
   const { nodes, materials } = useGLTF("/logoOpti.glb");

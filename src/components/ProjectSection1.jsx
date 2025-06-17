@@ -1,135 +1,93 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
-import img1 from "/projects/colere.jpg";
-import img2 from "/projects/boxe.jpg";
-import img3 from "/projects/tableaux.jpg";
-import { ScrollSmoother } from "gsap/ScrollSmoother";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-import { useWindowSize } from "../utils/useWindowSize";
-import { isMobile } from "react-device-detect";
+import { useEffect, useRef } from "react";
+import img1 from "/projects/tableau1.webp";
+import img2 from "/projects/tableau2.webp";
+import img3 from "/projects/tableau3.webp";
 
 export const ProjectSection1 = () => {
-  const container = useRef(null);
-  const title3 = useRef(null);
-  const title4 = useRef(null);
-  const description2 = useRef(null);
-  const image3 = useRef(null);
-  const image4 = useRef(null);
-  const { width, height } = useWindowSize();
-  const tinyMobile = width < 400;
-  const mobileHorizontal = width > height && height < 640;
+  const titleProject1 = useRef(null);
+  const backgroundTitleProject1 = useRef(null);
+  const mainImageProject1 = useRef(null);
+  const leftImageProject1 = useRef(null);
+  const rightImageProject1 = useRef(null);
 
-  const titleYValue3 = -10;
-  const titleYValue4 = -65;
-  const descriptionYValue = -150;
-  const imageYValue3 = -75;
-  const imageYValue4 = -250;
-
+  // EFFET PARALLAXE
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    ScrollTrigger.refresh(true);
-
-    const runAnimation = () => {
-      const context = gsap.context(() => {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: container.current,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true,
-          },
-        });
-
-        tl.to(title3.current, { y: titleYValue3 }, 0)
-          .to(title4.current, { y: titleYValue4 }, 0)
-          .to(description2.current, { y: descriptionYValue }, 0)
-          .to(image3.current, { y: imageYValue3 }, 0)
-          .to(image4.current, { y: imageYValue4 }, 0);
-
-        ScrollTrigger.refresh();
-      });
-
-      return () => context.revert();
+    const handleScroll = () => {
+      const value = window.scrollY - 2000;
+      titleProject1.current.style.top = value * 0.05 + "px";
+      backgroundTitleProject1.current.style.top = value * 0.02 + "px";
+      mainImageProject1.current.style.top = value * 0.065 + "px";
+      leftImageProject1.current.style.top = value * 0.15 + "px";
+      rightImageProject1.current.style.top = value * 0.075 + "px";
+      console.log("Scroll : ", window.scrollY);
     };
 
-    const images = Array.from(document.images);
-    const unloaded = images.filter((img) => !img.complete);
+    window.addEventListener("scroll", handleScroll);
 
-    if (unloaded.length === 0) {
-      if (!isMobile) {
-        runAnimation();
-      }
-    } else {
-      const listeners = [];
-      unloaded.forEach((img) => {
-        const onLoad = () => {
-          if (unloaded.every((i) => i.complete)) {
-            if (!isMobile) {
-              runAnimation();
-            }
-          }
-        };
-        img.addEventListener("load", onLoad);
-        listeners.push(() => img.removeEventListener("load", onLoad));
-      });
-
-      return () => {
-        listeners.forEach((remove) => remove());
-        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      };
-    }
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
     <div className="relative content h-screen flex flex-col bg-black overflow-hidden">
       <div className="w-full">
         <h1
-          ref={title3}
+          ref={backgroundTitleProject1}
           style={{ color: "#313131" }}
-          className="relative text-gray-300 font-fujiwara-black text-3xl top-10 left-2 lg:text-8xl z-[5]"
+          className="font-fujiwara-black-italic absolute top-0 text-[clamp(0.8rem,7vw,1.5rem)] sm:text-[clamp(0.8rem,10vw,1.7rem)] lg:text-[clamp(0.8rem,15vw,4rem)] "
         >
           Aux couleurs des tableaux
         </h1>
         <h1
-          ref={title4}
-          className="absolute text-white font-fujiwara-black text-2xl top-23 left-2 lg:text-6xl lg:top-30 z-[5]"
+          ref={titleProject1}
+          className="font-fujiwara-black-italic absolute top-0 text-[clamp(0.8rem,5vw,1.7rem)] lg:text-[clamp(0.8rem,3vw,4rem)] "
         >
           Aux couleurs des tableaux
         </h1>
       </div>
 
-      <div ref={container} className="mt-[10vh] h-screen">
-        <div
-          ref={description2}
-          className={`${tinyMobile ? "hidden" : "absolute"} ${
-            mobileHorizontal ? "w-42 sm:w-22 md:w-42 lg:w-52" : "sm-w-64"
-          } w-42 left-[50%] top-[45vh] bg-gray-900/70 bg-opacity-50 flex z-3 p-6 gap-6 sm:w-64 sm:h-64 lg:left-[55%] lg:h-auto`}
-        >
-          <div className="border-white border-l-1"></div>
-          <div className="h-full w-full">
-            <p className="text-white text-xs border-white lg:text-sm">
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
-              erat volutpat. Ut wisi enim ad minim veniam
-            </p>
+      <div className="m-10 sm:m-20 h-screen">
+        <div className="w-full h-full grid grid-cols-20 grid-rows-20 ">
+          {/* IMAGE PRICIPALE */}
+          <div className="col-start-3 row-start-3 col-end-20 row-end-15 md:col-start-6 md:row-start-2 md:col-end-14 md:row-end-13 ">
+            <img
+              ref={mainImageProject1}
+              className="object-cover w-full h-full"
+              src={img1}
+              alt=""
+            />
           </div>
-        </div>
-        <div className="flex w-full justify-center relative">
-          <div className="absolute object-cover top-[0vh] h-[60vh] w-[70vw] z-1 lg:left-[25vw] lg:top-[0vh] lg:h-[60vh] lg:w-[80vh]">
-            <img className="" src={img1} alt="" />
+          {/* IMAGE DROITE */}
+          <div className="row-start-9 row-end-14 col-start-11 col-end-20 md:row-start-8 md:col-start-12 md:h-[30vh] md:w-[50vh] lg:col-start-12 lg:row-start-7 lg:h-[40vh] lg:w-[70vh]">
+            <img
+              ref={rightImageProject1}
+              className="absolute left-[15vw] md:left-[7vw] lg:left-0 object-cover w-full h-full"
+              src={img2}
+              alt=""
+            />
+          </div>
+          {/* IMAGE GAUCHE */}
+          <div className="row-start-8 row-end-12 col-start-1 col-end-10 md:row-start-7 md:h-[25vh] md:w-[40vh] lg:col-start-4 lg:row-start-9 lg:h-[25vh] lg:w-[40vh]">
+            <img
+              ref={leftImageProject1}
+              className="absolute right-[7vw] md:right-0 lg:right-[7vw] object-cover w-full h-full"
+              src={img3}
+              alt=""
+            />
           </div>
           <div
-            ref={image3}
-            className="absolute top-[45vh] -right-[2vw] h-[25vh] w-[40vw] z-[2] lg:top-[25vh] lg:left-[50vw] lg:h-[40vh] lg:w-[70vh]"
+            className={`overflow-hidden bg-gray-900/70 bg-opacity-50 flex z-3 p-6 gap-6 row-start-4 col-start-12 w-[40vw] h-[30vh] md:w-full md:h-full md:row-start-3 md:row-end-11 md:col-start-13 md:col-end-18 md:w-full lg:row-start-3 lg:row-end-11 lg:col-start-11 lg:col-end-16 lg:w-full lg:h-full xl:col-start-11 xl:col-end-15`}
           >
-            <img className="object-cover w-full h-full" src={img2} alt="" />
-          </div>
-          <div
-            ref={image4}
-            className={`absolute top-[45vh] left-[2vw] h-[30vh] w-[40vw] z-[3] lg:top-[60vh] lg:left-[11vw] lg:h-[25vh] lg:w-[40vh]`}
-          >
-            <img className="object-cover w-full h-full" src={img3} alt="" />
+            <div className="border-white border-l-1"></div>
+            <div className="h-full w-full">
+              <p className="text-white text-xs border-white lg:text-sm overflow-hidden">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
+                diam nonummy nibh euismod tincidunt ut laoreet dolore magna
+                aliquam erat volutpat. Ut wisi enim ad minim veniam
+              </p>
+            </div>
           </div>
         </div>
       </div>
