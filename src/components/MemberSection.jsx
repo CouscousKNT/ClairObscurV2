@@ -186,7 +186,7 @@ export const MemberSection = () => {
         }}
       >
         <section
-          id="member1"
+          id="members"
           className="members1 mix-blend-difference h-[300vh] w-full absolute top-0 z-30"
         >
           <div className="sticky top-0">
@@ -329,8 +329,8 @@ export const MemberSection = () => {
         <div className="sticky h-screen top-0 object-cover lg:h-auto">
           <canvas
             ref={canvasRef}
-            width={width <= 1024 ? 600 : 850}
-            height={720}
+            width={width <= 1024 ? 333 : 600}
+            height={width <= 1024 ? 400 : 520}
             style={canvasResponsivity}
           />
         </div>
