@@ -16,7 +16,7 @@ function App() {
     <>
       <Header />
       <LandingPage />
-      <Pitch />
+
       <RotatingLogoScene />
       <Gallery />
       <ProjectSection1 />
