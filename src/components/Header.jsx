@@ -2,15 +2,15 @@ import React from "react";
 
 export const Header = () => {
   return (
-    <div className="mix-blend-difference w-full fixed flex flex-row justify-center gap-2 z-50">
+    <div className="font-fujiwara-bold mix-blend-difference w-auto fixed flex flex-row justify-center gap-2 z-100 right-0 p-5">
       <div>
-        <a href="#">[Pitch]</a>
+        <a href="#pitch">[Pitch]</a>
       </div>
       <div>
-        <a href="#">[Galerie]</a>
+        <a href="#gallerie">[Galerie]</a>
       </div>
       <div>
-        <a href="#member1">[Credits]</a>
+        <a href="#members">[Credits]</a>
       </div>
       <div>
         <a href="#">[Contacts]</a>

@@ -65,7 +65,7 @@ export const Gallery = () => {
     };
   }, [isMobile]);
   return (
-    <section className="gallery">
+    <section className="gallery" id="gallerie">
       <div className="gallery-wrapper">
         <div className="row">
           <div className="img">
