@@ -1,11 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import logo from "/logo/logo.svg";
-import item from "/logo/item.svg";
 import { Canvas } from "@react-three/fiber";
-import { Model } from "./Model";
-import { Piece } from "./Piece";
-import CustomText from "./CustomText";
+import { Piece } from "./3d/Piece";
+import CustomText from "./3d/CustomText";
 import { Environment } from "@react-three/drei";
 import { useWindowSize } from "../utils/useWindowSize";
 import Lenis from "lenis";
@@ -260,7 +258,7 @@ const LandingPage = () => {
           preload="auto"
           ref={videoRef}
         >
-          <source src="/INTRO.mp4" type="video/mp4" />
+          <source src="/videos/INTRO.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Canvas } from "@react-three/fiber";
-import { Model } from "./Model";
+import { Model } from "./3d/Model";
 import { Environment } from "@react-three/drei";
 import logo from "/logo/logo.svg";
 
