@@ -15,10 +15,10 @@ export const ProjectSection1 = () => {
   useEffect(() => {
     const handleScroll = () => {
       const value = window.scrollY - 2000;
-      titleProject1.current.style.top = value * 0.05 + "px";
+      titleProject1.current.style.top = value * 0.03 + "px";
       backgroundTitleProject1.current.style.top = value * 0.02 + "px";
-      mainImageProject1.current.style.top = value * 0.065 + "px";
-      leftImageProject1.current.style.top = value * 0.15 + "px";
+      mainImageProject1.current.style.top = value * 0.055 + "px";
+      leftImageProject1.current.style.top = value * 0.09 + "px";
       rightImageProject1.current.style.top = value * 0.075 + "px";
       console.log("Scroll : ", window.scrollY);
     };
