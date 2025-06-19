@@ -8,24 +8,24 @@ export const Pitch = () => {
   const pitch = document.querySelectorAll(".pitch");
 
   function setupSplits() {
-    pitch.forEach((desc) => {
+    pitch.forEach((text) => {
       // Reset if needed
-      if (desc.anim) {
-        desc.anim.progress(1).kill();
-        desc.split.revert();
+      if (text.anim) {
+        text.anim.progress(1).kill();
+        text.split.revert();
       }
 
-      desc.split = SplitText.create(desc, {
+      text.split = SplitText.create(text, {
         type: "lines, lines",
         mask: "lines",
         linesClass: "line",
       });
 
       // Set up the anim
-      desc.anim = gsap.from(desc.split.lines, {
+      text.anim = gsap.from(text.split.lines, {
         scrollTrigger: {
-          trigger: desc,
-          toggleActions: "play reverse play reverse",
+          trigger: text,
+          toggleActions: "play none none reverse",
           start: "top center",
         },
         duration: 0.8,
