@@ -8,8 +8,10 @@ export const LettersTextAnimation = ({
   triggerStart,
   triggerEnd,
   start,
+  end,
   stagger,
   duration,
+  text,
   className,
 }) => {
   const textRef = useRef(null);
@@ -37,7 +39,9 @@ export const LettersTextAnimation = ({
           scrollTrigger: {
             trigger: triggerStart,
             start: start,
+            end: end,
             toggleActions: "play none none reverse",
+            markers: true,
           },
           opacity: 1,
           y: 0,
@@ -79,7 +83,7 @@ export const LettersTextAnimation = ({
     <div>
       {" "}
       <p ref={textRef} className={className}>
-        Scrollez vers le bas
+        {text}
       </p>
     </div>
   );

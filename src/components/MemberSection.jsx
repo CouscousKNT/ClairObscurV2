@@ -33,7 +33,6 @@ export const MemberSection = () => {
       const scrollDownAnimation = scrollIconAnimation.current;
 
       // Animation d'apparition de l'icône animée de Scroll vers le bas
-
       gsap.fromTo(
         scrollDownAnimation,
         {
@@ -76,6 +75,7 @@ export const MemberSection = () => {
     };
   }, []);
 
+  //ANIMATION MEMBRES DE L'EQUIPE BASE SUR LE SCROLL
   const imagesLinkBasedOnDevice =
     width <= 1024 ? `/team/membersAnimationMobile/` : `/team/membersAnimation/`;
 
@@ -164,34 +164,6 @@ export const MemberSection = () => {
   const descriptions = document.querySelectorAll(".description");
 
   function setupSplits() {
-    quotes.forEach((quote) => {
-      // Reset if needed
-      if (quote.anim) {
-        quote.anim.progress(1).kill();
-        quote.split.revert();
-      }
-
-      quote.split = SplitText.create(quote, {
-        type: "words,chars",
-        linesClass: "split-line",
-      });
-
-      // Set up the anim
-      quote.anim = gsap.from(quote.split.chars, {
-        scrollTrigger: {
-          trigger: quote,
-          toggleActions: "play none none reverse",
-          start: "top center",
-          end: "+=1500",
-          // markers: { startColor: "#dfdcff", endColor: "transparent" },
-        },
-        duration: 0.8,
-        ease: "circ.out",
-        y: 80,
-        stagger: 0.04,
-      });
-    });
-
     descriptions.forEach((desc) => {
       // Reset if needed
       if (desc.anim) {
@@ -238,32 +210,40 @@ export const MemberSection = () => {
         }}
       >
         <div className="font-fujiwara-black-italic w-full bottom-10 fixed flex flex-col justify-center items-center gap-4 mix-blend-difference z-100 bottom-0">
-          {/* <div
+          <div
             id="scrollAnimation"
             ref={scrollIconAnimation}
             className="relative h-[50px] w-[30px] right-[15px]"
           ></div>
-          <p ref={textRef} className="text-xs sm:text-base">
-            Scrollez vers le bas
-          </p> */}
           <LettersTextAnimation
             triggerStart={"#members"}
             triggerEnd={"#membersEnd"}
             start={"top center"}
+            end={""}
             stagger={0.05}
             duration={0.5}
+            text={"Scrollez vers le bas"}
             className={"text-xs sm:text-base"}
           />
         </div>
 
         <section
           id="members"
-          className="members1 mix-blend-difference h-[300vh] w-full absolute top-0 z-30"
+          className="mix-blend-difference h-[300vh] w-full absolute top-0 z-30"
         >
           <div className="sticky top-0">
-            <h1 className="memberName text-white font-fujiwara-black text-5xl pl-4 pt-10 pb-4">
-              Zinédine
-            </h1>
+            <LettersTextAnimation
+              triggerStart={"#members"}
+              triggerEnd={"#member2"}
+              start={"top center"}
+              end={""}
+              stagger={0.05}
+              duration={0.5}
+              text={"Zinédine"}
+              className={
+                "text-white font-fujiwara-black text-5xl pl-4 pt-10 pb-4"
+              }
+            />
             <a className="text-sm font-fujiwara-bold-italic text-white border-white border-1 m-4 p-2 duration-300 hover:bg-white hover:text-black">
               Directeur Artistique / Chef de stratégie
             </a>
@@ -297,11 +277,23 @@ export const MemberSection = () => {
           </div>
         </section>
 
-        <section className="members2 mix-blend-difference top-[300vh] h-[300vh] w-full absolute top-0 z-30">
+        <section
+          id="member2"
+          className="members2 mix-blend-difference top-[300vh] h-[300vh] w-full absolute top-0 z-30"
+        >
           <div className="sticky top-0">
-            <h1 className="memberName text-white font-fujiwara-black text-5xl pl-4 pt-10 pb-4">
-              Idrissa
-            </h1>
+            <LettersTextAnimation
+              triggerStart={"#member2"}
+              triggerEnd={"#member3"}
+              start={"top center"}
+              end={""}
+              stagger={0.05}
+              duration={0.5}
+              text={"Idrissa"}
+              className={
+                "text-white font-fujiwara-black text-5xl pl-4 pt-10 pb-4"
+              }
+            />
             <a className="text-sm font-fujiwara-bold-italic text-white border-white border-1 m-4 p-2 duration-300 hover:bg-white hover:text-black">
               Scénariste / Motion designer
             </a>
@@ -331,11 +323,23 @@ export const MemberSection = () => {
             </p>
           </div>
         </section>
-        <section className="members3 mix-blend-difference top-[600vh] h-[300vh] w-full absolute top-0 z-30">
+        <section
+          id="member3"
+          className="members3 mix-blend-difference top-[600vh] h-[300vh] w-full absolute top-0 z-30"
+        >
           <div className="sticky top-0">
-            <h1 className="memberName text-white font-fujiwara-black text-5xl pl-4 pt-10 pb-4">
-              Ben
-            </h1>
+            <LettersTextAnimation
+              triggerStart={"#member3"}
+              triggerEnd={"#membersEnd"}
+              start={"top center"}
+              end={""}
+              stagger={0.05}
+              duration={0.5}
+              text={"Ben"}
+              className={
+                "text-white font-fujiwara-black text-5xl pl-4 pt-10 pb-4"
+              }
+            />
             <a className="text-sm font-fujiwara-bold-italic text-white border-white border-1 m-4 p-2 duration-300 hover:bg-white hover:text-black">
               Réalisateur / Chef opérateur
             </a>
@@ -368,9 +372,18 @@ export const MemberSection = () => {
           className="members4 mix-blend-difference top-[900vh] h-[300vh] w-full absolute top-0 z-30"
         >
           <div className="sticky top-0">
-            <h1 className="memberName text-white font-fujiwara-black text-5xl pl-4 pt-10 pb-4">
-              Ousmane
-            </h1>
+            <LettersTextAnimation
+              triggerStart={"#membersEnd"}
+              triggerEnd={""}
+              start={"top center"}
+              end={""}
+              stagger={0.05}
+              duration={0.5}
+              text={"Ousmane"}
+              className={
+                "text-white font-fujiwara-black text-5xl pl-4 pt-10 pb-4"
+              }
+            />
             <a className="text-sm font-fujiwara-bold-italic text-white border-white border-1 m-4 p-2 duration-300 hover:bg-white hover:text-black">
               Monteur / Artiste 3D
             </a>
