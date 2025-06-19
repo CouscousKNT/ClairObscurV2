@@ -37,13 +37,13 @@ export const ProjectSection2 = () => {
           ref={backgroundTitleProject2}
           className="font-fujiwara-black-italic text-gray-300 absolute top-0 text-[clamp(0.8rem,7vw,1.5rem)] sm:text-[clamp(0.8rem,10vw,1.7rem)] lg:text-[clamp(0.8rem,15vw,4rem)] "
         >
-          Aux couleurs des tableaux
+          La grande échapée
         </h1>
         <h1
           ref={titleProject2}
           className="font-fujiwara-black-italic text-black absolute top-0 text-[clamp(0.8rem,5vw,1.7rem)] lg:text-[clamp(0.8rem,3vw,4rem)] "
         >
-          Aux couleurs des tableaux
+          La grande échapée
         </h1>
       </div>
 
@@ -91,14 +91,14 @@ export const ProjectSection2 = () => {
         </div>
       </div>
 
-      <div className="absolute bottom-[4vh] sm:top-[85vh] w-full flex justify-center items-center">
+      <div className="absolute mix-blend-difference bottom-[4vh] sm:top-[85vh] w-full flex justify-center items-center">
         <a
-          className="h-10 border-black text-black border-1 flex justify-center items-center pl-4 pr-4 transition duration-300 hover:text-white hover:bg-black hover:border-white"
+          className="h-10 border-white text-white border-1 flex justify-center items-center pl-4 pr-4 transition duration-300 hover:text-black hover:bg-white hover:border-black"
           href="#"
         >
           Dévouvrir
         </a>
-        <p className="text-black text-xs pl-4">
+        <p className="text-white text-xs pl-4">
           Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
           nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
           volutpat.

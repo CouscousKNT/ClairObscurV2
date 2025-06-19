@@ -1,23 +1,5 @@
 @import "tailwindcss";
 
-@font-face {
-    font-family: "Fujiwara Black";
-    font-style: normal;
-    font-weight: normal;
-    src: url("/fonts/Fujiwara A Black.ttf") format("truetype");
-  }
-
-  @font-face {
-    font-family: "Fujiwara Regular";
-    font-style: normal;
-    font-weight: normal;
-    src: url("/fonts/Fujiwara A Regular.ttf") format("truetype");
-  }
-
-  h2 {
-    font-family: "Fujiwara A Regular";
-  }
-
 .canvas-container {
   contain: paint;
 }
@@ -58,6 +40,30 @@
     object-fit: cover;
     will-change: transform, opacity;
   }
+
+
+@keyframes underlineLoopVertical {
+  0% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 50% 100%;
+  }
+}
+
+#scrollAnimation::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, rgb(255,255,255) 45%, rgba(255,255,255,0.3) 55%);
+  background-size: 100% 220%;
+  background-position: 50% 0%;
+  background-repeat: no-repeat;
+  animation: underlineLoopVertical 1s infinite alternate ease-in-out;
+}
 
   @media (max-width: 900px) {
   .gallery {

@@ -14,6 +14,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import SplitType from "split-type";
 import { SplitText } from "gsap/all";
+import { LettersTextAnimation } from "./LettersTextAnimation";
 import classNames from "classnames";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -23,6 +24,57 @@ export const MemberSection = () => {
   const containerRef = useRef(null);
   const { width, height } = useWindowSize();
   const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  const scrollIconAnimation = useRef(null);
+
+  // ANIMATION DU TEXTE "SCROLLEZ VERS LE BAS" LORSQU'ON ATTEINT LA SECTION MEMBRE
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      const scrollDownAnimation = scrollIconAnimation.current;
+
+      // Animation d'apparition de l'icône animée de Scroll vers le bas
+
+      gsap.fromTo(
+        scrollDownAnimation,
+        {
+          opacity: 0,
+        },
+        {
+          scrollTrigger: {
+            trigger: "#members",
+            start: "top center",
+            toggleActions: "play none none reverse",
+          },
+          opacity: 1,
+          ease: "power2.out",
+          duration: 0.5,
+        }
+      );
+
+      // Animation de disparition de l'icône animée de Scroll vers le bas
+      gsap.fromTo(
+        scrollDownAnimation,
+        {
+          opacity: 1,
+        },
+        {
+          scrollTrigger: {
+            trigger: "#memberEnd",
+            start: "top center",
+            toggleActions: "play none none reverse",
+          },
+          opacity: 0,
+          ease: "power2.out",
+          duration: 0.5,
+        }
+      );
+      ScrollTrigger.refresh();
+    }, 200);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, []);
 
   const imagesLinkBasedOnDevice =
     width <= 1024 ? `/team/membersAnimationMobile/` : `/team/membersAnimation/`;
@@ -128,7 +180,7 @@ export const MemberSection = () => {
       quote.anim = gsap.from(quote.split.chars, {
         scrollTrigger: {
           trigger: quote,
-          toggleActions: "restart pause restart reverse",
+          toggleActions: "play none none reverse",
           start: "top center",
           end: "+=1500",
           // markers: { startColor: "#dfdcff", endColor: "transparent" },
@@ -157,7 +209,7 @@ export const MemberSection = () => {
       desc.anim = gsap.from(desc.split.lines, {
         scrollTrigger: {
           trigger: desc,
-          toggleActions: "play pause play reverse",
+          toggleActions: "play none none reverse",
           start: "top center",
           end: "+=1500",
           // markers: { startColor: "#dfdcff", endColor: "red" },
@@ -185,6 +237,25 @@ export const MemberSection = () => {
           backgroundColor: "white",
         }}
       >
+        <div className="font-fujiwara-black-italic w-full bottom-10 fixed flex flex-col justify-center items-center gap-4 mix-blend-difference z-100 bottom-0">
+          {/* <div
+            id="scrollAnimation"
+            ref={scrollIconAnimation}
+            className="relative h-[50px] w-[30px] right-[15px]"
+          ></div>
+          <p ref={textRef} className="text-xs sm:text-base">
+            Scrollez vers le bas
+          </p> */}
+          <LettersTextAnimation
+            triggerStart={"#members"}
+            triggerEnd={"#membersEnd"}
+            start={"top center"}
+            stagger={0.05}
+            duration={0.5}
+            className={"text-xs sm:text-base"}
+          />
+        </div>
+
         <section
           id="members"
           className="members1 mix-blend-difference h-[300vh] w-full absolute top-0 z-30"
@@ -225,6 +296,7 @@ export const MemberSection = () => {
             </div>
           </div>
         </section>
+
         <section className="members2 mix-blend-difference top-[300vh] h-[300vh] w-full absolute top-0 z-30">
           <div className="sticky top-0">
             <h1 className="memberName text-white font-fujiwara-black text-5xl pl-4 pt-10 pb-4">
@@ -291,7 +363,10 @@ export const MemberSection = () => {
             </p>
           </div>
         </section>
-        <section className="members4 mix-blend-difference top-[900vh] h-[300vh] w-full absolute top-0 z-30">
+        <section
+          id="membersEnd"
+          className="members4 mix-blend-difference top-[900vh] h-[300vh] w-full absolute top-0 z-30"
+        >
           <div className="sticky top-0">
             <h1 className="memberName text-white font-fujiwara-black text-5xl pl-4 pt-10 pb-4">
               Ousmane

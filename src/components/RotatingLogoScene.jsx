@@ -19,7 +19,7 @@ export const RotatingLogoScene = () => {
   //(scrollYProgress, [XX, XX], ["#111111", "#ffe6e9"]);
   const background = useTransform(
     scrollYProgress,
-    [0.057, 0.14],
+    [0.105, 0.129],
     ["#111111", "#ffe6e9"]
   );
 
@@ -74,7 +74,7 @@ export const RotatingLogoScene = () => {
 
   return (
     <div className="w-full h-[250vh]" style={{ backgroundColor: bgColor }}>
-      {/* <Pitch /> */}
+      <Pitch />
       {/* <div>
         <p>Largeur : {width}px</p>
         <p>Hauteur : {height}px</p>
