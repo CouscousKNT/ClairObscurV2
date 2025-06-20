@@ -10,10 +10,10 @@ export const Header = () => {
         <a href="#gallerie">[Galerie]</a>
       </div>
       <div>
-        <a href="#members">[Credits]</a>
+        <a href="#member1">[Credits]</a>
       </div>
       <div>
-        <a href="#">[Contacts]</a>
+        <a href="#contact">[Contacts]</a>
       </div>
     </div>
   );
