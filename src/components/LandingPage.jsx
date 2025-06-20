@@ -220,7 +220,10 @@ const LandingPage = () => {
           <h1 className="font-fujiwara">"Lancez la pièce"</h1>
         </div> */}
         <div className="h-[100vh] w-screen">
-          <Canvas className="h-full">
+          <Canvas
+            gl={{ antialias: false, preserveDrawingBuffer: false }}
+            className="h-full"
+          >
             <CustomText
               text={`Lancer la pièce.`}
               position={[0, 1.4, 0]}
