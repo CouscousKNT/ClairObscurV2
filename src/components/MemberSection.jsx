@@ -1,20 +1,12 @@
 "use client";
-import React, {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useMotionValueEvent, useScroll, useTransform } from "framer-motion";
 import { useWindowSize } from "../utils/useWindowSize";
-import { object } from "framer-motion/client";
 import "../App.css";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import gsap from "gsap";
-import SplitType from "split-type";
-import { SplitText } from "gsap/all";
 import { LettersTextAnimation } from "./LettersTextAnimation";
+import { ParagraphAnimation } from "./ParagraphAnimation";
 import classNames from "classnames";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -22,10 +14,9 @@ gsap.registerPlugin(ScrollTrigger);
 export const MemberSection = () => {
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
+  const scrollIconAnimation = useRef(null);
   const { width, height } = useWindowSize();
   const [imagesLoaded, setImagesLoaded] = useState(false);
-
-  const scrollIconAnimation = useRef(null);
 
   // ANIMATION DU TEXTE "SCROLLEZ VERS LE BAS" LORSQU'ON ATTEINT LA SECTION MEMBRE
   useEffect(() => {
@@ -40,7 +31,7 @@ export const MemberSection = () => {
         },
         {
           scrollTrigger: {
-            trigger: "#members",
+            trigger: "#member1",
             start: "top center",
             toggleActions: "play none none reverse",
           },
@@ -58,7 +49,7 @@ export const MemberSection = () => {
         },
         {
           scrollTrigger: {
-            trigger: "#memberEnd",
+            trigger: "#member4",
             start: "top center",
             toggleActions: "play none none reverse",
           },
@@ -68,6 +59,7 @@ export const MemberSection = () => {
         }
       );
       ScrollTrigger.refresh();
+      scrollDownAnimation.style.opacity = 0;
     }, 200);
 
     return () => {
@@ -75,12 +67,8 @@ export const MemberSection = () => {
     };
   }, []);
 
-  //ANIMATION MEMBRES DE L'EQUIPE BASE SUR LE SCROLL
-  const imagesLinkBasedOnDevice =
-    width <= 1024 ? `/team/membersAnimationMobile/` : `/team/membersAnimation/`;
-
+  // PARAMETRE DE RESPONSIVITE
   const horizontalScreen = width > height;
-
   const canvasResponsivity =
     width <= 1024 && !horizontalScreen
       ? {
@@ -104,6 +92,10 @@ export const MemberSection = () => {
           width: "auto",
           height: "100vh",
         };
+
+  // ANIMATION DES MEMBRES DE L'EQUIPE BASEE SUR LE SCROLL
+  const imagesLinkBasedOnDevice =
+    width <= 1024 ? `/team/membersAnimationMobile/` : `/team/membersAnimation/`;
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -160,64 +152,18 @@ export const MemberSection = () => {
     }
   }, [imagesLoaded, render]);
 
-  const quotes = document.querySelectorAll(".memberName");
-  const descriptions = document.querySelectorAll(".description");
-
-  function setupSplits() {
-    descriptions.forEach((desc) => {
-      // Reset if needed
-      if (desc.anim) {
-        desc.anim.progress(1).kill();
-        desc.split.revert();
-      }
-
-      desc.split = SplitText.create(desc, {
-        type: "lines, lines",
-        mask: "lines",
-        linesClass: "line",
-      });
-
-      // Set up the anim
-      desc.anim = gsap.from(desc.split.lines, {
-        scrollTrigger: {
-          trigger: desc,
-          toggleActions: "play none none reverse",
-          start: "top center",
-          end: "+=1500",
-          // markers: { startColor: "#dfdcff", endColor: "red" },
-        },
-        duration: 0.8,
-        ease: "circ.out",
-        y: 80,
-        stagger: 0.04,
-      });
-    });
-  }
-
-  ScrollTrigger.addEventListener("refresh", setupSplits);
-  setupSplits();
-
-  // On attend que le DOM soit prêt
-
   return (
-    <div style={{ height: "1200vh", backgroundColor: "white", zIndex: "5" }}>
-      <div
-        ref={containerRef}
-        style={{
-          position: "relative",
-          height: "1200vh",
-          backgroundColor: "white",
-        }}
-      >
-        <div className="font-fujiwara-black-italic w-full bottom-10 fixed flex flex-col justify-center items-center gap-4 mix-blend-difference z-100 bottom-0">
+    <div className="h-[1200vh] bg-white z-5">
+      <div ref={containerRef} className="relative h-[1200vh] bg-white">
+        <div className="font-fujiwara-black-italic w-full bottom-10 fixed flex flex-col justify-center items-center gap-4 mix-blend-difference z-10 bottom-0">
           <div
             id="scrollAnimation"
             ref={scrollIconAnimation}
             className="relative h-[50px] w-[30px] right-[15px]"
           ></div>
           <LettersTextAnimation
-            triggerStart={"#members"}
-            triggerEnd={"#membersEnd"}
+            triggerStart={"#member1"}
+            triggerEnd={"#member4"}
             start={"top center"}
             end={""}
             stagger={0.05}
@@ -227,13 +173,14 @@ export const MemberSection = () => {
           />
         </div>
 
+        {/* SECTION MEMBRE 1 */}
         <section
-          id="members"
-          className="mix-blend-difference h-[300vh] w-full absolute top-0 z-30"
+          id="member1"
+          className="absolute top-0 z-20 w-full h-[300vh] mix-blend-difference "
         >
           <div className="sticky top-0">
             <LettersTextAnimation
-              triggerStart={"#members"}
+              triggerStart={"#member1"}
               triggerEnd={"#member2"}
               start={"top center"}
               end={""}
@@ -241,45 +188,64 @@ export const MemberSection = () => {
               duration={0.5}
               text={"Zinédine"}
               className={
-                "text-white font-fujiwara-black text-5xl pl-4 pt-10 pb-4"
+                "pl-4 pt-10 pb-4 font-fujiwara-black text-white text-5xl"
               }
             />
-            <a className="text-sm font-fujiwara-bold-italic text-white border-white border-1 m-4 p-2 duration-300 hover:bg-white hover:text-black">
+            <a className="m-4 p-2 font-fujiwara-bold-italic text-white text-sm  border-white border-1 duration-300 hover:bg-white hover:text-black">
               Directeur Artistique / Chef de stratégie
             </a>
+            <ParagraphAnimation
+              triggerStart={"#member1"}
+              triggerEnd={"#member2"}
+              start={"top center"}
+              end={""}
+              stagger={0.04}
+              duration={0.8}
+              text={`
 
-            <p className="description font-fujiwara-light-italic text-white w-1/2 hidden lg:block lg:pl-4 lg:pt-16 text-xl xl:text-3xl/12 text-white pt-5">
-              Zinedine est un artiste visuel. Il est excellent sur beaucoup de
-              chose notamment pour transformer des idées en concepts visuels
-              percutants. Chaque projet doit avoir sa personnalité et vous
-              pouvez compter sur Zinedine pour la consolider. C’est également un
-              chargé de communication en puissance qui a déjà accompagné
-              plusieurs marques sur des stratégies pub. Doté d’un excellent
-              relationnel, il sait fédérer les équipes et captiver les clients
-              avec des propositions pertinentes.
-            </p>
+                Zinedine est un artiste visuel. Il est excellent sur beaucoup de chose 
+                notamment pour transformer des idées en concepts visuels percutants. Chaque 
+                projet doit avoir sa personnalité et vous pouvez compter sur Zinedine pour 
+                la consolider. C’est également un chargé de communication en puissance qui 
+                a déjà accompagné plusieurs marques sur des stratégies pub. Doté d’un 
+                excellent relationnel, il sait fédérer les équipes et captiver les clients 
+                avec des propositions pertinentes.
+              `}
+              className={
+                "hidden w-1/2 pt-5 font-fujiwara-light-italic text-white lg:block lg:pl-4 lg:pt-16 text-xl xl:text-3xl/12 text-white"
+              }
+            />
             <div>
-              <p
-                className={classNames(
-                  "description lg:hidden p-5 font-fujiwara block text-white text-[clamp(0.8rem,4vw,1rem)] md:text-lg",
-                  {
-                    "w-[50%]": horizontalScreen,
-                  }
-                )}
-              >
+              <ParagraphAnimation
+                triggerStart={"#member1"}
+                triggerEnd={"#member2"}
+                start={"top center"}
+                end={""}
+                stagger={0.04}
+                duration={0.8}
+                text={`
+
                 Zinedine est un artiste visuel doué dans la transformation
                 d'idées en concepts percutants. C’est également un chargé de
                 communication en puissance qui a déjà accompagné plusieurs
                 marques sur des stratégies pub. Il saura captiver les clients
                 avec des propositions pertinentes.
-              </p>
+              `}
+                className={classNames(
+                  "lg:hidden p-5 font-fujiwara block text-white text-[clamp(0.8rem,4vw,1rem)] md:text-lg",
+                  {
+                    "w-[50%]": horizontalScreen,
+                  }
+                )}
+              />
             </div>
           </div>
         </section>
 
+        {/* SECTION MEMBRE 2 */}
         <section
           id="member2"
-          className="members2 mix-blend-difference top-[300vh] h-[300vh] w-full absolute top-0 z-30"
+          className="absolute top-[300vh] z-20 w-full h-[300vh] mix-blend-difference"
         >
           <div className="sticky top-0">
             <LettersTextAnimation
@@ -291,14 +257,20 @@ export const MemberSection = () => {
               duration={0.5}
               text={"Idrissa"}
               className={
-                "text-white font-fujiwara-black text-5xl pl-4 pt-10 pb-4"
+                "pl-4 pt-10 pb-4 font-fujiwara-black text-white text-5xl"
               }
             />
-            <a className="text-sm font-fujiwara-bold-italic text-white border-white border-1 m-4 p-2 duration-300 hover:bg-white hover:text-black">
+            <a className="m-4 p-2 font-fujiwara-bold-italic text-white text-sm  border-white border-1 duration-300 hover:bg-white hover:text-black">
               Scénariste / Motion designer
             </a>
-
-            <p className="description font-fujiwara-light-italic text-white w-1/2 hidden lg:block lg:pl-4 lg:pt-16 text-xl xl:text-3xl/12 text-white pt-5">
+            <ParagraphAnimation
+              triggerStart={"#member2"}
+              triggerEnd={"#member3"}
+              start={"top center"}
+              end={""}
+              stagger={0.04}
+              duration={0.8}
+              text={`
               Idrissa nourrit sa créativité depuis son plus jeune âge en
               inventant des histoires en tous genres. Capable de visualiser des
               scènes fictives à partir de quelques mots, il a rapidement vu dans
@@ -306,74 +278,110 @@ export const MemberSection = () => {
               donner vie à ses idées, il s’est spécialisé en motion design et
               montage vidéo. L’image et l’écriture se mêlent dans son travail,
               pour créer des récits visuels grandioses.
-            </p>
-            <p
-              className={classNames(
-                "description lg:hidden p-5 font-fujiwara block text-white text-[clamp(0.8rem,4vw,1rem)] md:text-lg",
-                {
-                  "w-[50%]": horizontalScreen,
-                }
-              )}
-            >
+              `}
+              className={
+                "hidden w-1/2 pt-5 font-fujiwara-light-italic text-white lg:block lg:pl-4 lg:pt-16 text-xl xl:text-3xl/12 text-white"
+              }
+            />
+            <div>
+              <ParagraphAnimation
+                triggerStart={"#member2"}
+                triggerEnd={"#member3"}
+                start={"top center"}
+                end={""}
+                stagger={0.04}
+                duration={0.8}
+                text={`
               Idrissa nourrit sa créativité depuis son plus jeune âge en
               inventant des histoires en tous genres. A partir de quelques mots,
               Idrissa est capable de visualiser des scènes fictives. L’image et
               l’écriture se mêlent dans son travail, pour créer des récits
               visuels grandioses.
-            </p>
+              `}
+                className={classNames(
+                  "lg:hidden p-5 font-fujiwara block text-white text-[clamp(0.8rem,4vw,1rem)] md:text-lg",
+                  {
+                    "w-[50%]": horizontalScreen,
+                  }
+                )}
+              />
+            </div>
           </div>
         </section>
+
+        {/* SECTION MEMBRE 3 */}
         <section
           id="member3"
-          className="members3 mix-blend-difference top-[600vh] h-[300vh] w-full absolute top-0 z-30"
+          className="absolute top-[600vh] z-20 w-full h-[300vh] mix-blend-difference"
         >
           <div className="sticky top-0">
             <LettersTextAnimation
               triggerStart={"#member3"}
-              triggerEnd={"#membersEnd"}
+              triggerEnd={"#member4"}
               start={"top center"}
               end={""}
               stagger={0.05}
               duration={0.5}
               text={"Ben"}
               className={
-                "text-white font-fujiwara-black text-5xl pl-4 pt-10 pb-4"
+                "pl-4 pt-10 pb-4 font-fujiwara-black text-white text-5xl"
               }
             />
-            <a className="text-sm font-fujiwara-bold-italic text-white border-white border-1 m-4 p-2 duration-300 hover:bg-white hover:text-black">
+            <a className="m-4 p-2 font-fujiwara-bold-italic text-white text-sm  border-white border-1 duration-300 hover:bg-white hover:text-black">
               Réalisateur / Chef opérateur
             </a>
-
-            <p className="description font-fujiwara-light-italic text-white w-1/2 hidden lg:block lg:pl-4 lg:pt-16 text-xl xl:text-3xl/12 text-white pt-5">
+            <ParagraphAnimation
+              triggerStart={"#member3"}
+              triggerEnd={"#member4"}
+              start={"top center"}
+              end={""}
+              stagger={0.04}
+              duration={0.8}
+              text={`
               Fabriqueur d’images, Ben est un as de la caméra. En charge de
               plusieurs documentaires de télévision et de publicités c’est une
               encyclopédie des codes de l’imagerie. Mouvements, angles,
               éclairages, donnez lui n’importe quel sujet qui possède au moins 3
               côtés et il saura vous le sublimer.
-            </p>
-            <p
-              className={classNames(
-                "description lg:hidden p-5 font-fujiwara block text-white text-[clamp(0.8rem,4vw,1rem)] md:text-lg",
-                {
-                  "w-[50%]": horizontalScreen,
-                }
-              )}
-            >
+              `}
+              className={
+                "hidden w-1/2 pt-5 font-fujiwara-light-italic text-white lg:block lg:pl-4 lg:pt-16 text-xl xl:text-3xl/12 text-white"
+              }
+            />
+            <div>
+              <ParagraphAnimation
+                triggerStart={"#member3"}
+                triggerEnd={"#member4"}
+                start={"top center"}
+                end={""}
+                stagger={0.04}
+                duration={0.8}
+                text={`
               Fabriqueur d’images, Ben est un as de la caméra. En charge de
               plusieurs documentaires de télévision et de publicités c’est une
               encyclopédie des codes de l’imagerie. Mouvements, angles,
               éclairages, donnez lui n’importe quel sujet qui possède au moins 3
               côtés et il saura vous le sublimer.
-            </p>
+              `}
+                className={classNames(
+                  "lg:hidden p-5 font-fujiwara block text-white text-[clamp(0.8rem,4vw,1rem)] md:text-lg",
+                  {
+                    "w-[50%]": horizontalScreen,
+                  }
+                )}
+              />
+            </div>
           </div>
         </section>
+
+        {/* SECTION MEMBRE 4 */}
         <section
-          id="membersEnd"
-          className="members4 mix-blend-difference top-[900vh] h-[300vh] w-full absolute top-0 z-30"
+          id="member4"
+          className="absolute top-[900vh] z-20 w-full h-[300vh] mix-blend-difference"
         >
           <div className="sticky top-0">
             <LettersTextAnimation
-              triggerStart={"#membersEnd"}
+              triggerStart={"#member4"}
               triggerEnd={""}
               start={"top center"}
               end={""}
@@ -381,14 +389,21 @@ export const MemberSection = () => {
               duration={0.5}
               text={"Ousmane"}
               className={
-                "text-white font-fujiwara-black text-5xl pl-4 pt-10 pb-4"
+                "pl-4 pt-10 pb-4 font-fujiwara-black text-white text-5xl"
               }
             />
-            <a className="text-sm font-fujiwara-bold-italic text-white border-white border-1 m-4 p-2 duration-300 hover:bg-white hover:text-black">
+            <a className="m-4 p-2 font-fujiwara-bold-italic text-white text-sm border-white border-1 duration-300 hover:bg-white hover:text-black">
               Monteur / Artiste 3D
             </a>
 
-            <p className="description font-fujiwara-light-italic text-white w-1/2 hidden lg:block lg:pl-4 lg:pt-16 text-xl xl:text-3xl/12 text-white pt-5">
+            <ParagraphAnimation
+              triggerStart={"#member4"}
+              triggerEnd={""}
+              start={"top center"}
+              end={""}
+              stagger={0.04}
+              duration={0.8}
+              text={`
               Installé sur la frontière entre le réel et l’utopie Ousmane
               cherche sans cesse à repousser les limites du possible. Ses
               inspirations, il va les chercher au plus profond du metaverse,
@@ -397,24 +412,42 @@ export const MemberSection = () => {
               choisi la 3D pour dépasser les limites humaines, sans jamais y
               trouver la fin. Cette science, il l’applique aussi dans sa
               capacité à monter des vidéos et c’est à notre grand bonheur.
-            </p>
-            <p
-              className={classNames(
-                "description lg:hidden p-5 font-fujiwara block text-white text-[clamp(0.8rem,4vw,1rem)] md:text-lg",
-                {
-                  "w-[50%]": horizontalScreen,
-                }
-              )}
-            >
-              Ousmane cherche sans cesse à transformer l’illusoire en
+              `}
+              className={
+                "hidden w-1/2 pt-5 font-fujiwara-light-italic text-white lg:block lg:pl-4 lg:pt-16 text-xl xl:text-3xl/12 text-white"
+              }
+            />
+            <div>
+              <ParagraphAnimation
+                triggerStart={"#member4"}
+                triggerEnd={""}
+                start={"top center"}
+                end={""}
+                stagger={0.04}
+                duration={0.8}
+                text={`
+              Installé sur la frontière entre le réel et l’utopie Ousmane
+              cherche sans cesse à repousser les limites du possible. Ses
+              inspirations, il va les chercher au plus profond du metaverse,
+              tentant par tous les moyens de transformer l’illusoire en
               réalisable. Il se définit lui même comme un « dégénéré » et a
               choisi la 3D pour dépasser les limites humaines, sans jamais y
               trouver la fin. Cette science, il l’applique aussi dans sa
               capacité à monter des vidéos et c’est à notre grand bonheur.
-            </p>
+              `}
+                className={classNames(
+                  "lg:hidden p-5 font-fujiwara block text-white text-[clamp(0.8rem,4vw,1rem)] md:text-lg",
+                  {
+                    "w-[50%]": horizontalScreen,
+                  }
+                )}
+              />
+            </div>
           </div>
         </section>
-        <div className="sticky h-screen top-0 object-cover lg:h-auto">
+
+        {/* CANVAS CONTENANT L'ANIMATION DES MEMBRES BASEE SUR LE SCROLL */}
+        <div className="sticky top-0 h-screen object-cover lg:h-auto">
           <canvas
             ref={canvasRef}
             width={width <= 1024 ? 333 : 600}
