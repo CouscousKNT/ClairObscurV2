@@ -79,7 +79,7 @@ export const RotatingLogoScene = () => {
         <p>Hauteur : {height}px</p>
       </div> */}
       <div className="absolute w-full h-[250vh] ">
-        <Canvas>
+        <Canvas gl={{ antialias: false, preserveDrawingBuffer: false }}>
           <Environment files="https://dl.polyhaven.org/file/ph-assets/HDRIs/exr/1k/studio_small_03_1k.exr" />
           <fog color="#0f0f0f" attach="fog" near={3} far={2} />
           <ambientLight intensity={0.5} />
@@ -118,7 +118,7 @@ export const RotatingLogoScene = () => {
           <Model
             position={[0, 2, 0]}
             rotation={[0, -0.65, 0.5]}
-            enableFloatingEffect={true}
+            enableFloatingEffect={false}
             enableRotatingEffect={false}
             enableScrollEffect={true}
           />

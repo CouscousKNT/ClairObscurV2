@@ -27,7 +27,7 @@ export function Model({
   const rotationSpeed = 1.3;
   const baseXRotation = -0.6;
 
-  const { nodes, materials } = useGLTF("/3d/logoOpti.glb");
+  const { nodes, materials } = useGLTF("/3d/logoOptiV3.glb");
   const { size } = useThree();
 
   const targetRef = useRef(); // prettier-ignore
@@ -87,7 +87,7 @@ export function Model({
         position={position}
         castShadow
         receiveShadow
-        geometry={nodes.Curve001.geometry}
+        geometry={nodes.Curve.geometry}
         material={materials["SVGMat.004"]}
         rotation={rotation}
         scale={scale ?? (size.width >= 1024 ? 12 : 10)}
@@ -105,4 +105,4 @@ export function Model({
   );
 }
 
-useGLTF.preload("/3d/logoOpti.glb");
+useGLTF.preload("/3d/logoOptiV3.glb");
