@@ -4,7 +4,7 @@ import { SplitText } from "gsap/all";
 import React, { useEffect, useRef } from "react";
 import { twMerge } from "tailwind-merge";
 
-export const LettersTextAnimation = ({
+export const ParagraphAnimation = ({
   triggerStart,
   triggerEnd,
   start,
@@ -23,17 +23,19 @@ export const LettersTextAnimation = ({
       if (!textRef.current) return;
       // Découpe le texte en lettres grâce à SplitText de GSAP
       split.current = new SplitText(textRef.current, {
-        type: "chars",
+        type: "lines, lines",
+        mask: "lines",
+        linesClass: "line",
       });
 
-      const chars = split.current.chars;
+      const lines = split.current.lines;
 
       // Animation d'apparition du texte "Scrollez vers le bas"
       gsap.fromTo(
-        chars,
+        lines,
         {
           opacity: 0,
-          y: 20,
+          y: 80,
         },
         {
           scrollTrigger: {
@@ -45,13 +47,13 @@ export const LettersTextAnimation = ({
           opacity: 1,
           y: 0,
           stagger: stagger,
-          ease: "power2.out",
+          ease: "circ.out",
           duration: duration,
         }
       );
       // Animation de disparition du texte "Scrollez vers le bas"
       gsap.fromTo(
-        chars,
+        lines,
         {
           opacity: 1,
           y: 0,
@@ -64,9 +66,9 @@ export const LettersTextAnimation = ({
             invalidateOnRefresh: true,
           },
           opacity: 0,
-          y: -20,
+          y: -80,
           stagger: stagger,
-          ease: "power2.in",
+          ease: "circ.out",
           duration: duration,
         }
       );
@@ -88,4 +90,4 @@ export const LettersTextAnimation = ({
   );
 };
 
-export default LettersTextAnimation;
+export default ParagraphAnimation;
