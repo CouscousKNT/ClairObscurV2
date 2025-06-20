@@ -6,7 +6,10 @@ import logo from "/logo/logo.svg";
 
 const Footer = () => {
   return (
-    <div className="relative flex flex-col  w-screen bg-black z-10">
+    <div
+      id="contact"
+      className="relative flex flex-col  w-screen bg-black z-10"
+    >
       <div className="absolute col-span-5 h-full w-full ">
         <Canvas className="w-full h-full">
           <Environment files="https://dl.polyhaven.org/file/ph-assets/HDRIs/exr/1k/studio_small_03_1k.exr" />
@@ -30,19 +33,19 @@ const Footer = () => {
             position={[0, 0, 0]}
             rotation={[4.5, 0.7, 2.3]}
             scale={50}
-            enableRotatingEffect={false}
+            enableRotatingEffect={true}
           />
         </Canvas>
       </div>
-      <div className="relative flex flex-row items-center border-b-1 border-white/10 p-2">
+      <div className="relative bg-black flex flex-row items-center border-b-1 border-white/10 p-2">
         <img
           style={{ height: "30px", width: "auto", objectFit: "cover" }}
           src={logo}
           alt=""
         />
       </div>
-      <div className="z-20">
-        <div className="font-fujiwara-black mix-blend-difference flex flex-row justify-around pt-4">
+      <div className="z-20 mix-blend-difference">
+        <div className="font-fujiwara-black  flex flex-row justify-around pt-4">
           <a
             className="text-sm"
             href="https://www.instagram.com/agenceclairobscur?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
