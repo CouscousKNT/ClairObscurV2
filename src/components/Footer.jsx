@@ -11,7 +11,10 @@ const Footer = () => {
       className="relative flex flex-col  w-screen bg-black z-10"
     >
       <div className="absolute col-span-5 h-full w-full ">
-        <Canvas className="w-full h-full">
+        <Canvas
+          gl={{ antialias: false, preserveDrawingBuffer: false }}
+          className="w-full h-full"
+        >
           <Environment files="https://dl.polyhaven.org/file/ph-assets/HDRIs/exr/1k/studio_small_03_1k.exr" />
           <directionalLight
             color="white"
