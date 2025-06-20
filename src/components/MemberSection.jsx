@@ -398,7 +398,7 @@ export const MemberSection = () => {
 
             <ParagraphAnimation
               triggerStart={"#member4"}
-              triggerEnd={""}
+              triggerEnd={"#contact"}
               start={"top center"}
               end={""}
               stagger={0.04}
@@ -420,7 +420,7 @@ export const MemberSection = () => {
             <div>
               <ParagraphAnimation
                 triggerStart={"#member4"}
-                triggerEnd={""}
+                triggerEnd={"#contact"}
                 start={"top center"}
                 end={""}
                 stagger={0.04}
