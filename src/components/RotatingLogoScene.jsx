@@ -74,54 +74,57 @@ export const RotatingLogoScene = () => {
 
   return (
     <div className="w-full h-[250vh]" style={{ backgroundColor: bgColor }}>
-      <Pitch />
       {/* <div>
         <p>Largeur : {width}px</p>
         <p>Hauteur : {height}px</p>
       </div> */}
-      <Canvas>
-        <Environment files="https://dl.polyhaven.org/file/ph-assets/HDRIs/exr/1k/studio_small_03_1k.exr" />
-        <fog color="#0f0f0f" attach="fog" near={3} far={2} />
-        <ambientLight intensity={0.5} />
-        <directionalLight
-          color="white"
-          position={[-15, 0, -5]}
-          intensity={7.5}
-        />
-        <directionalLight
-          color="white"
-          position={[0.5, -7.5, 2.5]}
-          intensity={7.5}
-        />
-        <CustomText text={`La vie est`} position={[0, 3.4, 0]} scale={6.3} />
-        <CustomText text={`faite de`} position={positionText1} scale={6.3} />
-        <CustomText text={`moments`} position={positionText2} scale={6.3} />
-        <CustomText
-          text={`de lumière...`}
-          position={positionText3}
-          scale={6.3}
-        />
-        {/* <CustomText
-          text={`et d'obscurité.`}
-          color="#111111"
-          position={[-0.3, -1, -1]}
-          scale={0.2}
-        /> */}
-        <CustomText
-          text={`et d'obscurité.`}
-          color="#111111"
-          position={positionText4}
-          scale={13}
-          basic={true}
-        />
-        <Model
-          position={[0, 2, 0]}
-          rotation={[0, -0.65, 0.5]}
-          enableFloatingEffect={true}
-          enableRotatingEffect={false}
-          enableScrollEffect={true}
-        />
-      </Canvas>
+      <div className="absolute w-full h-[250vh] ">
+        <Canvas>
+          <Environment files="https://dl.polyhaven.org/file/ph-assets/HDRIs/exr/1k/studio_small_03_1k.exr" />
+          <fog color="#0f0f0f" attach="fog" near={3} far={2} />
+          <ambientLight intensity={0.5} />
+          <directionalLight
+            color="white"
+            position={[-15, 0, -5]}
+            intensity={7.5}
+          />
+          <directionalLight
+            color="white"
+            position={[0.5, -7.5, 2.5]}
+            intensity={7.5}
+          />
+          <CustomText text={`La vie est`} position={[0, 3.4, 0]} scale={6.3} />
+          <CustomText text={`faite de`} position={positionText1} scale={6.3} />
+          <CustomText text={`moments`} position={positionText2} scale={6.3} />
+          <CustomText
+            text={`de lumière...`}
+            position={positionText3}
+            scale={6.3}
+          />
+          {/* <CustomText
+            text={`et d'obscurité.`}
+            color="#111111"
+            position={[-0.3, -1, -1]}
+            scale={0.2}
+          /> */}
+
+          {/* <CustomText
+            text={`et d'obscurité.`}
+            color="#111111"
+            position={positionText4}
+            scale={13}
+            basic={true}
+          /> */}
+          <Model
+            position={[0, 2, 0]}
+            rotation={[0, -0.65, 0.5]}
+            enableFloatingEffect={true}
+            enableRotatingEffect={false}
+            enableScrollEffect={true}
+          />
+        </Canvas>
+      </div>
+      <Pitch />
     </div>
   );
 };

@@ -37,7 +37,7 @@
   font-style: normal;
   font-weight: 200 700;
   font-display: swap;
-  src: url("/fonts/Fujiwara B Medium.ttf") format("truetype");
+  src: url("/fonts/Fujiwara A Medium.ttf") format("truetype");
 }
 
 @font-face {
@@ -45,7 +45,7 @@
   font-style: normal;
   font-weight: 200 700;
   font-display: swap;
-  src: url("/fonts/Fujiwara B Medium Italic.ttf") format("truetype");
+  src: url("/fonts/Fujiwara A Medium Italic.ttf") format("truetype");
 }
 
 @font-face {
