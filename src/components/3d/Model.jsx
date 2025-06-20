@@ -24,7 +24,7 @@ export function Model({
 
   // VARIABLES EFFET ROTATION / ONSCROLL ROTATION EFFECT VARS
   // const enableRotatingEffect = true;
-  const rotationSpeed = 1;
+  const rotationSpeed = 1.3;
   const baseXRotation = -0.6;
 
   const { nodes, materials } = useGLTF("/3d/logoOpti.glb");
@@ -93,11 +93,10 @@ export function Model({
         scale={scale ?? (size.width >= 1024 ? 12 : 10)}
       >
         {/* <MeshTransmissionMaterial
-          thickness={0.2}
-          thickness={0.05}
+          thickness={0}
           roughness={0}
           transmission={1}
-          ior={1.2}
+          ior={1}
           chromaticAberration={0.02}
           backside={true}
         /> */}
