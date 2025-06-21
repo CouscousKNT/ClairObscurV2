@@ -2,7 +2,7 @@ import React from "react";
 
 export const Header = () => {
   return (
-    <div className="font-fujiwara-bold mix-blend-difference w-auto fixed flex flex-row justify-center gap-2 z-[80] right-0 p-5">
+    <div className="font-fujiwara-bold mix-blend-difference w-auto fixed flex flex-row justify-center gap-2 z-[90] right-0 p-5">
       <div>
         <a href="#pitch">[Pitch]</a>
       </div>
