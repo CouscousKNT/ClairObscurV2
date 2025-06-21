@@ -95,7 +95,7 @@ export const MemberSection = () => {
 
   // ANIMATION DES MEMBRES DE L'EQUIPE BASEE SUR LE SCROLL
   const imagesLinkBasedOnDevice =
-    width <= 1024 ? `/team/membersAnimationMobile/` : `/team/membersAnimation/`;
+    width <= 1024 ? `/team/morphAnimMobile/` : `/team/morphAnim/`;
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -447,7 +447,7 @@ export const MemberSection = () => {
         </section>
 
         {/* CANVAS CONTENANT L'ANIMATION DES MEMBRES BASEE SUR LE SCROLL */}
-        <div className="sticky top-0 h-screen object-cover lg:h-auto">
+        <div className="membersCanvas sticky top-0 h-screen object-cover lg:h-auto">
           <canvas
             ref={canvasRef}
             width={width <= 1024 ? 333 : 600}
