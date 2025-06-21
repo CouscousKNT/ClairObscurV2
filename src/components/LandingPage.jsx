@@ -1,37 +1,33 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import logo from "/logo/logo.svg";
 import { Canvas } from "@react-three/fiber";
 import { Piece } from "./3d/Piece";
-import CustomText from "./3d/CustomText";
+import { CustomText } from "./3d/CustomText";
 import { Environment } from "@react-three/drei";
 import { useWindowSize } from "../utils/useWindowSize";
 import Lenis from "lenis";
-import { isMobile } from "react-device-detect";
+import logo from "/logo/logo.svg";
 
 const LandingPage = () => {
-  // Refs for GSAP animations
   const lenisRef = useRef(null);
   const loadingScreenRef = useRef(null);
   const loadingLogoRef = useRef(null);
   const loadingBarRef = useRef(null);
   const entryScreenRef = useRef(null);
-  const entryTitleRef = useRef(null);
   const enterButtonRef = useRef(null);
   const videoTransitionRef = useRef(null);
   const videoRef = useRef(null);
-  const mainContentRef = useRef(null);
-  const mainTitleRef = useRef(null);
-  const mainSubtitleRef = useRef(null);
+  const contentRef = useRef(null);
   const { width, height } = useWindowSize();
+
+  let responsiveTextScale = 3;
+  let responsiveCoinScale = 20;
 
   useEffect(() => {
     const lenis = new Lenis({
       // Valeur entre 0 et 1
-      // Valeur par défaut : 0,1
       // Plus la valeur est faible, plus le scroll sera fluide
       lerp: 0.05,
-      // Valeur par défaut : 1
       // Plus la valeur est haute, plus le défilement sera rapide
       wheelMultiplier: 1,
     });
@@ -45,12 +41,8 @@ const LandingPage = () => {
   }, []);
 
   useEffect(() => {
-    // Initial loading animation
+    // ANIMATION DE LA BARRE DE CHARGEMENT
     const tlLoading = gsap.timeline();
-
-    // Logo animation
-
-    // Loading bar animation (simulating load)
     tlLoading.to(
       loadingBarRef.current,
       {
@@ -62,8 +54,9 @@ const LandingPage = () => {
       0.5
     );
 
+    // UNE FOIS L'ANIMATION DE CHARGEMENT TERMINEE, ON AFFICHE
+    // L'ECRAN AVEC LA PIECE CLIQUABLE POUR DEMARRER L'EXPERIENCE
     function showEntryScreen() {
-      // Hide loading screen
       gsap.to(loadingScreenRef.current, {
         opacity: 0,
         duration: 1,
@@ -71,21 +64,11 @@ const LandingPage = () => {
         onComplete: () => (loadingScreenRef.current.style.display = "none"),
       });
 
-      // Show entry screen
       gsap.to(entryScreenRef.current, {
         opacity: 1,
         duration: 1.5,
         ease: "power2.out",
         pointerEvents: "all",
-      });
-
-      // Animate entry elements
-      gsap.to(entryTitleRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "power2.out",
-        delay: 0.5,
       });
 
       gsap.to(enterButtonRef.current, {
@@ -97,12 +80,11 @@ const LandingPage = () => {
       });
     }
 
-    // Preload video
+    // Prechargement de la vidéo
     if (videoRef.current) {
       videoRef.current.load();
     }
 
-    // Clean up animations on component unmount
     return () => {
       tlLoading.kill();
       gsap.killTweensOf([
@@ -110,33 +92,46 @@ const LandingPage = () => {
         loadingLogoRef.current,
         loadingBarRef.current,
         entryScreenRef.current,
-        entryTitleRef.current,
         enterButtonRef.current,
         videoTransitionRef.current,
         videoRef.current,
-        mainContentRef.current,
-        mainTitleRef.current,
-        mainSubtitleRef.current,
+        contentRef.current,
       ]);
     };
   }, []);
 
-  const handleEnterClick = () => {
-    // Fade out entry screen
-    console.log(entryScreenRef.current.style);
+  // TAILLE DE LA PIECE 3D ET DU TEXTE 3D
+  // EN FONCTION DE LA LARGEUR DE L'ECRAN
+  if (width <= 640 || (width > height && width <= 640)) {
+    responsiveCoinScale = 3;
+    responsiveTextScale = 15;
+  } else if (width <= 768) {
+    responsiveCoinScale = 3.5;
+    responsiveTextScale = 25;
+  } else if (width <= 1024) {
+    responsiveCoinScale = 3;
+    responsiveTextScale = 20;
+  } else if (width <= 1280) {
+    responsiveCoinScale = 3;
+    responsiveTextScale = 25;
+  } else if (width > 1280) {
+    responsiveCoinScale = 3;
+    responsiveTextScale = 35;
+  }
 
+  // UNE FOIS LA PIECE CLIQUE, DISPARITION DE LA PAGE AVEC LA PIECE
+  // ET APPARITION DE LA TRANSITION VIDEO
+  const handleEnterClick = () => {
     gsap.to(entryScreenRef.current, {
       opacity: 0,
       duration: 1,
       ease: "power2.inOut",
       pointerEvents: "none",
       onComplete: () => {
-        // Une fois l'animation terminée, on cache complètement l'élément
         entryScreenRef.current.style.display = "none";
       },
     });
 
-    // Show video transition
     gsap.to(videoTransitionRef.current, {
       opacity: 1,
       duration: 1,
@@ -152,10 +147,9 @@ const LandingPage = () => {
     });
   };
 
+  //  AFFICHAGE DES TEXTES DE LA LANDING PAGE
   const showMainContent = () => {
-    // Hide video transition
-    // Show main content
-    gsap.to(mainContentRef.current, {
+    gsap.to(contentRef.current, {
       opacity: 1,
       duration: 2,
       delay: 1.5,
@@ -164,37 +158,12 @@ const LandingPage = () => {
     });
   };
 
-  let responsiveTextScale = 3;
-  let responsiveCoinScale = 20;
-
-  if (width <= 640 || (width > height && width <= 640)) {
-    console.log("caac");
-    console.log("sm");
-    responsiveCoinScale = 3;
-    responsiveTextScale = 15;
-  } else if (width <= 768) {
-    console.log("md");
-    responsiveCoinScale = 3.5;
-    responsiveTextScale = 25;
-  } else if (width <= 1024) {
-    console.log("lg");
-    responsiveCoinScale = 3;
-    responsiveTextScale = 20;
-  } else if (width <= 1280) {
-    console.log("xl");
-    responsiveCoinScale = 3;
-    responsiveTextScale = 25;
-  } else if (width > 1280) {
-    console.log("2xl");
-    responsiveCoinScale = 3;
-    responsiveTextScale = 35;
-  }
-
   return (
     <div className="entry-experience h-screen">
-      {/* Loading Screen */}
+      {/* ECRAN DE DEPART 
+      CONTENANT LA BARRE DE CHARGEMENT */}
       <div
-        className="loading-screen fixed inset-0 bg-white flex flex-col justify-center items-center z-[100]"
+        className="loading-screen fixed h-screen inset-0 bg-white flex flex-col justify-center items-center z-[100]"
         ref={loadingScreenRef}
       >
         <img
@@ -211,14 +180,12 @@ const LandingPage = () => {
         </div>
       </div>
 
-      {/* Entry Screen */}
+      {/* PAGE CONTENANT LA PIECE EN 3D CLIQUABLE
+      POUR DEMARER L'EXPERIENCE */}
       <div
-        className="entry-screen fixed inset-0 flex flex-col justify-center items-center bg-black z-[90] opacity-0 pointer-events-none"
+        className="entry-screen fixed h-screen inset-0 flex flex-col justify-center items-center bg-black z-[90] opacity-0 pointer-events-none"
         ref={entryScreenRef}
       >
-        {/* <div className="">
-          <h1 className="font-fujiwara">"Lancez la pièce"</h1>
-        </div> */}
         <div className="h-[100vh] w-screen">
           <Canvas
             gl={{ antialias: false, preserveDrawingBuffer: false }}
@@ -238,23 +205,16 @@ const LandingPage = () => {
             <Environment files="https://dl.polyhaven.org/file/ph-assets/HDRIs/exr/1k/studio_small_03_1k.exr" />
           </Canvas>
         </div>
-        {/* <button
-          className="enter-button bg-transparent text-white border border-white/30 px-[45px] py-[15px] text-base uppercase tracking-wider cursor-pointer transition-all duration-300 ease-in-out opacity-0 translate-y-5 relative overflow-hidden hover:border-white/80 hover:bg-white/5"
-          ref={enterButtonRef}
-          onClick={handleEnterClick}
-        >
-          Démarrer
-          <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full hover:translate-x-full transition-transform duration-700 ease-in-out" />
-        </button> */}
       </div>
 
-      {/* Video Transition */}
+      {/* VIDEO DE TRANSITION 
+      APRES AVOIR CLIQUE SUR LA PIECE EN 3D */}
       <div
-        className="video-transition bg-black z-[80] opacity-0 pointer-events-none"
+        className="video-transition absolute w-full h-screen z-[70] opacity-0 pointer-events-none"
         ref={videoTransitionRef}
       >
         <video
-          className="video-container absolute inset-0 w-full h-full object-cover opacity-0"
+          className="video-container absolute inset-0 w-full h-screen object-cover opacity-0"
           muted
           playsInline
           webkit-playsinline="true"
@@ -265,24 +225,21 @@ const LandingPage = () => {
           Your browser does not support the video tag.
         </video>
       </div>
-
-      {/* Main Content */}
+      <div className="video-mask absolute bottom-0 h-screen w-full"></div>
+      {/* CONTENU DE LA LANDING PAGE, 
+      S'AFFICHE AU DESSUS DE LA VIDEO DE TRANSITION */}
       <div
-        className="main-content z-[90] absolute inset-0 flex flex-col opacity-0 pointer-events-none mix-blend-difference"
-        ref={mainContentRef}
+        className="main-content z-[80] absolute inset-0 flex flex-col opacity-0 pointer-events-none mix-blend-difference"
+        ref={contentRef}
       >
         <div className="p-4">
           <img style={{ height: "3%", width: "auto" }} src={logo} alt="" />
         </div>
-        <h1
-          className="main-title text-5xl font-light mb-8 tracking-[0.5rem]"
-          ref={mainTitleRef}
-        ></h1>
         <div className="absolute flex flex-col bottom-[50%] w-full p-5">
           <div className="w-full bottom-0 ">
             <div className="font-fujiwara-black-italic flex flex-row justify-between text-xs lg:text-base">
               <div className="w-1/3">
-                <p>Ecriture</p>
+                <p>Basé à Paris</p>
               </div>
 
               <div className="w-1/3">
@@ -291,19 +248,12 @@ const LandingPage = () => {
               <div className="w-1/3 ">
                 <p>Post-Production</p>
               </div>
-              <div className="">
-                <p>Lorem</p>
-              </div>
             </div>
           </div>
         </div>
         <div className="absolute bottom-0 w-full p-5">
           <div className="w-full bottom-0 ">
-            <div className="font-fujiwara-medium flex flex-row justify-between text-xs lg:text-base">
-              <div className="w-1/3">
-                <p>Basé à Paris</p>
-              </div>
-
+            <div className="font-fujiwara-bold flex flex-row justify-between text-xs lg:text-base">
               <div className="w-1/3">
                 <a
                   href="https://www.instagram.com/agenceclairobscur?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
@@ -312,21 +262,16 @@ const LandingPage = () => {
                   [Instagram]
                 </a>
               </div>
-              <div className="w-1/3 ">
+
+              <div className="w-1/3">
                 <a href="https://www.linkedin.com/company/clair-obscur-vision/">
                   [Linkedin]
                 </a>
               </div>
-              <div className="">
-                <p>2025©</p>
-              </div>
+              <div className="w-1/3 ">2025 ©</div>
             </div>
           </div>
         </div>
-        <p
-          className="main-subtitle font-light tracking-[0.3rem] mb-12 opacity-70"
-          ref={mainSubtitleRef}
-        ></p>
       </div>
     </div>
   );
