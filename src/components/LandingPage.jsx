@@ -239,7 +239,7 @@ const LandingPage = () => {
           <div className="w-full bottom-0 ">
             <div className="font-fujiwara-black-italic flex flex-row justify-between text-xs lg:text-base">
               <div className="w-1/3">
-                <p>Ecriture</p>
+                <p>Basé à Paris</p>
               </div>
 
               <div className="w-1/3">
@@ -248,19 +248,12 @@ const LandingPage = () => {
               <div className="w-1/3 ">
                 <p>Post-Production</p>
               </div>
-              <div className="">
-                <p>Lorem</p>
-              </div>
             </div>
           </div>
         </div>
         <div className="absolute bottom-0 w-full p-5">
           <div className="w-full bottom-0 ">
-            <div className="font-fujiwara-medium flex flex-row justify-between text-xs lg:text-base">
-              <div className="w-1/3">
-                <p>Basé à Paris</p>
-              </div>
-
+            <div className="font-fujiwara-bold flex flex-row justify-between text-xs lg:text-base">
               <div className="w-1/3">
                 <a
                   href="https://www.instagram.com/agenceclairobscur?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
@@ -269,14 +262,13 @@ const LandingPage = () => {
                   [Instagram]
                 </a>
               </div>
-              <div className="w-1/3 ">
+
+              <div className="w-1/3">
                 <a href="https://www.linkedin.com/company/clair-obscur-vision/">
                   [Linkedin]
                 </a>
               </div>
-              <div className="">
-                <p>2025©</p>
-              </div>
+              <div className="w-1/3 ">2025 ©</div>
             </div>
           </div>
         </div>
