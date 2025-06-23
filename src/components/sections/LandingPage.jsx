@@ -1,14 +1,17 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { Canvas } from "@react-three/fiber";
-import { Piece } from "./3d/Piece";
-import { CustomText } from "./3d/CustomText";
+import { Piece } from "../3d/Piece";
+import { CustomText } from "../3d/CustomText";
 import { Environment } from "@react-three/drei";
-import { useWindowSize } from "../utils/useWindowSize";
+import { useWindowSize } from "../../utils/useWindowSize";
 import Lenis from "lenis";
 import logo from "/logo/logo.svg";
 
-const LandingPage = () => {
+export const LandingPage = () => {
+  const [rotateCoin, setRotateCoin] = useState(false);
+  console.log(rotateCoin);
+
   const lenisRef = useRef(null);
   const loadingScreenRef = useRef(null);
   const loadingLogoRef = useRef(null);
@@ -131,7 +134,6 @@ const LandingPage = () => {
         entryScreenRef.current.style.display = "none";
       },
     });
-
     gsap.to(videoTransitionRef.current, {
       opacity: 1,
       duration: 1,
@@ -199,7 +201,7 @@ const LandingPage = () => {
             <Piece
               scale={responsiveCoinScale}
               rotation={[0.9, 0, 0]}
-              enableRotatingEffect={false}
+              enableRotatingEffect={rotateCoin}
               onClick={handleEnterClick}
             />
             <Environment files="https://dl.polyhaven.org/file/ph-assets/HDRIs/exr/1k/studio_small_03_1k.exr" />
@@ -226,6 +228,7 @@ const LandingPage = () => {
         </video>
       </div>
       <div className="video-mask absolute bottom-0 h-screen w-full"></div>
+
       {/* CONTENU DE LA LANDING PAGE, 
       S'AFFICHE AU DESSUS DE LA VIDEO DE TRANSITION */}
       <div
@@ -233,7 +236,7 @@ const LandingPage = () => {
         ref={contentRef}
       >
         <div className="p-4">
-          <img style={{ height: "3%", width: "auto" }} src={logo} alt="" />
+          <img style={{ height: "auto", width: "80px" }} src={logo} alt="" />
         </div>
         <div className="absolute flex flex-col bottom-[50%] w-full p-5">
           <div className="w-full bottom-0 ">

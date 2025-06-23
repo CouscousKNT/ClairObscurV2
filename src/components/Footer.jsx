@@ -4,7 +4,7 @@ import { Model } from "./3d/Model";
 import { Environment } from "@react-three/drei";
 import logo from "/logo/logo.svg";
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <div
       id="contact"

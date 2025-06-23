@@ -1,8 +1,8 @@
 import gsap from "gsap";
 import { ScrollTrigger, SplitText } from "gsap/all";
 import React from "react";
-import ParagraphAnimation from "./ParagraphAnimation";
-import LettersTextAnimation from "./LettersTextAnimation";
+import ParagraphAnimation from "../textAnimations/ParagraphAnimation";
+import LettersTextAnimation from "../textAnimations/LettersTextAnimation";
 
 gsap.registerPlugin(ScrollTrigger);
 
