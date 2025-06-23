@@ -2,11 +2,11 @@
 
 import { Canvas } from "@react-three/fiber";
 import React, { useEffect, useState } from "react";
-import { Model } from "./3d/Model";
+import { Model } from "../3d/Model";
 import { Environment } from "@react-three/drei";
 import { useMotionValueEvent, useScroll, useTransform } from "motion/react";
-import { CustomText } from "./3d/CustomText";
-import { useWindowSize } from "../utils/useWindowSize";
+import { CustomText } from "../3d/CustomText";
+import { useWindowSize } from "../../utils/useWindowSize";
 import Pitch from "./Pitch";
 
 export const RotatingLogoScene = () => {
