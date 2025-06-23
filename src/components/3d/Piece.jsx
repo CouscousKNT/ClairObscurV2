@@ -18,16 +18,14 @@ export function Piece({
   const pieceRef = useRef(); // prettier-ignore
   const [hovered, setHover] = useState(false);
 
-  //EFFET AUTO-ROTATION
-  function rotatingEffect() {
-    hovered
-      ? (pieceRef.current.rotation.z += 0.008)
-      : (pieceRef.current.rotation.z += 0.001);
-  }
   if (enableRotatingEffect) {
     useFrame(() => {
       rotatingEffect();
     });
+  }
+
+  function rotatingEffect() {
+    pieceRef.current.rotation.z += 0.053;
   }
   return (
     <group {...props} dispose={null}>

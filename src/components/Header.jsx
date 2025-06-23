@@ -7,7 +7,7 @@ export const Header = () => {
         <a href="#pitch">[Pitch]</a>
       </div>
       <div>
-        <a href="#gallerie">[Galerie]</a>
+        <a href="#galerie">[Galerie]</a>
       </div>
       <div>
         <a href="#member1">[Credits]</a>

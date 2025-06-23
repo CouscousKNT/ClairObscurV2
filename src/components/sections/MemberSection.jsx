@@ -1,12 +1,12 @@
 "use client";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useMotionValueEvent, useScroll, useTransform } from "framer-motion";
-import { useWindowSize } from "../utils/useWindowSize";
-import "../App.css";
+import { useWindowSize } from "../../utils/useWindowSize";
+import "../../App.css";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import gsap from "gsap";
-import { LettersTextAnimation } from "./LettersTextAnimation";
-import { ParagraphAnimation } from "./ParagraphAnimation";
+import { LettersTextAnimation } from "../textAnimations/LettersTextAnimation";
+import { ParagraphAnimation } from "../textAnimations/ParagraphAnimation";
 import classNames from "classnames";
 
 gsap.registerPlugin(ScrollTrigger);

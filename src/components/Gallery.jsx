@@ -65,62 +65,62 @@ export const Gallery = () => {
     };
   }, [isMobile]);
   return (
-    <section className="gallery" id="gallerie">
+    <section className="gallery" id="galerie">
       <div className="gallery-wrapper">
         <div className="row">
           <div className="img">
-            <img src="/marquee/img1.jpg" alt="" />
+            <img src="/marquee/img1.webp" alt="" />
           </div>
           <div className="img">
-            <img src="/marquee/img2.jpg" alt="" />
+            <img src="/marquee/img2.webp" alt="" />
           </div>
           <div className="img">
-            <img src="/marquee/img3.jpg" alt="" />
+            <img src="/marquee/img3.webp" alt="" />
           </div>
           <div className="img">
-            <img src="/marquee/img4.jpg" alt="" />
-          </div>
-        </div>
-        <div className="row">
-          <div className="img">
-            <img src="/marquee/img5.png" alt="" />
-          </div>
-          <div className="img">
-            <img src="/marquee/img6.jpg" alt="" />
-          </div>
-          <div className="img">
-            <img src="/marquee/img7.png" alt="" />
-          </div>
-          <div className="img">
-            <img src="/marquee/img8.jpg" alt="" />
+            <img src="/marquee/img4.webp" alt="" />
           </div>
         </div>
         <div className="row">
           <div className="img">
-            <img src="/marquee/img9.jpg" alt="" />
+            <img src="/marquee/img5.webp" alt="" />
           </div>
           <div className="img">
-            <img src="/marquee/img10.jpg" alt="" />
+            <img src="/marquee/img6.webp" alt="" />
           </div>
           <div className="img">
-            <img src="/marquee/img11.jpg" alt="" />
+            <img src="/marquee/img7.webp" alt="" />
           </div>
           <div className="img">
-            <img src="/marquee/img12.jpg" alt="" />
+            <img src="/marquee/img8.webp" alt="" />
           </div>
         </div>
         <div className="row">
           <div className="img">
-            <img src="/marquee/img13.jpg" alt="" />
+            <img src="/marquee/img9.webp" alt="" />
           </div>
           <div className="img">
-            <img src="/marquee/img14.jpg" alt="" />
+            <img src="/marquee/img10.webp" alt="" />
           </div>
           <div className="img">
-            <img src="/marquee/img15.jpg" alt="" />
+            <img src="/marquee/img11.webp" alt="" />
           </div>
           <div className="img">
-            <img src="/marquee/img16.jpg" alt="" />
+            <img src="/marquee/img12.webp" alt="" />
+          </div>
+        </div>
+        <div className="row">
+          <div className="img">
+            <img src="/marquee/img13.webp" alt="" />
+          </div>
+          <div className="img">
+            <img src="/marquee/img14.webp" alt="" />
+          </div>
+          <div className="img">
+            <img src="/marquee/img15.webp" alt="" />
+          </div>
+          <div className="img">
+            <img src="/marquee/img16.webp" alt="" />
           </div>
         </div>
       </div>
