@@ -73,7 +73,11 @@ export const RotatingLogoScene = () => {
   console.log(width);
 
   return (
-    <div className="w-full h-[250vh]" style={{ backgroundColor: bgColor }}>
+    <div
+      id="pitchSection"
+      className="w-full h-[250vh]"
+      style={{ backgroundColor: bgColor }}
+    >
       {/* <div>
         <p>Largeur : {width}px</p>
         <p>Hauteur : {height}px</p>

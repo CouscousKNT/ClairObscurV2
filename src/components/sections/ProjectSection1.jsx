@@ -82,10 +82,16 @@ export const ProjectSection1 = () => {
           >
             <div className="border-white border-l-1"></div>
             <div className="h-full w-full">
-              <p className="text-white text-xs border-white lg:text-sm overflow-hidden">
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
-                diam nonummy nibh euismod tincidunt ut laoreet dolore magna
-                aliquam erat volutpat. Ut wisi enim ad minim veniam
+              <p className="hidden sm:block sm:text-white sm:text-[clamp(0.5rem,0.7rem,1rem)]/5 sm:text-xs border-white lg:text-sm overflow-hidden">
+                De quelle couleur est ce tableau ? C'est plus qu'une simple
+                histoire de couleurs. Voici la naissance de Clair Obscur, avec
+                une volonté forte, celle de capturer et retransmettre à travers
+                l'image, le prisme infini de toutes les émotions.
+              </p>
+              <p className="text-white text-[clamp(0.5rem,0.7rem,1rem)] xs:text-xs border-white sm:hidden">
+                De quelle couleur est ce tableau ? C'est plus qu'une simple
+                histoire de couleurs, tout cela va bien au dela du noir et du
+                blanc. Voici la naissance de Clair Obscur.
               </p>
             </div>
           </div>
@@ -100,9 +106,8 @@ export const ProjectSection1 = () => {
           Dévouvrir
         </a>
         <p className="text-white text-xs pl-4">
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-          nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-          volutpat.
+          Découvrez "Aux couleurs des tableaux", le film de lancement de Clair
+          Obscur.
         </p>
         {/* <div className="w-8 h-full border-white border-l-1"></div> */}
       </div>

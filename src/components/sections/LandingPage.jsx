@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import { SplitText } from "gsap/all";
 import { Canvas } from "@react-three/fiber";
 import { Piece } from "../3d/Piece";
 import { CustomText } from "../3d/CustomText";
@@ -7,6 +8,7 @@ import { Environment } from "@react-three/drei";
 import { useWindowSize } from "../../utils/useWindowSize";
 import Lenis from "lenis";
 import logo from "/logo/logo.svg";
+import Header from "../Header";
 
 export const LandingPage = () => {
   const [rotateCoin, setRotateCoin] = useState(false);
@@ -18,6 +20,8 @@ export const LandingPage = () => {
   const loadingBarRef = useRef(null);
   const entryScreenRef = useRef(null);
   const enterButtonRef = useRef(null);
+  const pushCoinText = useRef(null);
+  const split = useRef(null);
   const videoTransitionRef = useRef(null);
   const videoRef = useRef(null);
   const contentRef = useRef(null);
@@ -134,6 +138,7 @@ export const LandingPage = () => {
         entryScreenRef.current.style.display = "none";
       },
     });
+
     gsap.to(videoTransitionRef.current, {
       opacity: 1,
       duration: 1,
@@ -159,6 +164,40 @@ export const LandingPage = () => {
       pointerEvents: "all",
     });
   };
+
+  // AFFICHAGE DU TEXTE INVITANT A APPUYER SUR LA PIECE
+  useEffect(() => {
+    if (!pushCoinText.current) return;
+
+    // Split le texte en caractères
+    split.current = new SplitText(pushCoinText.current, {
+      type: "chars",
+    });
+
+    const chars = split.current.chars;
+
+    // Animation d’apparition des lettres
+    gsap.fromTo(
+      chars,
+      {
+        opacity: 0,
+        y: 20,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        delay: 3.5,
+        stagger: 0.05,
+        ease: "power2.out",
+        duration: 0.5,
+      }
+    );
+
+    return () => {
+      // Nettoyage à la destruction du composant
+      if (split.current) split.current.revert();
+    };
+  }, []);
 
   return (
     <div className="entry-experience h-screen">
@@ -207,6 +246,12 @@ export const LandingPage = () => {
             <Environment files="https://dl.polyhaven.org/file/ph-assets/HDRIs/exr/1k/studio_small_03_1k.exr" />
           </Canvas>
         </div>
+        <p
+          ref={pushCoinText}
+          className="absolute bottom-[20vh] font-fujiwara-black-italic text-xs sm:text-base"
+        >
+          Appuyez sur la pièce
+        </p>
       </div>
 
       {/* VIDEO DE TRANSITION 
@@ -235,6 +280,7 @@ export const LandingPage = () => {
         className="main-content z-[80] absolute inset-0 flex flex-col opacity-0 pointer-events-none mix-blend-difference"
         ref={contentRef}
       >
+        <Header />
         <div className="p-4">
           <img style={{ height: "auto", width: "80px" }} src={logo} alt="" />
         </div>

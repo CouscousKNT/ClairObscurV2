@@ -7,11 +7,14 @@ import { RotatingLogoScene } from "./components/sections/RotatingLogoScene";
 import { ProjectSection1 } from "./components/sections/ProjectSection1";
 import { ProjectSection2 } from "./components/sections/ProjectSection2";
 import { MemberSection } from "./components/sections/MemberSection";
+import { useEffect } from "react";
 
 function App() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
-      <Header />
       <LandingPage />
       <RotatingLogoScene />
       <Gallery />

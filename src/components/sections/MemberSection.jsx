@@ -13,7 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export const MemberSection = () => {
   const canvasRef = useRef(null);
-  const containerRef = useRef(null);
+  const containerRef = useRef();
   const scrollIconAnimation = useRef(null);
   const { width, height } = useWindowSize();
   const [imagesLoaded, setImagesLoaded] = useState(false);
@@ -153,7 +153,7 @@ export const MemberSection = () => {
   }, [imagesLoaded, render]);
 
   return (
-    <div className="h-[1200vh] bg-white z-5">
+    <div id="memberSection" className="h-[1200vh] bg-white z-5">
       <div ref={containerRef} className="relative h-[1200vh] bg-white">
         <div className="font-fujiwara-black-italic w-full bottom-10 fixed flex flex-col justify-center items-center gap-4 mix-blend-difference z-10 bottom-0">
           <div
@@ -168,7 +168,7 @@ export const MemberSection = () => {
             end={""}
             stagger={0.05}
             duration={0.5}
-            text={"Scrollez vers le bas"}
+            text={"Défilez vers le bas"}
             className={"text-xs sm:text-base"}
           />
         </div>

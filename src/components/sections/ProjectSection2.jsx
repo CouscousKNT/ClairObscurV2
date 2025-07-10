@@ -81,10 +81,16 @@ export const ProjectSection2 = () => {
           >
             <div className="border-white border-l-1"></div>
             <div className="h-full w-full">
-              <p className="text-white text-xs border-white lg:text-sm overflow-hidden">
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
-                diam nonummy nibh euismod tincidunt ut laoreet dolore magna
-                aliquam erat volutpat. Ut wisi enim ad minim veniam
+              <p className="hidden sm:block sm:text-white sm:text-[clamp(0.5rem,0.7rem,1rem)]/5 sm:text-xs border-white lg:text-sm overflow-hidden">
+                Dans l'éclat romantique de Paris, chaque rue résonne d'histoires
+                d'amour. Alors, au détour d'un café et d'un foulard perdu,
+                laissez-vous emporter par la magie des rencontres fortuites, où
+                le hasard danse avec l'amour dans les ruelles de Montmartre.
+              </p>
+              <p className="text-white text-[clamp(0.5rem,0.7rem,1rem)] xs:text-xs border-white sm:hidden">
+                Au détour d'un café et d'un foulard perdu, laissez-vous emporter
+                par la magie des rencontres fortuites, où le hasard danse avec
+                l'amour dans les ruelles de Montmartre.
               </p>
             </div>
           </div>
@@ -99,9 +105,8 @@ export const ProjectSection2 = () => {
           Dévouvrir
         </a>
         <p className="text-white text-xs pl-4">
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-          nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-          volutpat.
+          Découvrez "La grande échapée", un film réalisé, écrit et tourné par
+          l'équipe Clair Obscur pour Moluki.
         </p>
         {/* <div className="w-8 h-full border-white border-l-1"></div> */}
       </div>
