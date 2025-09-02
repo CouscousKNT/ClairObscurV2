@@ -14,7 +14,6 @@ export const LandingPage = () => {
   const [rotateCoin, setRotateCoin] = useState(false);
   console.log(rotateCoin);
 
-  const lenisRef = useRef(null);
   const loadingScreenRef = useRef(null);
   const loadingLogoRef = useRef(null);
   const loadingBarRef = useRef(null);
@@ -29,23 +28,6 @@ export const LandingPage = () => {
 
   let responsiveTextScale = 3;
   let responsiveCoinScale = 20;
-
-  useEffect(() => {
-    const lenis = new Lenis({
-      // Valeur entre 0 et 1
-      // Plus la valeur est faible, plus le scroll sera fluide
-      lerp: 0.05,
-      // Plus la valeur est haute, plus le défilement sera rapide
-      wheelMultiplier: 1,
-    });
-    lenisRef.current = lenis;
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-  }, []);
 
   useEffect(() => {
     // ANIMATION DE LA BARRE DE CHARGEMENT
@@ -260,17 +242,20 @@ export const LandingPage = () => {
         className="video-transition absolute w-full h-screen z-[70] opacity-0 pointer-events-none"
         ref={videoTransitionRef}
       >
-        <video
-          className="video-container absolute inset-0 w-full h-screen object-cover opacity-0"
-          muted
-          playsInline
-          webkit-playsinline="true"
-          preload="auto"
-          ref={videoRef}
-        >
-          <source src="/videos/INTRO.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <section className="w-full absolute top-10 md:top-20 flex justify-center items-center">
+          <video
+            className="video-container w-[95vw] max-w-[1400px] md:w-[97vw] md:max-w-[1800px] h-[90vh] mx-auto rounded-2xl shadow-lg object-cover opacity-0"
+            muted
+            playsInline
+            loop
+            webkit-playsinline="true"
+            preload="auto"
+            ref={videoRef}
+          >
+            <source src="/videos/landingvideo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </section>
       </div>
       <div className="video-mask absolute bottom-0 h-screen w-full"></div>
 
@@ -280,47 +265,10 @@ export const LandingPage = () => {
         className="main-content z-[80] absolute inset-0 flex flex-col opacity-0 pointer-events-none mix-blend-difference"
         ref={contentRef}
       >
-        <Header />
-        <div className="p-4">
-          <img style={{ height: "auto", width: "80px" }} src={logo} alt="" />
-        </div>
-        <div className="absolute flex flex-col bottom-[50%] w-full p-5">
-          <div className="w-full bottom-0 ">
-            <div className="font-fujiwara-black-italic flex flex-row justify-between text-xs lg:text-base">
-              <div className="w-1/3">
-                <p>Basé à Paris</p>
-              </div>
-
-              <div className="w-1/3">
-                <p className="">Réalisation</p>
-              </div>
-              <div className="w-1/3 ">
-                <p>Post-Production</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="absolute bottom-0 w-full p-5">
-          <div className="w-full bottom-0 ">
-            <div className="font-fujiwara-bold flex flex-row justify-between text-xs lg:text-base">
-              <div className="w-1/3">
-                <a
-                  href="https://www.instagram.com/agenceclairobscur?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                  className=""
-                >
-                  [Instagram]
-                </a>
-              </div>
-
-              <div className="w-1/3">
-                <a href="https://www.linkedin.com/company/clair-obscur-vision/">
-                  [Linkedin]
-                </a>
-              </div>
-              <div className="w-1/3 ">2025 ©</div>
-            </div>
-          </div>
-        </div>
+        {/* <Header /> */}
+        <h1 className="font-fujiwara-black-italic top-5 md:top-0 text-white text-center leading-none whitespace-nowrap text-[clamp(2rem,12vw,13rem)] relative z-50 mix-blend-difference">
+          CLAIR OBSCUR
+        </h1>
       </div>
     </div>
   );

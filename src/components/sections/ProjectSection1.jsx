@@ -101,7 +101,7 @@ export const ProjectSection1 = () => {
       <div className="absolute bottom-[4vh] sm:top-[85vh] w-full flex justify-center items-center">
         <a
           className="h-10 border-white text-white border-1 flex justify-center items-center pl-4 pr-4 transition duration-300 hover:text-black hover:bg-white hover:border-black"
-          href="#"
+          href="/aux-couleurs-des-tableaux"
         >
           Dévouvrir
         </a>

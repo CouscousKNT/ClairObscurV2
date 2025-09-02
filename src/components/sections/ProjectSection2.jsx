@@ -14,7 +14,7 @@ export const ProjectSection2 = () => {
   // EFFET PARALLAXE
   useEffect(() => {
     const handleScroll = () => {
-      const value = window.scrollY - 3000;
+      const value = window.scrollY - 2000;
       titleProject2.current.style.top = value * 0.03 + "px";
       backgroundTitleProject2.current.style.top = value * 0.02 + "px";
       mainImageProject2.current.style.top = value * 0.055 + "px";
@@ -31,7 +31,10 @@ export const ProjectSection2 = () => {
   }, []);
 
   return (
-    <div className="relative content h-screen flex flex-col bg-white overflow-hidden">
+    <div
+      className="relative content h-screen flex flex-col bg-white overflow-hidden"
+      style={{ backgroundColor: "#ffe6e9" }}
+    >
       <div className="w-full">
         <h1
           ref={backgroundTitleProject2}
@@ -100,7 +103,7 @@ export const ProjectSection2 = () => {
       <div className="absolute mix-blend-difference bottom-[4vh] sm:top-[85vh] w-full flex justify-center items-center">
         <a
           className="h-10 border-white text-white border-1 flex justify-center items-center pl-4 pr-4 transition duration-300 hover:text-black hover:bg-white hover:border-black"
-          href="#"
+          href="/moluki"
         >
           Dévouvrir
         </a>
