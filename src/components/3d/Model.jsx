@@ -41,10 +41,10 @@ export function Model({
   //(scrollYProgress, [XX, XX], [h / 4, h / -4]);
   const positionY = useTransform(
     scrollYProgress,
-    [0.17, 0.48],
+    [0.18, 0.41],
     [h / 4, h / -4]
   );
-  const rotationX = useTransform(scrollYProgress, [0.17, 0.48], [0, 1.9]);
+  const rotationX = useTransform(scrollYProgress, [0.05, 0.58], [0, 1.9]);
 
   //A CHAQUE FRAME, changer la position et la roation si scroll, floatingEffect() et rotatingEffect()
   useFrame(() => {

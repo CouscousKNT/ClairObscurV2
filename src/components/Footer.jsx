@@ -1,13 +1,14 @@
 import React from "react";
 import { Canvas } from "@react-three/fiber";
 import { Model } from "./3d/Model";
+import { HeroGradient } from "./HeroGradient/HeroGradient";
 import FluidGradientCanvas from "./FluidGradientCanvas/FluidGradientCanvas";
 import { Environment } from "@react-three/drei";
 import logo from "/logo/logo.svg";
 
 export const Footer = () => {
   return (
-    <div id="contact" className="relative h-1/2 sm:h-[80vh] w-auto z-10">
+    <div id="contact" className="relative h-full w-full z-10">
       {/* Overlay UI */}
       <div className="absolute inset-0 z-50 flex flex-col h-full w-full justify-between ">
         <div className="flex flex-col h-auto ">
@@ -24,20 +25,18 @@ export const Footer = () => {
           </div> */}
         </div>
 
-        <a
-          href="mailto:agenceclairobscur@gmail.com"
-          className="font-fujiwara-black opacity-90 text-white text-center leading-none whitespace-nowrap text-sm sm:text-[clamp(1.2rem,4vw,4rem)] relative z-50"
-        >
-          [ AGENCECLAIROBSCUR@GMAIL.COM ]
-        </a>
+        <h1 className="font-fujiwara-black opacity-40 text-black text-center leading-none whitespace-nowrap text-[clamp(2rem,10vw,12rem)] relative z-50">
+          CLAIR OBSCUR.
+        </h1>
 
         <div className="z-50 ">
           {/* >>> mix-blend-difference SUR le h1 <<< */}
 
           <div className="z-20">
             <div
-              className="font-fujiwara-black p-8 text-[11px] sm:text-md
-                  flex flex-row justify-between gap-2"
+              className="font-fujiwara-black p-8 
+                  grid grid-cols-2 gap-4 text-xs
+                  md:flex md:flex-row md:justify-between"
             >
               <a href="https://www.instagram.com/agenceclairobscur">
                 [ INSTAGRAM ]

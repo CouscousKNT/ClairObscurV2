@@ -10,66 +10,83 @@ export const Pitch = () => {
   return (
     <div
       id="pitch"
-      className="relative h-[250vh] p-8 flex flex-col gap-12 justify-between top-[0] mix-blend-difference"
+      className="relative h-[250vh] w-auto flex flex-col mix-blend-difference"
     >
       <div
-        id="obscuriteTrigger"
-        className="absolute top-[150vh] left-0 w-screen "
+        id="pitchFirstPart"
+        className="relative h-screen w-screen font-fujiwara-black-italic"
       >
-        {/* <h1 className="font-fujiwara-black-italic text-center text-[clamp(0.8rem,12vw,14rem)]">
-        et d'obscurité.
-      </h1> */}
-        <LettersTextAnimation
-          triggerStart={"#obscuriteTrigger"}
-          triggerEnd={""}
-          start={"top center"}
-          end={""}
-          stagger={0.09}
-          duration={0.5}
-          text={"et d'obscurité."}
-          className={
-            "font-fujiwara-black-italic text-center text-[clamp(0.8rem,12vw,14rem)]"
-          }
-        />
+        <div className="absolute h-4/5 bottom-0 flex flex-col justify-between gap-12 py-12">
+          <div className="relative flex justify-center w-2/3 sm:w-1/2 left-5 row-start-2 row-end-3 text-[clamp(0.8rem,11vw,14rem)]/[9vw] sm:text-6xl lg:text-7xl xl:text-8xl">
+            <h1 className="w-auto px-5 sm:px-12 lg:px-24 xl:px-32">
+              La vie est faite de moments de lumière...
+            </h1>
+          </div>
+          <div className="w-full row-start-4 flex justify-center items-center ">
+            <h1 className="w-full sm:w-128 px-8 text-center text-[clamp(0.6rem,2vw,4rem)]/4 sm:text-sm/5 md:text-base/5 ">
+              Joie, peur, amour, tension... Autant de sentiments universels qui
+              nous traversent et nous unissent.
+            </h1>
+          </div>
+        </div>
       </div>
-      <div id="pitchTrigger" className="relative top-[195vh]">
-        {" "}
-        <ParagraphAnimation
-          triggerStart={"#pitchTrigger"}
-          triggerEnd={""}
-          start={"bottom bottom"}
-          end={""}
-          stagger={0.15}
-          duration={0.8}
-          text={`
-                    Joie, tristesse, colère... ces instants qui nous entourent façonnent
-          nos plus beau souvenirs.
-                    `}
-          className={
-            "lg:hidden w-3/4 text-xl md:w-4/5 md:text-4xl font-fujiwara"
-          }
-        />
-        <ParagraphAnimation
-          triggerStart={"#pitchTrigger"}
-          triggerEnd={""}
-          start={"bottom bottom"}
-          end={""}
-          stagger={0.3}
-          duration={0.8}
-          text={`
-                    Joie, tristesse, colère... ces instants qui nous entourent façonnent
-          nos plus beau souvenirs. Contemplez avec attention le tableau de la vie,
-          c'est plus qu'une simple histoire de couleur.
-                    `}
-          className={"hidden lg:block lg:w-4/5 lg:text-4xl lg:font-fujiwara"}
-        />
-      </div>
-      <div>
-        <p className="bottom-0 text-xs md:text-base text-white">
-          Clair Obscur est une agence de production audiovisuelle dédiée à
-          capturer et retransmettre à travers l'image toute la puissance des
-          émotions.
-        </p>
+
+      <div
+        id="pitchSecondPart"
+        className="relative top-[50vh] flex flex-col gap-10 lg:gap-16 justify-between left-0 w-screen h-screen py-18 px-8 lg:px-20 lg:py-32 font-fujiwara-black-italic"
+      >
+        <div className="w-full flex flex-col md:flex-row gap-16 sm:gap-8 md:gap-0 justify-between">
+          <h1 className="font-fujiwara-black-italic text-[clamp(1.6rem,12vw,11rem)] md:text-7xl 2xl:text-8xl leading-none whitespace-nowrap ">
+            et d'obscurité.
+          </h1>
+          <h1 className="w-2/3 md:hidden lg:block lg:w-1/5 text-xs xl:text-sm/5 2xl:text-base/5 self-end md:self-auto lg:opacity-40">
+            {" "}
+            “Clair Obscur est une agence de production audiovisuelle dédiée à
+            capturer et retransmettre à travers l'image toute la puissance des
+            émotions.”
+          </h1>
+        </div>
+        {/* PARTIE BASSE */}
+        <div className="flex w-full justify-between text-xs xl:text-sm/5 2xl:text-base/5 gap-2">
+          {/* PARITE GAUCHE */}
+          <div className="w-2/3 lg:w-2/5 flex flex-col gap-8">
+            {" "}
+            <h1 className="hidden lg:block w-full ">
+              {" "}
+              “Clair Obscur est une agence de production audiovisuelle dédiée à
+              capturer et retransmettre à travers l'image toute la puissance des
+              émotions.”
+            </h1>
+            <h1 className="w-full">
+              {" "}
+              “Clair Obscur est une agence de production audiovisuelle dédiée à
+              capturer et retransmettre à travers l'image toute la puissance des
+              émotions.”
+            </h1>
+          </div>
+          {/* PARTIE DROITE */}
+          <div className="w-1/3 lg:w-2/5 flex flex-col gap-8">
+            {" "}
+            <h1 className="hidden lg:block w-full self-end">
+              {" "}
+              “Clair Obscur est une agence de production audiovisuelle dédiée à
+              capturer et retransmettre à travers l'image toute la puissance des
+              émotions.”
+            </h1>
+            <h1 className="hidden lg:block lg:w-1/3 opacity-40">
+              {" "}
+              “Clair Obscur est une agence de production audiovisuelle dédiée à
+              capturer et retransmettre à travers l'image toute la puissance des
+              émotions.”
+            </h1>
+            {/* PARAGRAPHE POUR PETIT ECRAN */}
+            <h1 className="lg:hidden lg:w-1/3 opacity-40">
+              {" "}
+              “Clair Obscur est une agence de production audiovisuelle dédiée à
+              capturer
+            </h1>
+          </div>
+        </div>
       </div>
     </div>
   );
