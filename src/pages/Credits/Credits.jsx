@@ -10,6 +10,7 @@ import { LettersTextAnimation } from "../../components/textAnimations/LettersTex
 import { ParagraphAnimation } from "../../components/textAnimations/ParagraphAnimation";
 import classNames from "classnames";
 import Header from "../../components/Header";
+import { useLocation } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,6 +20,20 @@ export const Credits = () => {
   const scrollIconAnimation = useRef(null);
   const { width, height } = useWindowSize();
   const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    // Reset scroll position
+    window.scrollTo(0, 0);
+    // Refresh Lenis if available
+    if (window.lenis && typeof window.lenis.resize === "function") {
+      window.lenis.resize();
+      if (typeof window.lenis.scrollTo === "function") {
+        window.lenis.scrollTo(0, { immediate: true });
+      }
+    }
+  }, [location.pathname]);
 
   // ANIMATION DU TEXTE "SCROLLEZ VERS LE BAS" LORSQU'ON ATTEINT LA SECTION MEMBRE
   useEffect(() => {

@@ -31,19 +31,6 @@ function AppRoutes() {
     requestAnimationFrame(raf);
   }, []);
 
-  useEffect(() => {
-    if (
-      window.ScrollTrigger &&
-      typeof window.ScrollTrigger.refresh === "function"
-    ) {
-      window.ScrollTrigger.refresh();
-    }
-    if (lenisRef.current && typeof lenisRef.current.resize === "function") {
-      lenisRef.current.resize();
-    }
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
-
   return (
     <Routes>
       <Route path="/" element={<Home />} />
