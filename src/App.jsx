@@ -24,12 +24,27 @@ function AppRoutes() {
       wheelMultiplier: 1,
     });
     lenisRef.current = lenis;
+
     function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
     requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
   }, []);
+
+  useEffect(() => {
+    if (lenisRef.current) {
+      lenisRef.current.scrollTo(0, { immediate: true });
+
+      setTimeout(() => {
+        lenisRef.current.resize();
+      }, 50);
+    }
+  }, [location.pathname]);
 
   return (
     <Routes>
