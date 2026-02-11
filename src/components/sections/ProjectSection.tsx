@@ -30,6 +30,7 @@ export const ProjectSection: React.FC<ProjectSectionProps> = ({ project }) => {
           playsInline
         >
           <source src={project.preview} type="video/mp4" />
+          <source src={project.previewWebm} type="video/webm" />
           Votre navigateur ne supporte pas la vidéo.
         </video>
       </div>

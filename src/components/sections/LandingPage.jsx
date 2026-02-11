@@ -30,7 +30,8 @@ export const LandingPage = () => {
           muted
           playsInline
         >
-          <source src="/videos/landingvideoHD.mp4" type="video/mp4" />
+          <source src="/videos/LandingVideoCompressed.mp4" type="video/mp4" />
+          <source src="/videos/LandingVideo.webm" type="video/webm" />
           Votre navigateur ne supporte pas la vidéo.
         </video>
       </section>

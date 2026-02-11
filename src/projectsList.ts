@@ -30,6 +30,7 @@ export interface Project {
   brand: string;
   imagePreview: string;
   preview: string;
+  previewWebm: string;
   description?: string;
   projectUrl: string;
   videoUrl?: string; // URL de la vidéo (optionnelle)
@@ -55,8 +56,9 @@ export const projectsList: ProjectsList = [
       {
         name: "Héritage",
         brand: "Roude",
-        imagePreview: "/images/projects/heritage/img1.png",
-        preview: "/videos/preview/RoudePreview.mp4",
+        imagePreview: "/images/projects/heritage/imgRoude1.webp",
+        preview: "/videos/preview/RoudePreviewCompressed.mp4",
+        previewWebm: "/videos/preview/RoudePreview.webm",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incididunt ut labore et dolore magna aliqua. Quisipsum suspendisse” ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.",
         projectUrl: "/heritage",
         credits: {
@@ -79,8 +81,9 @@ export const projectsList: ProjectsList = [
       {
         name: "La grande échappée",
         brand: "Moluki",
-        imagePreview: "/images/projects/la_grande_echappee/img7.webp",
-        preview: "/videos/preview/LaGrandeEchappeePreview.mp4",
+        imagePreview: "/images/projects/la_grande_echappee/imgMoluki1.webp",
+        preview: "/videos/preview/LaGrandeEchappeePreviewCompressed.mp4",
+        previewWebm: "/videos/preview/LaGrandeEchappeePreview.webm",
         description: `Dans l'éclat romantique de Paris, chaque rue résonne d'histoires
                 d'amour. Alors, au détour d'un café et d'un foulard perdu,
                 laissez-vous emporter par la magie des rencontres fortuites, où
@@ -117,8 +120,10 @@ export const projectsList: ProjectsList = [
       {
         name: "Aux couleurs des tableaux",
         brand: "Clair Obscur",
-        imagePreview: "/images/projects/aux_couleurs_des_tableaux/img10.webp",
-        preview: "/videos/preview/AuxCouleursPreview.mp4",
+        imagePreview: "/images/projects/aux_couleurs_des_tableaux/imgAuxCouleurs1.webp",
+        preview: "/videos/preview/AuxCouleursPreviewCompressed.mp4",
+        previewWebm: "/videos/preview/AuxCouleursPreview.webm",
+        
         description: `Parce que la vie est faite de moments de lumières et
                 d’obscurités, Clair Obscur est née aujourd’hui. Avec une volonté
                 forte, celle de capturer et retransmettre à travers l’image le
