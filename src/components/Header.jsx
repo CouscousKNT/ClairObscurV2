@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import logo from "/logo/itemBlanc.svg";
+import item from "/logo/itemBlanc.svg";
+import logo from "/logo/logo.svg";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
 export const Header = () => {
@@ -30,9 +31,9 @@ export const Header = () => {
     <div>
       {/* NAVBAR */}
       <div className="fixed w-screen flex justify-between md:grid md:grid-cols-3 px-5 py-10 sm:px-10 sm:py-10 lg:px-20 lg:py-10 mix-blend-difference z-90">
-        <div className="flex col-start-2 justify-center h-auto md:w-full">
+        <div className="hidden md:block flex col-start-1 justify-center h-auto md:w-full">
           <button
-            className="cursor-pointer w-8 lg:w-12"
+            className="cursor-pointer w-30 lg:w-40 h-20 lg:h-30"
             onClick={() => {
               setOpen(false);
               if (location.pathname === "/") {
@@ -43,7 +44,24 @@ export const Header = () => {
               }
             }}
           >
-            <img src={logo} alt="logo" />
+            <img className="" src={logo} alt="item" />
+          </button>
+        </div>
+        <div className="flex col-start-2 justify-center h-auto md:w-full">
+          {/* <img src={logo} alt="item" /> */}
+          <button
+            className="cursor-pointer w-8 lg:w-10"
+            onClick={() => {
+              setOpen(false);
+              if (location.pathname === "/") {
+                const el = document.getElementById("hero");
+                if (el) el.scrollIntoView({ behavior: "smooth" });
+              } else {
+                navigate("/", { state: { section: "hero" } });
+              }
+            }}
+          >
+            <img src={item} alt="item" />
           </button>
         </div>
 
