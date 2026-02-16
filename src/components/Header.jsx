@@ -31,9 +31,9 @@ export const Header = () => {
     <div>
       {/* NAVBAR */}
       <div className="fixed w-screen flex justify-between md:grid md:grid-cols-3 px-5 py-10 sm:px-10 sm:py-10 lg:px-20 lg:py-10 mix-blend-difference z-90">
-        <div className="hidden md:block flex col-start-1 justify-center h-auto md:w-full">
+        <div className="col-start-1 h-auto md:w-full">
           <button
-            className="cursor-pointer w-30 lg:w-40 h-20 lg:h-30"
+            className="cursor-pointer w-30 lg:w-35 h-20 lg:h-25 absolute top-[10%]"
             onClick={() => {
               setOpen(false);
               if (location.pathname === "/") {
@@ -47,8 +47,7 @@ export const Header = () => {
             <img className="" src={logo} alt="item" />
           </button>
         </div>
-        <div className="flex col-start-2 justify-center h-auto md:w-full">
-          {/* <img src={logo} alt="item" /> */}
+        <div className="hidden md:flex col-start-2 justify-center h-auto md:w-full">
           <button
             className="cursor-pointer w-8 lg:w-10"
             onClick={() => {

@@ -1,5 +1,4 @@
 "use client";
-import logo from "/logo/logoNoir.svg";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useMotionValueEvent, useScroll, useTransform } from "framer-motion";
 import { useWindowSize } from "../../utils/useWindowSize";
@@ -55,7 +54,7 @@ export const Credits = () => {
           opacity: 1,
           ease: "power2.out",
           duration: 0.5,
-        }
+        },
       );
 
       // Animation de disparition de l'icône animée de Scroll vers le bas
@@ -73,7 +72,7 @@ export const Credits = () => {
           opacity: 0,
           ease: "power2.out",
           duration: 0.5,
-        }
+        },
       );
       ScrollTrigger.refresh();
       scrollDownAnimation.style.opacity = 0;
@@ -95,20 +94,20 @@ export const Credits = () => {
           bottom: "0",
         }
       : height <= 1024 && horizontalScreen
-      ? {
-          position: "absolute",
-          top: "0%",
-          right: "0%",
-          width: "auto",
-          height: "100vh",
-        }
-      : {
-          position: "absolute",
-          top: "0",
-          right: "0%",
-          width: "auto",
-          height: "100vh",
-        };
+        ? {
+            position: "absolute",
+            top: "0%",
+            right: "0%",
+            width: "auto",
+            height: "100vh",
+          }
+        : {
+            position: "absolute",
+            top: "0",
+            right: "0%",
+            width: "auto",
+            height: "100vh",
+          };
 
   // ANIMATION DES MEMBRES DE L'EQUIPE BASEE SUR LE SCROLL
   const imagesLinkBasedOnDevice =
@@ -154,7 +153,7 @@ export const Credits = () => {
         }
       }
     },
-    [images]
+    [images],
   );
 
   const currentIndex = useTransform(scrollYProgress, [0, 1], [0, 312]);
@@ -172,7 +171,7 @@ export const Credits = () => {
   return (
     <div>
       <Header />
-      <div className="h-screen bg-white mix-blend-diffrence text-black font-fujiwara-medium-italic">
+      {/* <div className="h-screen bg-white mix-blend-diffrence text-black font-fujiwara-medium-italic">
         « Clair Obscur est avant tout un collectif de créatifs passionnés, à la
         fois fous et audacieux, animés par l’envie de repousser sans cesse les
         limites de l’imaginaire. Chaque projet est pour nous une nouvelle
@@ -182,7 +181,7 @@ export const Credits = () => {
         œil affûté pour l’image et une précision redoutable en post-production.
         Ensemble, nous donnons vie à des univers singuliers qui marquent les
         esprits et transforment l’ordinaire en expérience visuelle unique. »
-      </div>
+      </div> */}
       <div id="memberSection" className="h-[1200vh] bg-white z-5">
         <div ref={containerRef} className="relative h-[1200vh] bg-white">
           <div className="font-fujiwara-black-italic w-full bottom-10 fixed flex flex-col justify-center items-center gap-4 mix-blend-difference z-10 bottom-0">
@@ -218,7 +217,7 @@ export const Credits = () => {
                 duration={0.5}
                 text={"Zinédine"}
                 className={
-                  "pl-4 pt-10 pb-4 font-fujiwara-black text-white text-5xl"
+                  "pl-4 pt-27 lg:pt-40 pb-4 font-fujiwara-black text-white text-5xl"
                 }
               />
               <a className="m-4 p-2 font-fujiwara-bold-italic text-white text-sm  border-white border-1 duration-300 hover:bg-white hover:text-black">
@@ -265,7 +264,7 @@ export const Credits = () => {
                     "lg:hidden p-5 font-fujiwara block text-white text-[clamp(0.8rem,4vw,1rem)] md:text-lg",
                     {
                       "w-[50%]": horizontalScreen,
-                    }
+                    },
                   )}
                 />
               </div>
@@ -287,7 +286,7 @@ export const Credits = () => {
                 duration={0.5}
                 text={"Idrissa"}
                 className={
-                  "pl-4 pt-10 pb-4 font-fujiwara-black text-white text-5xl"
+                  "pl-4 pt-27 lg:pt-40 pb-4 font-fujiwara-black text-white text-5xl"
                 }
               />
               <a className="m-4 p-2 font-fujiwara-bold-italic text-white text-sm  border-white border-1 duration-300 hover:bg-white hover:text-black">
@@ -332,7 +331,7 @@ export const Credits = () => {
                     "lg:hidden p-5 font-fujiwara block text-white text-[clamp(0.8rem,4vw,1rem)] md:text-lg",
                     {
                       "w-[50%]": horizontalScreen,
-                    }
+                    },
                   )}
                 />
               </div>
@@ -354,7 +353,7 @@ export const Credits = () => {
                 duration={0.5}
                 text={"Ben"}
                 className={
-                  "pl-4 pt-10 pb-4 font-fujiwara-black text-white text-5xl"
+                  "pl-4 pt-27 lg:pt-40 pb-4 font-fujiwara-black text-white text-5xl"
                 }
               />
               <a className="m-4 p-2 font-fujiwara-bold-italic text-white text-sm  border-white border-1 duration-300 hover:bg-white hover:text-black">
@@ -371,7 +370,7 @@ export const Credits = () => {
               Fabriqueur d’images, Ben est un as de la caméra. En charge de
               plusieurs documentaires de télévision et de publicités c’est une
               encyclopédie des codes de l’imagerie. Mouvements, angles,
-              éclairages, donnez lui n’importe quel sujet qui possède au moins 3
+              éclairages, donnez lui n’importe quel sujet qui possède au moins trois
               côtés et il saura vous le sublimer.
               `}
                 className={
@@ -397,7 +396,7 @@ export const Credits = () => {
                     "lg:hidden p-5 font-fujiwara block text-white text-[clamp(0.8rem,4vw,1rem)] md:text-lg",
                     {
                       "w-[50%]": horizontalScreen,
-                    }
+                    },
                   )}
                 />
               </div>
@@ -419,7 +418,7 @@ export const Credits = () => {
                 duration={0.5}
                 text={"Ousmane"}
                 className={
-                  "pl-4 pt-10 pb-4 font-fujiwara-black text-white text-5xl"
+                  "pl-4 pt-27 lg:pt-40 pb-4 font-fujiwara-black text-white text-5xl"
                 }
               />
               <a className="m-4 p-2 font-fujiwara-bold-italic text-white text-sm border-white border-1 duration-300 hover:bg-white hover:text-black">
@@ -435,8 +434,7 @@ export const Credits = () => {
                 duration={0.8}
                 text={`
               Installé sur la frontière entre le réel et l’utopie Ousmane
-              cherche sans cesse à repousser les limites du possible. Ses
-              inspirations, il va les chercher au plus profond du metaverse,
+              cherche sans cesse à repousser les limites du possible,
               tentant par tous les moyens de transformer l’illusoire en
               réalisable. Il se définit lui même comme un « dégénéré » et a
               choisi la 3D pour dépasser les limites humaines, sans jamais y
@@ -457,8 +455,7 @@ export const Credits = () => {
                   duration={0.8}
                   text={`
               Installé sur la frontière entre le réel et l’utopie Ousmane
-              cherche sans cesse à repousser les limites du possible. Ses
-              inspirations, il va les chercher au plus profond du metaverse,
+              cherche sans cesse à repousser les limites du possible,
               tentant par tous les moyens de transformer l’illusoire en
               réalisable. Il se définit lui même comme un « dégénéré » et a
               choisi la 3D pour dépasser les limites humaines, sans jamais y
@@ -469,7 +466,7 @@ export const Credits = () => {
                     "lg:hidden p-5 font-fujiwara block text-white text-[clamp(0.8rem,4vw,1rem)] md:text-lg",
                     {
                       "w-[50%]": horizontalScreen,
-                    }
+                    },
                   )}
                 />
               </div>
