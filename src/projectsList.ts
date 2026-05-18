@@ -107,8 +107,8 @@ export const projectsList: ProjectsList = [
           }
         },
         keyImages: [
-          "/images/projects/la_grande_echappee/moluki1.webp",
           "/images/projects/la_grande_echappee/moluki2.webp",
+          "/images/projects/la_grande_echappee/moluki1.webp",
           "/images/projects/la_grande_echappee/img7.webp",
           "/images/projects/la_grande_echappee/img4.webp",
           "/images/projects/la_grande_echappee/img8.webp",
@@ -148,8 +148,8 @@ export const projectsList: ProjectsList = [
           }
         },
         keyImages: [
-          "/images/projects/aux_couleurs_des_tableaux/img15.webp",
           "/images/projects/aux_couleurs_des_tableaux/img10.webp",
+          "/images/projects/aux_couleurs_des_tableaux/img15.webp",
           "/images/projects/aux_couleurs_des_tableaux/img16.webp",
           "/images/projects/aux_couleurs_des_tableaux/img4.webp",
           "/images/projects/aux_couleurs_des_tableaux/img6.webp",

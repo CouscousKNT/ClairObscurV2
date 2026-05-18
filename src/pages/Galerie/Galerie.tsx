@@ -39,7 +39,6 @@ const Galerie: React.FC<GalerieProps> = ({ project }) => {
                     <div className="aspect-[5/3] overflow-hidden mb-3">
                       <img
                         src={project.imagePreview}
-                        alt={project.name}
                         className="w-full h-full object-cover"
                       />
                     </div>

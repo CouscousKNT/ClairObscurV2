@@ -26,7 +26,7 @@ export const FooterV2 = () => {
       <div className="flex flex-col lg:flex-row ">
         <div className="lg:w-1/3 py-4 px-8 lg:py-12 text-sm xl:text-[1.05rem] font-fujiwara-black z-100">
           <div className="border-b border-white/10 py-[0.7rem] font-fujiwara-black-italic xl:text-4xl text-xl">
-            NETWORKS
+            RÉSEAUX SOCIAUX
           </div>
           <div className="border-b border-white/10 py-[0.4rem] px-5">
             <a
@@ -63,7 +63,7 @@ export const FooterV2 = () => {
             MAIL
           </div>
           <div className="flex flex-col gap-4">
-            <div className="border-b-1 sm:text-lg xl:text-xl border-white/10 py-[0.4rem] px-5 whitespace-nowrap">
+            <div className="border-b-1 text-sm sm:text-lg xl:text-xl border-white/10 py-[0.4rem] px-5 whitespace-nowrap">
               [ @ ] - agenceclairobscur@gmail.com
             </div>
             <h1 className="hidden lg:block text-sm">

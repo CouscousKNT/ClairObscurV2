@@ -22,10 +22,37 @@ export const Credits = () => {
 
   const location = useLocation();
 
+  const [scrollingDown, setScrollingDown] = useState(false);
+  let lastScrollY = window.scrollY;
+  let scrollTimeout;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY) {
+        setScrollingDown(true);
+      }
+
+      lastScrollY = currentScrollY;
+
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        setScrollingDown(false);
+      }, 200);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      clearTimeout(scrollTimeout);
+    };
+  }, []);
+  console.log(scrollingDown);
+
   useEffect(() => {
     // Reset scroll position
     window.scrollTo(0, 0);
-    // Refresh Lenis if available
     if (window.lenis && typeof window.lenis.resize === "function") {
       window.lenis.resize();
       if (typeof window.lenis.scrollTo === "function") {
@@ -164,24 +191,13 @@ export const Credits = () => {
 
   useEffect(() => {
     if (imagesLoaded) {
-      render(1); // Render first image once images are loaded
+      render(1);
     }
   }, [imagesLoaded, render]);
 
   return (
     <div>
       <Header />
-      {/* <div className="h-screen bg-white mix-blend-diffrence text-black font-fujiwara-medium-italic">
-        « Clair Obscur est avant tout un collectif de créatifs passionnés, à la
-        fois fous et audacieux, animés par l’envie de repousser sans cesse les
-        limites de l’imaginaire. Chaque projet est pour nous une nouvelle
-        aventure, un terrain d’expérimentation où se mêlent audace artistique et
-        maîtrise technique. Notre équipe se distingue par des capacités
-        exceptionnelles : une écriture inspirée, une réalisation exigeante, un
-        œil affûté pour l’image et une précision redoutable en post-production.
-        Ensemble, nous donnons vie à des univers singuliers qui marquent les
-        esprits et transforment l’ordinaire en expérience visuelle unique. »
-      </div> */}
       <div id="memberSection" className="h-[1200vh] bg-white z-5">
         <div ref={containerRef} className="relative h-[1200vh] bg-white">
           <div className="font-fujiwara-black-italic w-full bottom-10 fixed flex flex-col justify-center items-center gap-4 mix-blend-difference z-10 bottom-0">
@@ -197,7 +213,11 @@ export const Credits = () => {
               end={""}
               stagger={0.05}
               duration={0.5}
-              text={"Défilez vers le bas"}
+              text={
+                scrollingDown
+                  ? "Continuez de défiler vers le bas !"
+                  : "Défilez vers le bas"
+              }
               className={"text-xs sm:text-base"}
             />
           </div>

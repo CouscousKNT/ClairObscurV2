@@ -49,9 +49,9 @@ export const Pitch = () => {
         {/* PARTIE BASSE */}
         <div className="flex w-full justify-between text-xs xl:text-sm/5 2xl:text-base/5 gap-2">
           {/* PARITE GAUCHE */}
-          <div className="w-2/3 lg:w-2/5 flex flex-col gap-8">
+          <div className="w-2/3 md:w-2/5 flex flex-col gap-8">
             {" "}
-            <h1 className="hidden lg:block w-full ">
+            <h1 className="hidden md:block w-full ">
               {" "}
               “Clair Obscur est une agence de production audiovisuelle dédiée à
               capturer et retransmettre à travers l'image toute la puissance des
@@ -65,22 +65,22 @@ export const Pitch = () => {
             </h1>
           </div>
           {/* PARTIE DROITE */}
-          <div className="w-1/3 lg:w-2/5 flex flex-col gap-8">
+          <div className="w-1/3 md:w-2/5 flex flex-col gap-8">
             {" "}
-            <h1 className="hidden lg:block w-full self-end">
+            <h1 className="hidden md:block w-full self-end">
               {" "}
               “Clair Obscur est une agence de production audiovisuelle dédiée à
               capturer et retransmettre à travers l'image toute la puissance des
               émotions.”
             </h1>
-            <h1 className="hidden lg:block lg:w-1/3 opacity-40">
+            <h1 className="hidden md:block md:w-2/3 lg:w-1/3 opacity-40">
               {" "}
               “Clair Obscur est une agence de production audiovisuelle dédiée à
               capturer et retransmettre à travers l'image toute la puissance des
               émotions.”
             </h1>
             {/* PARAGRAPHE POUR PETIT ECRAN */}
-            <h1 className="lg:hidden lg:w-1/3 opacity-40">
+            <h1 className="md:hidden md:w-1/3 opacity-40">
               {" "}
               “Clair Obscur est une agence de production audiovisuelle dédiée à
               capturer
