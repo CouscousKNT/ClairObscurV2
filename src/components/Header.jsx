@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import item from "/logo/itemBlanc.svg";
 import logo from "/logo/logo.svg";
+import homeIcon from "/images/icons/home.svg";
 import { useIsMobile } from "../utils/useIsMobile";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useWindowSize } from "../utils/useWindowSize";
@@ -31,9 +32,22 @@ export const Header = () => {
     }
   }, [location, navigate]);
 
+  // Fonction pour déterminer si le lien est actif
+  const isActive = (path) => location.pathname === path;
+
+  // Fonction pour déterminer s'il faut ajouter la classe "active" au bouton
+  // (fond blanc lorsque sélectionné)
+  const getBtnClass = (path) => {
+    const baseClass =
+      "cursor-pointer w-full h-full px-4 py-1 rounded-2xl transition duration-250 hover:bg-white/20 hover:text-black/70";
+    return isActive(path)
+      ? `${baseClass} bg-white/70 text-black/70`
+      : baseClass;
+  };
+
   return (
     <div>
-      {/* NAVBAR */}
+      {/* HEADER : LOGO / ITEM / NAVIGATION */}
       <div className="fixed w-screen flex justify-between md:grid md:grid-cols-3 px-5 py-10 sm:px-10 sm:py-10 lg:px-20 lg:py-10 mix-blend-difference z-90">
         <div className="col-start-1 h-auto md:w-full">
           <button
@@ -68,6 +82,7 @@ export const Header = () => {
           </button>
         </div>
 
+        {/* En fonction de la taille de l'écran, on affiche soit le bouton "MENU" (mobile) soit les liens directs (desktop) */}
         <div className="font-fujiwara-black-italic col-start-3 flex justify-end text-lg sm:text-xl lg:text-3xl w-auto z-[100]">
           {isMobile || width < 1024 ? (
             <button
@@ -79,39 +94,38 @@ export const Header = () => {
               MENU
             </button>
           ) : (
-            <div className="flex gap-4 text-xl bg-white/10 backdrop-blur-2xl px-5 py-1 rounded-2xl">
-              {/* Galerie */}
-              <Link className="self-end" to="/galerie">
+            <div className="flex items-center justify-center text-xl bg-white/10 backdrop-blur-2xl rounded-2xl">
+              <Link to="/galerie">
                 <button
-                  className="self-end cursor-pointer"
+                  className={getBtnClass("/galerie")}
                   onClick={() => {
                     setOpen(false);
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   }}
                 >
-                  Galerie
+                  <span>Galerie</span>
                 </button>
               </Link>
-              <Link className="self-end" to="/credits">
+              <Link to="/credits">
                 <button
-                  className="self-end cursor-pointer"
+                  className={getBtnClass("/credits")}
                   onClick={() => {
                     setOpen(false);
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   }}
                 >
-                  Crédits
+                  <span>Crédits</span>
                 </button>
               </Link>
-              <Link className="self-end" to="/contact">
+              <Link to="/contact">
                 <button
-                  className="self-end cursor-pointer"
+                  className={getBtnClass("/contact")}
                   onClick={() => {
                     setOpen(false);
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   }}
                 >
-                  Contact
+                  <span>Contact</span>
                 </button>
               </Link>
             </div>
@@ -119,11 +133,11 @@ export const Header = () => {
         </div>
       </div>
 
-      {/* MENU */}
-      {open && (
+      {/* Menu après ouverture */}
+      {open && (isMobile || width < 1024) && (
         <div
           id="site-menu"
-          className="fixed h-screen w-screen lg:right-0 lg:w-1/3 flex flex-col bg-white/30 backdrop-blur-lg z-100 font-fujiwara-black text-black/70 text-7xl"
+          className="fixed h-[100dvh] w-screen lg:right-0 flex flex-col bg-white/30 backdrop-blur-lg z-100 font-fujiwara-black text-black/70 text-7xl"
         >
           <div className="w-full flex justify-end border-b border-black/10 px-5 py-10 sm:px-10 sm:py-10 lg:px-20 lg:py-10 text-5xl lg:text-5xl">
             <button className="cursor-pointer" onClick={() => setOpen(false)}>
@@ -156,7 +170,6 @@ export const Header = () => {
               </button>
             </Link>
 
-            {/* Contact */}
             <Link className="self-end" to="/contact">
               <button
                 className="self-end cursor-pointer"
