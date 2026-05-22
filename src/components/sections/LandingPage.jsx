@@ -21,8 +21,9 @@ export const LandingPage = () => {
           Votre navigateur ne supporte pas la vidéo.
         </video>
         <p className="absolute text-xs md:text-lg max-w-[300px] text-center md:text-left leading-[1.3] left-[calc(50%-150px)] md:left-16 bottom-[30%] md:bottom-16 font-fujiwara-medium-italic">
-          Nous sculptons la lumière pour sublimer l'histoire de votre marque et
-          faire de votre message une expérience visuelle inoubliable.
+          Clair Obscur est une agence de production audiovisuelle dédiée à
+          capturer et retransmettre à travers l'image toute la puissance des
+          émotions.
         </p>
       </section>
     </div>

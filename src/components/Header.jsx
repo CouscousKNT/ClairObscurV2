@@ -5,6 +5,7 @@ import homeIcon from "/images/icons/home.svg";
 import { useIsMobile } from "../utils/useIsMobile";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useWindowSize } from "../utils/useWindowSize";
+import Form from "../pages/Contact/Form";
 
 export const Header = () => {
   const navigate = useNavigate();
@@ -12,6 +13,7 @@ export const Header = () => {
   const isMobile = useIsMobile();
   const { width, height } = useWindowSize();
   const [open, setOpen] = useState(false);
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
   // fermeture avec Échap
   useEffect(() => {
@@ -27,16 +29,12 @@ export const Header = () => {
       if (el) {
         el.scrollIntoView({ behavior: "smooth" });
       }
-      // nettoyage du state pour éviter de rescroller à chaque navigation
       navigate(location.pathname, { replace: true, state: {} });
     }
   }, [location, navigate]);
 
-  // Fonction pour déterminer si le lien est actif
   const isActive = (path) => location.pathname === path;
 
-  // Fonction pour déterminer s'il faut ajouter la classe "active" au bouton
-  // (fond blanc lorsque sélectionné)
   const getBtnClass = (path) => {
     const baseClass =
       "cursor-pointer w-full h-full px-4 py-1 rounded-2xl transition duration-250 hover:bg-white/20 hover:text-black/70";
@@ -46,9 +44,36 @@ export const Header = () => {
   };
 
   return (
-    <div>
+    <>
+      {/* 
+        OVERLAY DU FORMULAIRE 
+        z-[100] pour être sûr qu'il passe au-dessus du Header (z-90) et du menu mobile (z-100)
+      */}
+      <div
+        className={`fixed inset-0 z-[90] ${
+          isFormOpen ? "pointer-events-auto" : "pointer-events-none"
+        }`}
+      >
+        <div
+          className={`absolute inset-0 bg-black/60 transition-opacity duration-500 ${
+            isFormOpen ? "opacity-100" : "opacity-0"
+          }`}
+          onClick={() => setIsFormOpen(false)}
+        />
+
+        <section
+          className={`absolute top-0 right-0 h-full w-full lg:w-1/3 bg-[#101010] shadow-2xl transition-transform duration-500 ease-in-out ${
+            isFormOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
+          <div className="relative h-full w-full overflow-y-auto pt-20 px-6">
+            <Form onClose={() => setIsFormOpen(false)} />
+          </div>
+        </section>
+      </div>
+
       {/* HEADER : LOGO / ITEM / NAVIGATION */}
-      <div className="fixed w-screen flex justify-between md:grid md:grid-cols-3 px-5 py-10 sm:px-10 sm:py-10 lg:px-20 lg:py-10 mix-blend-difference z-90">
+      <div className="fixed w-screen flex justify-between md:grid md:grid-cols-3 px-5 py-10 sm:px-10 sm:py-10 lg:px-20 lg:py-10 mix-blend-difference z-[90]">
         <div className="col-start-1 h-auto md:w-full">
           <button
             className="cursor-pointer w-30 lg:w-35 h-20 lg:h-25 absolute top-[20%] lg:top-[10%]"
@@ -82,7 +107,6 @@ export const Header = () => {
           </button>
         </div>
 
-        {/* En fonction de la taille de l'écran, on affiche soit le bouton "MENU" (mobile) soit les liens directs (desktop) */}
         <div className="font-fujiwara-black-italic col-start-3 flex justify-end text-lg sm:text-xl lg:text-3xl w-auto z-[100]">
           {isMobile || width < 1024 ? (
             <button
@@ -94,58 +118,81 @@ export const Header = () => {
               MENU
             </button>
           ) : (
-            <div className="flex items-center justify-center text-xl bg-white/10 backdrop-blur-2xl rounded-2xl">
-              <Link to="/galerie">
+            <div className="flex items-center justify-center gap-4">
+              <div className="flex items-center justify-center text-xl bg-white/10 backdrop-blur-2xl rounded-2xl">
+                <Link to="/galerie">
+                  <button
+                    className={getBtnClass("/galerie")}
+                    onClick={() => {
+                      setOpen(false);
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
+                  >
+                    <span>Galerie</span>
+                  </button>
+                </Link>
+                <Link to="/credits">
+                  <button
+                    className={getBtnClass("/credits")}
+                    onClick={() => {
+                      setOpen(false);
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
+                  >
+                    <span>Crédits</span>
+                  </button>
+                </Link>
+                <Link to="/contact">
+                  <button
+                    className={getBtnClass("/contact")}
+                    onClick={() => {
+                      setOpen(false);
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
+                  >
+                    <span>Contact</span>
+                  </button>
+                </Link>
+              </div>
+              <div className="flex items-center justify-center text-xl bg-white/10 backdrop-blur-2xl rounded-2xl">
                 <button
-                  className={getBtnClass("/galerie")}
+                  className={getBtnClass()} // Note: vous pourriez passer un argument factice ici si besoin
                   onClick={() => {
-                    setOpen(false);
-                    window.scrollTo({ top: 0, behavior: "smooth" });
+                    setOpen(false); // Ferme le menu mobile si besoin
+                    setIsFormOpen(true); // <--- C'EST ICI QU'ON OUVRE LE FORMULAIRE
                   }}
                 >
-                  <span>Galerie</span>
+                  <span>Prendre RDV</span>
                 </button>
-              </Link>
-              <Link to="/credits">
-                <button
-                  className={getBtnClass("/credits")}
-                  onClick={() => {
-                    setOpen(false);
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                  }}
-                >
-                  <span>Crédits</span>
-                </button>
-              </Link>
-              <Link to="/contact">
-                <button
-                  className={getBtnClass("/contact")}
-                  onClick={() => {
-                    setOpen(false);
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                  }}
-                >
-                  <span>Contact</span>
-                </button>
-              </Link>
+              </div>
             </div>
           )}
         </div>
       </div>
 
-      {/* Menu après ouverture */}
+      {/* Menu après ouverture (Mobile) */}
       {open && (isMobile || width < 1024) && (
         <div
           id="site-menu"
-          className="fixed h-[100dvh] w-screen lg:right-0 flex flex-col bg-white/30 backdrop-blur-lg z-100 font-fujiwara-black text-black/70 text-7xl"
+          className="fixed h-[100dvh] w-screen lg:right-0 flex flex-col bg-white/30 backdrop-blur-lg z-[100] font-fujiwara-black text-black/70 text-7xl"
         >
           <div className="w-full flex justify-end border-b border-black/10 px-5 py-10 sm:px-10 sm:py-10 lg:px-20 lg:py-10 text-5xl lg:text-5xl">
             <button className="cursor-pointer" onClick={() => setOpen(false)}>
-              X
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-18 w-18"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  clipRule="evenodd"
+                />
+              </svg>
             </button>
           </div>
           <div className="flex flex-col w-full px-20 py-12 gap-2">
-            {/* Galerie */}
             <Link className="self-end" to="/galerie">
               <button
                 className="self-end cursor-pointer"
@@ -181,10 +228,21 @@ export const Header = () => {
                 Contact
               </button>
             </Link>
+
+            {/* Ajout du bouton Prendre RDV dans le menu mobile pour ouvrir le formulaire */}
+            <button
+              className="self-end cursor-pointer mt-4 border-t border-black/10 pt-4 text-6xl"
+              onClick={() => {
+                setOpen(false); // Ferme le menu de navigation
+                setIsFormOpen(true); // Ouvre le tiroir du formulaire
+              }}
+            >
+              Prendre RDV
+            </button>
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 
