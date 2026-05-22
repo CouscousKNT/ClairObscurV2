@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Model } from "./3d/Model";
 import { HeroGradient } from "./HeroGradient/HeroGradient";
 import FluidGradientCanvas from "./FluidGradientCanvas/FluidGradientCanvas";
 import { Environment } from "@react-three/drei";
 import logo from "/logo/logo.svg";
+import Form from "../pages/Contact/Form";
 
 export const FooterV2 = () => {
+  const [isFormOpen, setIsFormOpen] = useState(false);
   return (
     <div
       id="contact"
@@ -64,7 +66,12 @@ export const FooterV2 = () => {
           </div>
           <div className="flex flex-col gap-4">
             <div className="border-b-1 text-sm sm:text-lg xl:text-xl border-white/10 py-[0.4rem] px-5 whitespace-nowrap">
-              [ @ ] - agenceclairobscur@gmail.com
+              <button
+                onClick={() => setIsFormOpen(true)}
+                className="bg-white text-black py-2 px-4 rounded-md hover:bg-gray-200 transition-colors"
+              >
+                Par EMail
+              </button>
             </div>
             <h1 className="hidden lg:block text-sm">
               Clair Obscur a une équipe dévouée et talentueuse. Clair Obscur
@@ -112,7 +119,7 @@ export const FooterV2 = () => {
         </div>
       </div>
       <div className="font-fujiwara-black bg-black relative bottom-0 flex justify-center text-xs border-t border-white/20 z-20">
-        <span className="p-3 z-50">Clair Obscur - 2025©</span>
+        <span className="p-3 z-50">Clair Obscur - 2026©</span>
       </div>
     </div>
   );

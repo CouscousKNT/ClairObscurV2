@@ -51,7 +51,7 @@ export const Header = () => {
       <div className="fixed w-screen flex justify-between md:grid md:grid-cols-3 px-5 py-10 sm:px-10 sm:py-10 lg:px-20 lg:py-10 mix-blend-difference z-90">
         <div className="col-start-1 h-auto md:w-full">
           <button
-            className="cursor-pointer w-30 lg:w-35 h-20 lg:h-25 absolute top-[10%]"
+            className="cursor-pointer w-30 lg:w-35 h-20 lg:h-25 absolute top-[20%] lg:top-[10%]"
             onClick={() => {
               setOpen(false);
               if (location.pathname === "/") {

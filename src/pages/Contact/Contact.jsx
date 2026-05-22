@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import FluidGradientCanvas from "../../components/FluidGradientCanvas/FluidGradientCanvas";
 import logo from "/logo/logo.svg";
+import Form from "./Form";
 
 const Contact = () => {
   const [currentTime, setCurrentTime] = useState("");
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
   useEffect(() => {
     const updateTime = () => {
@@ -27,12 +29,14 @@ const Contact = () => {
 
     return () => clearInterval(interval);
   }, []);
+
   return (
-    <div className="h-[100dvh] w-full overflow-hidden relative">
+    <div className="relative h-[100dvh] w-full overflow-hidden flex flex-col lg:flex-row">
       <Header />
-      <section class="absolute w-full h-full contact-page z-10 font-fujiwara-bold text-2xl">
-        <div class="contact-copy absolute top-0 left-0 w-full h-full flex flex-col gap-[2rem] justify-center align-center ">
-          <div class="flex items-center justify-center flex-col gap-4">
+      {/* Section réseau socieux + contact */}
+      <section className="relative flex-1 h-full contact-page z-10 font-fujiwara-bold text-2xl transition-all duration-500">
+        <div className="contact-copy absolute top-0 left-0 w-full h-full flex flex-col gap-[2rem] justify-center items-center">
+          <div className="flex items-center justify-center flex-col gap-4">
             <img
               src={logo}
               alt="Clair Obscur"
@@ -41,28 +45,47 @@ const Contact = () => {
             <h4 className="text-sm lg:text-base uppercase">Basé à Paris</h4>
           </div>
 
-          <div class="flex items-center justify-center flex-col">
-            <h4>Email</h4>
-
+          <div className="flex items-center justify-center flex-col gap-2">
+            <button
+              onClick={() => setIsFormOpen(true)}
+              className="bg-white text-black py-2 px-4 rounded-md hover:bg-gray-200 transition-colors"
+            >
+              Par EMail
+            </button>
             <h4>LinkedIn</h4>
             <h4>Instagram / Vimeo / Tiktok</h4>
           </div>
-
-          {/* <div class="absolute bottom-0 w-full flex justify-between align-end p-1 gap-[2rem] text-base font-fujiwara-black px-5 py-5 sm:px-10 lg:px-20">
-            <p>Par Ous'</p>
-            <p>&copy;Clair Obscur - 2025</p>
-          </div> */}
-          <div className="w-full flex justify-between align-end p-1 gap-[2rem] text-sm md:text-base font-fujiwara-black px-5 py-5 sm:px-10 lg:px-20 absolute bottom-0">
-            <div className="">
-              <p className="sm caps mono">{currentTime}</p>
-            </div>
-            <div>
-              <p>&copy;Clair Obscur - 2025</p>
-            </div>
+        </div>
+      </section>
+      {/* Formulaire de contact */}
+      <section
+        className={`
+          absolute lg:relative top-0 right-0 h-full z-50 bg-[#101010] shadow-2xl 
+          transition-all duration-500 ease-in-out overflow-hidden
+          ${
+            isFormOpen
+              ? "translate-x-0 w-full lg:w-1/3"
+              : "translate-x-full w-full lg:translate-x-0 lg:w-0"
+          }
+        `}
+      >
+        <div className="relative w-full lg:w-[33.33vw] h-full">
+          <div className="relative h-full w-full overflow-y-auto pt-20 px-6">
+            <Form onClose={() => setIsFormOpen(false)} />
           </div>
         </div>
       </section>
-      <div className="absolute w-full h-screen inset-0 z-0">
+      {/* Footer / Heure */}
+      <div className="absolute z-10 w-full flex justify-between items-end p-1 gap-[2rem] text-sm md:text-base font-fujiwara-black px-5 py-5 sm:px-10 lg:px-20 bottom-0 pointer-events-none">
+        <div>
+          <p className="sm caps mono">{currentTime}</p>
+        </div>
+        <div>
+          <p>&copy;Clair Obscur - 2026</p>
+        </div>
+      </div>
+      {/* Background Canvas | Dégradé animé */}
+      <div className="absolute w-full h-screen inset-0 z-0 pointer-events-none">
         <FluidGradientCanvas />
       </div>
     </div>
