@@ -1,34 +1,8 @@
-gsap.registerPlugin(ScrollTrigger);
 ("use client");
 import { useParams, useNavigate } from "react-router-dom";
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
 import Header from "../../components/Header";
 import { getAllProjects, type Project } from "../../projectsList";
-
-gsap.registerPlugin(ScrollTrigger);
-
-// Fonction pour convertir un nom de projet en slug d'URL
-const getSlugFromProjectName = (projectName: string): string => {
-  return projectName
-    .toLowerCase()
-    .replace(/\s+/g, "-")
-    .replace(/'/g, "")
-    .replace(/[àáâãäå]/g, "a")
-    .replace(/[èéêë]/g, "e")
-    .replace(/[ìíîï]/g, "i")
-    .replace(/[òóôõö]/g, "o")
-    .replace(/[ùúûü]/g, "u")
-    .replace(/[ç]/g, "c");
-};
-
-// Fonction pour trouver un projet par son slug
-const getProjectBySlug = (slug: string): Project | undefined => {
-  const projects = getAllProjects();
-  return projects.find(
-    (project) => getSlugFromProjectName(project.name) === slug,
-  );
-};
 
 export const ProjectPage: React.FC = () => {
   const { projectSlug } = useParams<{ projectSlug: string }>();
