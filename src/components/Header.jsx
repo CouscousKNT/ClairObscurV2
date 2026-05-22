@@ -154,7 +154,7 @@ export const Header = () => {
                   </button>
                 </Link>
               </div>
-              <div className="flex items-center justify-center text-xl bg-white/10 backdrop-blur-2xl rounded-2xl">
+              <div className="flex items-center justify-center text-xl bg-white/30 backdrop-blur-2xl rounded-2xl">
                 <button
                   className={getBtnClass()} // Note: vous pourriez passer un argument factice ici si besoin
                   onClick={() => {
