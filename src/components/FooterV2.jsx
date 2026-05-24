@@ -55,33 +55,27 @@ export const FooterV2 = () => {
             <div className="border-b border-white/10 py-[0.7rem] font-fujiwara-black-italic xl:text-4xl text-xl">
               RÉSEAUX SOCIAUX
             </div>
-            <div className="border-b border-white/10 py-[0.4rem] px-5">
-              <a
-                className="flex"
-                href="https://www.instagram.com/agenceclairobscur?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-              >
-                [ <img src="/logo/logoInstagram.svg" className="w-5" alt="" /> ]
-                - @agenceclairobscur
-              </a>
-            </div>
-            <div className="border-b-1 border-white/10 py-[0.4rem] px-5">
-              <a
-                className="flex"
-                href="https://www.tiktok.com/@agenceclairobscur"
-              >
-                [ <img src="/logo/logoTiktok.svg" className="w-5" alt="" /> ] -
-                @agenceclairobscur
-              </a>
-            </div>
-            <div className="border-b-1 border-white/10 py-[0.4rem] px-5">
-              <a
-                className="flex"
-                href="https://www.linkedin.com/company/clair-obscur-vision/"
-              >
-                [ <img src="/logo/logoLinkedIn.svg" className="w-5" alt="" /> ]
-                - agenceclairobscur
-              </a>
-            </div>
+            <a
+              className="flex gap-2 border-b border-white/10 py-[0.4rem] px-5 items-center hover:bg-gray-200/10 transition-colors"
+              href="https://www.instagram.com/agenceclairobscur?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+            >
+              <img src="/logo/logoInstagram.svg" className="w-5" alt="" />-
+              <span>@agenceclairobscur</span>
+            </a>
+            <a
+              className="flex gap-2 border-b-1 border-white/10 py-[0.4rem] px-5 items-center hover:bg-gray-200/10 transition-colors"
+              href="https://www.tiktok.com/@agenceclairobscur"
+            >
+              <img src="/logo/logoTiktok.svg" className="w-5" alt="" /> -
+              <span>@agenceclairobscur</span>
+            </a>
+            <a
+              className="flex gap-2 border-b-1 border-white/10 py-[0.4rem] px-5 items-center hover:bg-gray-200/10 transition-colors"
+              href="https://www.linkedin.com/company/clair-obscur-vision/"
+            >
+              <img src="/logo/logoLinkedIn.svg" className="w-5" alt="" />-
+              <span>agenceclairobscur</span>
+            </a>
           </div>
 
           {/* MAIL  */}
@@ -90,12 +84,12 @@ export const FooterV2 = () => {
               MAIL
             </div>
             <div className="flex flex-col gap-4">
-              <div className="border-b-1 text-sm sm:text-lg  border-white/10 py-[0.4rem] px-5 whitespace-nowrap">
+              <div className="">
                 <button
                   onClick={() => setIsFormOpen(true)}
-                  className=" py-2 px-2 rounded-md hover:bg-gray-200/10 transition-colors"
+                  className="w-full flex gap-2 items-center py-2 px-2 border-b-1 text-sm sm:text-lg  border-white/10 py-[0.4rem] px-5 whitespace-nowrap hover:bg-gray-200/10 transition-colors"
                 >
-                  [ @ ] - contact@agenceclairobscur.com
+                  <span>@</span> - <span>contact@agenceclairobscur.com</span>
                 </button>
               </div>
               <h1 className="hidden lg:block text-sm">

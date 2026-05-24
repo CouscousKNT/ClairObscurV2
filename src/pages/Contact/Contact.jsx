@@ -9,25 +9,29 @@ const Contact = () => {
   const [currentTime, setCurrentTime] = useState("");
   const [isFormOpen, setIsFormOpen] = useState(false);
 
+  // Formatage de l'heure en 12h avec AM/PM et mise à jour chaque seconde
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
-      const timeString = now
-        .toLocaleTimeString("fr-FR", {
-          hour12: true,
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
-        })
-        .replace(/:/g, ":")
-        .toUpperCase();
+
+      let hours = now.getHours();
+      const minutes = String(now.getMinutes()).padStart(2, "0");
+      const seconds = String(now.getSeconds()).padStart(2, "0");
+
+      const ampm = hours >= 12 ? "PM" : "AM";
+
+      hours = hours % 12;
+      hours = hours ? hours : 12;
+
+      const paddedHours = String(hours).padStart(2, "0");
+
+      const timeString = `${paddedHours}:${minutes}:${seconds} ${ampm}`;
+
       setCurrentTime(timeString);
     };
 
     updateTime();
-
     const interval = setInterval(updateTime, 1000);
-
     return () => clearInterval(interval);
   }, []);
 
@@ -122,7 +126,7 @@ const Contact = () => {
           playsInline
           className="w-full h-full object-cover object-center opacity-80 blur-sm scale-105"
         >
-          <source src="/videos/contact_bg.mp4" type="video/mp4" />
+          <source src="/videos/contact_animated_bg.mp4" type="video/mp4" />
           <img
             src={ContactBG}
             alt="Fallback background"
