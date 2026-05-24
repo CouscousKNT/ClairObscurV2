@@ -112,18 +112,17 @@ const Contact = () => {
           <p>&copy;Clair Obscur - 2026</p>
         </div>
       </div>
-      {/* Background Canvas | Dégradé animé */}
+      {/* Background dégradé animé */}
       <div className="absolute w-full h-screen inset-0 z-0">
         {/* <FluidGradientCanvas /> */}
         <video
           autoPlay
           loop
           muted
-          playsInline /* INDISPENSABLE pour que la vidéo ne s'ouvre pas en plein écran sur iPhone */
+          playsInline
           className="w-full h-full object-cover object-center opacity-80 blur-sm scale-105"
         >
           <source src="/videos/contact_bg.mp4" type="video/mp4" />
-          {/* Image de secours si la vidéo échoue */}
           <img
             src={ContactBG}
             alt="Fallback background"
