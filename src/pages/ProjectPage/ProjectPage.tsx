@@ -1,6 +1,4 @@
-("use client");
 import { useParams, useNavigate } from "react-router-dom";
-import gsap from "gsap";
 import Header from "../../components/Header";
 import { getAllProjects, type Project } from "../../projectsList";
 
@@ -34,34 +32,25 @@ export const ProjectPage: React.FC = () => {
 
   return (
     <div
-      className="w-full min-h-screen bg-white relative flex flex-col"
+      className="relative w-full h-auto bg-black relative flex flex-col"
       id={`project_${projectSlug}`}
     >
+      <div className="z-50 fixed w-full h-56 top-0 bg-black/60 backdrop-blur-xl [-webkit-mask-image:linear-gradient(to_bottom,gray_0%,transparent_100%)] [mask-image:linear-gradient(to_bottom,gray_0%,transparent_100%)]"></div>
       <Header />
 
-      <section className="relative w-screen h-full lg:grid lg:grid-cols-3 pt-26 lg:pt-4 px-4">
-        <div className="lg:sticky bg-white top-4 w-full lg:h-screen col-span-2 lg:pr-4">
-          <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg">
-            <iframe
-              src={`https://player.vimeo.com/video/${project.videoUrl}?h=abcd1234&title=0&byline=0&portrait=0&like=0&share=0&watchlater=0`}
-              className="w-full aspect-video rounded-2xl overflow-hidden shadow-lg"
-              frameBorder="0"
-              allow="fullscreen; picture-in-picture"
-              allowFullScreen
-              title={`Vidéo - ${project.name}`}
-            ></iframe>
-          </div>
-          <div className="bg-white text-black grid grid-cols-3">
-            <h1 className="font-fujiwara-black-italic text-xl">
-              {project.name}
-            </h1>
-            {project.description && (
-              <p className="w-full xl:mr-[1.5rem]">{project.description}</p>
-            )}
-            <br />
-          </div>
+      <section className="relative h-screen w-screen h-full">
+        <div className="relative w-full h-full overflow-hidden ">
+          <iframe
+            src={`https://player.vimeo.com/video/${project.videoUrl}?h=abcd1234&title=0&byline=0&portrait=0&like=0&share=0&watchlater=0`}
+            className="w-full aspect-video object-cover"
+            frameBorder="0"
+            allow="fullscreen; picture-in-picture"
+            allowFullScreen
+            title={`Vidéo - ${project.name}`}
+          ></iframe>
         </div>
-        <div className="w-full h-full col-span-1 ">
+
+        {/* <div className="w-full h-full col-span-1 ">
           <div className="">
             {project.keyImages &&
               project.keyImages.map((img, idx) => (
@@ -74,8 +63,15 @@ export const ProjectPage: React.FC = () => {
                 </div>
               ))}
           </div>
-        </div>
+        </div> */}
       </section>
+      <div className="bg-white text-black grid grid-cols-3">
+        <h1 className="font-fujiwara-black-italic text-xl">{project.name}</h1>
+        {project.description && (
+          <p className="w-full xl:mr-[1.5rem]">{project.description}</p>
+        )}
+        <br />
+      </div>
     </div>
   );
 };

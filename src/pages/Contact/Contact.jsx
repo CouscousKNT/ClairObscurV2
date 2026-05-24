@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import FluidGradientCanvas from "../../components/FluidGradientCanvas/FluidGradientCanvas";
 import logo from "/logo/logo.svg";
+import ContactBG from "/images/contact-background.webp";
 import Form from "./Form";
 
 const Contact = () => {
@@ -52,8 +53,35 @@ const Contact = () => {
             >
               Par EMail
             </button>
-            <h4>LinkedIn</h4>
-            <h4>Instagram / Vimeo / Tiktok</h4>
+            <h4 className="flex gap-2">
+              {" "}
+              <a
+                href="https://www.instagram.com/agenceclairobscur?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                Instagram
+              </a>
+              <span>/</span>
+              <a
+                href="https://www.tiktok.com/@agenceclairobscur"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                Tiktok
+              </a>
+              <span>/</span>
+              <a
+                href="https://www.linkedin.com/company/clair-obscur-vision/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                LinkedIn
+              </a>
+            </h4>
           </div>
         </div>
       </section>
@@ -85,8 +113,13 @@ const Contact = () => {
         </div>
       </div>
       {/* Background Canvas | Dégradé animé */}
-      <div className="absolute w-full h-screen inset-0 z-0 pointer-events-none">
-        <FluidGradientCanvas />
+      <div className="absolute w-full h-screen inset-0 z-0">
+        {/* <FluidGradientCanvas /> */}
+        <img
+          src={ContactBG}
+          alt="Contact Background"
+          className="w-full h-full object-cover object-center opacity-80"
+        />
       </div>
     </div>
   );

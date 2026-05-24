@@ -95,7 +95,7 @@ export const FooterV2 = () => {
                   onClick={() => setIsFormOpen(true)}
                   className=" py-2 px-2 rounded-md hover:bg-gray-200/10 transition-colors"
                 >
-                  [ @ ] - agenceclairobscur@gmail.com
+                  [ @ ] - contact@agenceclairobscur.com
                 </button>
               </div>
               <h1 className="hidden lg:block text-sm">
