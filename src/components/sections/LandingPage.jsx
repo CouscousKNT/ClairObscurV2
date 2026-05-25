@@ -1,8 +1,9 @@
+import BlurFadeTextAnimation from "../textAnimations/BlurFadeTextAnimation";
+
 export const LandingPage = () => {
   return (
     <div className="relative min-h-svh bg-black py-5 z-50">
       <section id="hero" className="relative flex justify-center">
-        {/* Vidéo (utiliser des marges, pas top-*) */}
         <video
           className="
           w-screen  
@@ -20,11 +21,21 @@ export const LandingPage = () => {
           <source src="/videos/LandingVideo.webm" type="video/webm" />
           Votre navigateur ne supporte pas la vidéo.
         </video>
-        <p className="absolute text-xs md:text-lg max-w-[300px] text-center md:text-left leading-[1.3] left-[calc(50%-150px)] md:left-16 bottom-[30%] md:bottom-16 font-fujiwara-medium-italic">
-          Clair Obscur est une agence de production audiovisuelle dédiée à
-          capturer et retransmettre à travers l'image toute la puissance des
-          émotions.
-        </p>
+        <div className="absolute inset-0 flex items-center px-5 sm:px-10 lg:px-20 mix-blend-difference">
+          <h1 className="relative top-16 text-white font-fujiwara-light-italic text-5xl lg:text-7xl xl:text-8xl w-full lg:w-1/2 leading-[0.85]">
+            <span className="block text-3xl lg:text-5xl xl:text-6xl">
+              <BlurFadeTextAnimation text="Nous transformons" color="white" />
+            </span>
+            <span className="block font-fujiwara-bold-italic opacity-60">
+              <BlurFadeTextAnimation
+                text="l'utopie en réel."
+                color="white"
+                charDelay={250}
+                duration={1000}
+              />
+            </span>
+          </h1>
+        </div>
       </section>
     </div>
   );

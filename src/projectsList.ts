@@ -28,6 +28,7 @@ export interface Credits {
 export interface Project {
   name: string;
   brand: string;
+  date?: string;
   imagePreview: string;
   preview: string;
   previewWebm: string;
@@ -56,31 +57,43 @@ export const projectsList: ProjectsList = [
       {
         name: "Héritage",
         brand: "Roude",
+        date: "2025",
         imagePreview: "/images/projects/heritage/imgRoude1.webp",
         preview: "/videos/preview/RoudePreviewCompressed.mp4",
         previewWebm: "/videos/preview/RoudePreview.webm",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incididunt ut labore et dolore magna aliqua. Quisipsum suspendisse” ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.",
+        description: `Ici chaque balcon raconte une émotion
+                      la joie, la créativité, le partage, l’amour...
+                      Cet immeuble dans un quartier n’est pas juste des briques et du béton,
+  `,
         projectUrl: "/heritage",
         credits: {
           realisationProduction: {
-            realisation: ["Idrissa Kanoute"],
-            producteur: ["Clair Obscur"]
+            realisation: ["Clair Obscur"],
+            producteur: ["xxxxxx"]
           },
           imageSon: {
-            dop: ["Lorem Ipsum"],
-            cameras: ["Idrissa Kanoute", "Ousmane Kanoute", "Ben Mvouama"],
-            son: ["Lorem Ipsum"]
+            dop: ["xxxxxx"],
+            cameras: ["xxxxxx", "xxxxxx", "xxxxxx"],
+            son: ["xxxxxx"]
           },
           postProduction: {
-            montage: ["Ousmane Kanoute", "Idrissa Kanoute"],
-            etalonnage: ["Ben Mvouama"],
-            vfx: ["Ousmane Kanoute", "Idrissa Kanoute"]
+            montage: ["xxxxxx", "xxxxxx"],
+            etalonnage: ["xxxxxx"],
+            vfx: ["xxxxxx", "xxxxxx"]
           }
         },
+                keyImages: [
+          "/images/projects/heritage/img6.png",
+          "/images/projects/heritage/img2.png",
+          "/images/projects/heritage/img3.png",
+          "/images/projects/heritage/img4.png",
+          "/images/projects/heritage/img5.png",
+        ],
       },
       {
         name: "La grande échappée",
         brand: "Moluki",
+        date: "2025",
         imagePreview: "/images/projects/la_grande_echappee/imgMoluki1.webp",
         preview: "/videos/preview/LaGrandeEchappeePreviewCompressed.mp4",
         previewWebm: "/videos/preview/LaGrandeEchappeePreview.webm",
@@ -92,18 +105,18 @@ export const projectsList: ProjectsList = [
         videoUrl: "1042756114",
         credits: {
           realisationProduction: {
-            realisation: ["Idrissa Kanoute"],
-            producteur: ["Clair Obscur"]
+            realisation: ["Clair Obscur"],
+            producteur: ["xxxxxx"]
           },
           imageSon: {
-            dop: ["Lorem Ipsum"],
-            cameras: ["Idrissa Kanoute", "Ousmane Kanoute", "Ben Mvouama"],
-            son: ["Lorem Ipsum"]
+            dop: ["xxxxxx"],
+            cameras: ["xxxxxx", "xxxxxx", "xxxxxx"],
+            son: ["xxxxxx"]
           },
           postProduction: {
-            montage: ["Ousmane Kanoute", "Idrissa Kanoute"],
-            etalonnage: ["Ben Mvouama"],
-            vfx: ["Ousmane Kanoute", "Idrissa Kanoute"]
+            montage: ["xxxxxx", "xxxxxx"],
+            etalonnage: ["xxxxxx"],
+            vfx: ["xxxxxx", "xxxxxx"]
           }
         },
         keyImages: [
@@ -120,6 +133,7 @@ export const projectsList: ProjectsList = [
       {
         name: "Aux couleurs des tableaux",
         brand: "Clair Obscur",
+        date: "2025",
         imagePreview: "/images/projects/aux_couleurs_des_tableaux/imgAuxCouleurs1.webp",
         preview: "/videos/preview/AuxCouleursPreviewCompressed.mp4",
         previewWebm: "/videos/preview/AuxCouleursPreview.webm",
@@ -133,18 +147,18 @@ export const projectsList: ProjectsList = [
         videoUrl: "1042756850",
         credits: {
           realisationProduction: {
-            realisation: ["Idrissa Kanoute"],
-            producteur: ["Clair Obscur"]
+            realisation: ["Clair Obscur"],
+            producteur: ["xxxxxx"]
           },
           imageSon: {
-            dop: ["Lorem Ipsum"],
-            cameras: ["Idrissa Kanoute", "Ousmane Kanoute", "Ben Mvouama"],
-            son: ["Lorem Ipsum"]
+            dop: ["xxxxxx"],
+            cameras: ["xxxxxx", "xxxxxx", "xxxxxx"],
+            son: ["xxxxxx"]
           },
           postProduction: {
-            montage: ["Ousmane Kanoute", "Idrissa Kanoute"],
-            etalonnage: ["Ben Mvouama"],
-            vfx: ["Ousmane Kanoute", "Idrissa Kanoute"]
+            montage: ["xxxxxx", "xxxxxx"],
+            etalonnage: ["xxxxxx"],
+            vfx: ["xxxxxx", "xxxxxx"]
           }
         },
         keyImages: [

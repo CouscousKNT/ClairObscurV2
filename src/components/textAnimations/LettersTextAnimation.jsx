@@ -17,7 +17,6 @@ export const LettersTextAnimation = ({
   const textRef = useRef(null);
   const split = useRef(null);
 
-  // ANIMATION DU TEXTE "SCROLLEZ VERS LE BAS" LORSQU'ON ATTEINT LA SECTION MEMBRE
   useEffect(() => {
     const timeout = setTimeout(() => {
       if (!textRef.current) return;
@@ -28,7 +27,6 @@ export const LettersTextAnimation = ({
 
       const chars = split.current.chars;
 
-      // Animation d'apparition du texte "Scrollez vers le bas"
       gsap.fromTo(
         chars,
         {
@@ -47,9 +45,8 @@ export const LettersTextAnimation = ({
           stagger: stagger,
           ease: "power2.out",
           duration: duration,
-        }
+        },
       );
-      // Animation de disparition du texte "Scrollez vers le bas"
       gsap.fromTo(
         chars,
         {
@@ -68,7 +65,7 @@ export const LettersTextAnimation = ({
           stagger: stagger,
           ease: "power2.in",
           duration: duration,
-        }
+        },
       );
       ScrollTrigger.refresh();
     }, 200);
