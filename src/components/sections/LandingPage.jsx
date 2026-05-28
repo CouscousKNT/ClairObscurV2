@@ -35,6 +35,7 @@ export const LandingPage = () => {
               <BlurFadeTextAnimation
                 text="l'utopie en réalité."
                 color="white"
+                className="leading-[1]"
                 charDelay={70}
                 duration={1120}
               />
