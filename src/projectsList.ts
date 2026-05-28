@@ -61,9 +61,11 @@ export const projectsList: ProjectsList = [
         imagePreview: "/images/projects/heritage/imgRoude1.webp",
         preview: "/videos/preview/RoudePreviewCompressed.mp4",
         previewWebm: "/videos/preview/RoudePreview.webm",
-        description: `Ici chaque balcon raconte une émotion
-                      la joie, la créativité, le partage, l’amour...
-                      Cet immeuble dans un quartier n’est pas juste des briques et du béton,
+        description: `
+                      Le quartier apprend à transformer peu en beaucoup, à créer ses propres codes.
+                      Ici chaque balcon raconte une émotion.
+                      La joie, la créativité, le partage, l’amour...
+                      Cet immeuble dans un quartier n’est pas juste des briques et du béton, c’est un héritage.
   `,
         projectUrl: "/heritage",
         credits: {

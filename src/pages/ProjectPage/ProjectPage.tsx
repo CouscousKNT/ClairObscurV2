@@ -93,7 +93,7 @@ export const ProjectPage: React.FC = () => {
           </h2>
         </div>
 
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 font-fujiwara-black text-xs uppercase tracking-widest">
+        <div className="absolute bottom-24 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 font-fujiwara-black text-xs uppercase tracking-widest">
           <span className="text-center">Cliquez pour découvrir le film</span>
           <span>↓</span>
         </div>

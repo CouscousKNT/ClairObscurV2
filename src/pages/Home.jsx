@@ -8,10 +8,8 @@ import { useEffect } from "react";
 import { ScrollTrigger } from "gsap/all";
 
 export function Home() {
-  // Récupérer tous les projets (vous pouvez aussi filtrer par année si besoin)
   const projects = getAllProjects();
   useEffect(() => {
-    // Dit à GSAP de recalculer toutes les hauteurs
     ScrollTrigger.refresh();
 
     // Parfois utile de le refaire après 500ms le temps que les vidéos s'affichent

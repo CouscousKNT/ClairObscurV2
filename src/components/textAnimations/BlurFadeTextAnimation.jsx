@@ -21,7 +21,6 @@ export default function BlurFadeTextAnimation({
   const durationSec = `${duration / 1000}s`;
   const containerRef = useRef(null);
 
-  // ── GSAP mode ───────────────────────────────────────────────────────────────
   useEffect(() => {
     if (!useGSAP || !containerRef.current) return;
 
@@ -51,6 +50,9 @@ export default function BlurFadeTextAnimation({
         stagger,
         ease: "power2.out",
         duration: gDuration,
+        onComplete: () => {
+          gsap.set(chars, { clearProps: "filter" });
+        },
       },
     );
 
@@ -85,11 +87,9 @@ export default function BlurFadeTextAnimation({
     };
   }, [useGSAP, triggerStart, triggerEnd, start, end, stagger, duration]);
 
-  // ── Helper pour générer le texte mot par mot ────────────────────────────────
   const renderText = () => {
-    // On divise par mots
     const words = text.split(" ");
-    let charIndex = 0; // Compteur global pour garder le délai de l'animation CSS fluide
+    let charIndex = 0;
 
     return words.map((word, wordIndex) => {
       const isLastWord = wordIndex === words.length - 1;
@@ -119,7 +119,6 @@ export default function BlurFadeTextAnimation({
             })}
           </span>
 
-          {/* L'espace est placé EN DEHORS du conteneur du mot pour permettre au flexbox de couper la ligne ici */}
           {!isLastWord &&
             (() => {
               const i = charIndex++;

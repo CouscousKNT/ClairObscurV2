@@ -47,7 +47,6 @@ export const Header = () => {
     <>
       {/* 
         OVERLAY DU FORMULAIRE 
-        z-[100] pour être sûr qu'il passe au-dessus du Header (z-90) et du menu mobile (z-100)
       */}
       <div
         className={`fixed inset-0 z-[90] ${
@@ -156,10 +155,10 @@ export const Header = () => {
               </div>
               <div className="whitespace-nowrap flex items-center justify-center text-xl bg-gray-400/30 backdrop-blur-2xl rounded-2xl">
                 <button
-                  className={getBtnClass()} // Note: vous pourriez passer un argument factice ici si besoin
+                  className={getBtnClass()}
                   onClick={() => {
-                    setOpen(false); // Ferme le menu mobile si besoin
-                    setIsFormOpen(true); // <--- C'EST ICI QU'ON OUVRE LE FORMULAIRE
+                    setOpen(false);
+                    setIsFormOpen(true);
                   }}
                 >
                   <span>Prendre RDV</span>
