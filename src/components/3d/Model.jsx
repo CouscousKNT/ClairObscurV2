@@ -38,7 +38,7 @@ export function Model({
   //(scrollYProgress, [XX, XX], [h / 4, h / -4]);
   const positionY = useTransform(
     scrollYProgress,
-    [0.18, 0.41],
+    [0.16, 0.364],
     [h / 4, h / -4],
   );
   const rotationX = useTransform(scrollYProgress, [0.05, 0.58], [0, 1.9]);

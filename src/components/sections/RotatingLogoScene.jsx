@@ -20,8 +20,8 @@ export const RotatingLogoScene = () => {
   //(scrollYProgress, [XX, XX], ["#111111", "#ffe6e9"]);
   const background = useTransform(
     scrollYProgress,
-    [0.29, 0.39],
-    ["#000000", "#ffe6e9"]
+    [0.29, 0.329],
+    ["#000000", "#ffe6e9"],
   );
   console.log(scrollYProgress);
 

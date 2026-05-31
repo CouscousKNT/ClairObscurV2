@@ -2,6 +2,7 @@ import { getAllProjects } from "../projectsList";
 import Header from "../components/Header";
 import LandingPage from "../components/sections/LandingPage";
 import RotatingLogoScene from "../components/sections/RotatingLogoScene";
+import OfferSection from "../components/sections/OfferSection";
 import ProjectSection from "../components/sections/ProjectSection";
 import FooterV2 from "../components/FooterV2";
 import { useEffect } from "react";
@@ -22,6 +23,7 @@ export function Home() {
       <Header />
       <LandingPage />
       <RotatingLogoScene />
+      <OfferSection />
       <div id="projects"></div>
 
       {/* Map sur tous les projets */}
