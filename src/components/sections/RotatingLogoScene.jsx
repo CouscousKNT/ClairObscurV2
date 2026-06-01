@@ -38,7 +38,7 @@ export const RotatingLogoScene = () => {
   return (
     <div
       id="pitchSection"
-      className="w-full h-[250vh]"
+      className="w-full h-[250vh] "
       style={{ backgroundColor: bgColor }}
     >
       {/* <div>
@@ -70,6 +70,7 @@ export const RotatingLogoScene = () => {
         </Canvas>
       </div>
       <Pitch />
+      <div className="z-50 w-full h-24 bottom-0 bg-[#ffe6e9] backdrop-blur-xl [-webkit-mask-image:linear-gradient(to_bottom,#ffe6e9_0%,transparent_100%)] [mask-image:linear-gradient(to_bottom,#ffe6e9_0%,transparent_100%)] pointer-events-none"></div>
     </div>
   );
 };

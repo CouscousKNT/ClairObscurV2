@@ -19,19 +19,22 @@ export function Home() {
   }, []);
 
   return (
-    <>
+    <main className="relative w-full h-full">
       <Header />
       <LandingPage />
       <RotatingLogoScene />
-      <OfferSection />
-      <div id="projects"></div>
 
-      {/* Map sur tous les projets */}
-      {projects.map((project, index) => (
-        <ProjectSection key={`${project.name}-${index}`} project={project} />
-      ))}
+      <OfferSection />
+      <div id="projects" className="relative top-0">
+        <div className="z-50 absolute w-full h-56 top-0 bg-black backdrop-blur-xl [-webkit-mask-image:linear-gradient(to_bottom,black_0%,transparent_100%)] [mask-image:linear-gradient(to_bottom,black_0%,transparent_100%)] pointer-events-none"></div>
+
+        {/* Map sur tous les projets */}
+        {projects.map((project, index) => (
+          <ProjectSection key={`${project.name}-${index}`} project={project} />
+        ))}
+      </div>
       <FooterV2 />
-    </>
+    </main>
   );
 }
 
